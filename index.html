@@ -3,228 +3,1072 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Mohamed Lemine Babahmoudy, a Mechanical Engineer specializing in CAD, FEA, CFD, and sustainable solutions for renewable energy, water, and mining projects in Mauritania and globally.">
-    <meta name="keywords" content="mechanical engineer, CAD, FEA, CFD, renewable energy, solar irrigation, water systems, mining design, Abaqus, ANSYS, SolidWorks, Python, Mauritania, freelance engineer, English, French, Arabic">
-    <meta name="author" content="Mohamed Lemine Babahmoudy">
-    <title>Mohamed Lemine Babahmoudy - Mechanical Engineering Hub</title>
-    <link href="[invalid url, do not cite] rel="stylesheet">
-    <link rel="icon" type="image/png" href="project images/favicon.png">
+    <meta name="description" content="Mohamed Lemine Babahmoudy - Expert Mechanical Engineer specializing in CAD, FEA, CFD, and Programming solutions for industrial applications.">
+    <meta name="keywords" content="mechanical engineer, CAD, FEA, CFD, programming, ANSYS, Abaqus, SolidWorks, Python, engineering consultant">
+    <title>Mohamed Lemine Babahmoudy | Engineering Excellence</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', 'Arial', sans-serif; }
-        .hero-bg { background: linear-gradient(to right, #1e40af, #f97316); }
-        .section-bg { background-color: #f1f5f9; }
-        .project-card { transition: transform 0.3s, box-shadow 0.3s; }
-        .project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-        .nav-link { transition: color 0.2s; }
-        .nav-link:hover { color: #f97316; }
-        .payment-btn { background-color: #0070ba; }
-        .payment-btn:hover { background-color: #005ea6; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #60a5fa;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #60a5fa;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="%2360a5fa" stop-opacity="0.1"/><stop offset="100%" stop-color="%2360a5fa" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"><animate attributeName="r" values="100;150;100" dur="4s" repeatCount="indefinite"/></circle><circle cx="800" cy="300" r="120" fill="url(%23a)"><animate attributeName="r" values="120;180;120" dur="6s" repeatCount="indefinite"/></circle><circle cx="300" cy="800" r="80" fill="url(%23a)"><animate attributeName="r" values="80;120;80" dur="5s" repeatCount="indefinite"/></circle></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #cbd5e1;
+            font-weight: 300;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 8rem 0;
+            background: #f8fafc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #3b82f6;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .service-card p {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+            text-align: left;
+        }
+
+        .service-features li {
+            color: #64748b;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 8rem 0;
+            background: #1e293b;
+            color: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #e2e8f0;
+        }
+
+        .project-card p {
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* About Section */
+        .about {
+            padding: 8rem 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            color: white;
+            margin: 0 auto;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            color: #1e293b;
+        }
+
+        .about-text p {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #3b82f6;
+            display: block;
+        }
+
+        .stat-label {
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 8rem 0;
+            background: #f8fafc;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #1e293b;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            font-size: 1.2rem;
+            color: #3b82f6;
+            margin-right: 1rem;
+            width: 20px;
+        }
+
+        .contact-item a {
+            color: #64748b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #3b82f6;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .footer p {
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: #64748b;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #60a5fa;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
-<body class="bg-gray-50">
+<body>
     <!-- Navigation -->
-    <nav class="bg-gray-900 text-white py-4 sticky top-0 z-50 shadow-md">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold">Mohamed Lemine Babahmoudy</h1>
-            <div class="space-x-6">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#resume" class="nav-link">Resume</a>
-                <a href="#testimonials" class="nav-link">Testimonials</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">M.L. Babahmoudy</a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
-    <!-- Header -->
-    <header class="hero-bg text-white py-20 text-center">
-        <h1 class="text-4xl md:text-5xl font-bold">Mohamed Lemine Babahmoudy</h1>
-        <p class="text-lg md:text-xl mt-2">Mechanical Engineer | CAD, FEA, CFD Specialist | Renewable Energy & Water Solutions</p>
-        <a href="#contact" class="mt-6 inline-block bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600">Get in Touch</a>
-    </header>
-
-    <!-- About Section -->
-    <section id="about" class="py-12 section-bg">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">About Me</h2>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                I’m Mohamed Lemine Babahmoudy, a mechanical engineer (B.Eng, 2020) with over 5 years of experience in CAD, FEA, and CFD, delivering innovative solutions for renewable energy, water, and mining projects. Skilled in SolidWorks, Abaqus, ANSYS, and Python, I’ve completed 20+ projects on Upwork with 5-star ratings. Fluent in English, French, and Arabic, I’ve worked in Mauritania, Tunisia, and France, collaborating with global clients and NGOs. My work, like optimizing solar water pumps (15% efficiency gain), drives sustainable impact. <a href="[invalid url, do not cite] class="text-blue-600 hover:underline">View my Upwork profile</a>.
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content fade-in">
+            <h1>Mohamed Lemine Babahmoudy</h1>
+            <p class="hero-subtitle">Mechanical Engineering Excellence</p>
+            <p class="hero-description">
+                Expert in CAD, FEA, CFD, and Programming solutions. Delivering innovative engineering methods 
+                for industrial applications with cutting-edge computational tools and 5+ years of proven expertise.
             </p>
+            <a href="#contact" class="cta-button">Start Your Project</a>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-12">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h3 class="text-lg font-semibold">3D Part Modeling</h3>
-                    <p class="text-gray-600 mt-2">Precision 2D/3D CAD modeling using SolidWorks, AutoCAD, and FreeCAD for industrial, maritime, and renewable energy applications. From $60, 3-day delivery.</p>
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title fade-in">Engineering Services</h2>
+            <p class="section-subtitle fade-in">
+                Comprehensive mechanical engineering solutions powered by advanced computational methods
+            </p>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <i class="fas fa-cube service-icon"></i>
+                    <h3>CAD Design & Modeling</h3>
+                    <p>Precision 3D modeling and design optimization using industry-leading software</p>
+                    <ul class="service-features">
+                        <li>SolidWorks, AutoCAD, FreeCAD</li>
+                        <li>Parametric & Assembly Modeling</li>
+                        <li>Technical Drawings & Documentation</li>
+                        <li>Design for Manufacturing</li>
+                    </ul>
                 </div>
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h3 class="text-lg font-semibold">FEA/CFD Simulations</h3>
-                    <p class="text-gray-600 mt-2">Advanced finite element and computational fluid dynamics analysis using ANSYS, Abaqus, and OpenFOAM for stress, fatigue, and fluid flow. From $60, 2-day delivery.</p>
+
+                <div class="service-card fade-in">
+                    <i class="fas fa-chart-line service-icon"></i>
+                    <h3>FEA Analysis</h3>
+                    <p>Advanced structural analysis and optimization for mechanical systems</p>
+                    <ul class="service-features">
+                        <li>ANSYS, Abaqus, Cast3M</li>
+                        <li>Stress & Fatigue Analysis</li>
+                        <li>Modal & Dynamic Analysis</li>
+                        <li>Material Optimization</li>
+                    </ul>
                 </div>
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h3 class="text-lg font-semibold">Professional FEA Analysis</h3>
-                    <p class="text-gray-600 mt-2">Detailed structural analysis with ANSYS or Abaqus, including reports and optimization. From $10, 1-day delivery.</p>
+
+                <div class="service-card fade-in">
+                    <i class="fas fa-wind service-icon"></i>
+                    <h3>CFD Simulation</h3>
+                    <p>Computational fluid dynamics for thermal and flow optimization</p>
+                    <ul class="service-features">
+                        <li>ANSYS Fluent, OpenFOAM</li>
+                        <li>Heat Transfer Analysis</li>
+                        <li>Flow Optimization</li>
+                        <li>Turbulence Modeling</li>
+                    </ul>
+                </div>
+
+                <div class="service-card fade-in">
+                    <i class="fas fa-code service-icon"></i>
+                    <h3>Programming & Automation</h3>
+                    <p>Custom solutions and automation tools for engineering workflows</p>
+                    <ul class="service-features">
+                        <li>Python, MATLAB, Fortran</li>
+                        <li>Simulation Automation</li>
+                        <li>Data Analysis & Visualization</li>
+                        <li>Custom Engineering Tools</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-12 section-bg">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="project-card bg-white rounded-lg shadow-lg p-6">
-                    <img src="project images/solar-pump.jpg" alt="Solar Water Pump Project" class="w-full h-48 object-cover rounded-t-lg">
-                    <h3 class="text-xl font-semibold mt-4">Solar-Powered Water Pump</h3>
-                    <p class="text-gray-600 mt-2">Designed a solar PV pumping system for a village well in Mauritania using ANSYS. Improved pump efficiency by 15% through CFD optimization.</p>
-                    <p class="text-sm text-gray-500 mt-2">Tools: ANSYS, CFD, Solar PV Modeling</p>
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title fade-in" style="color: white;">Featured Projects</h2>
+            <p class="section-subtitle fade-in" style="color: #cbd5e1;">
+                Innovative solutions across renewable energy, water systems, and industrial applications
+            </p>
+            
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Solar-Powered Water Pump Optimization</h3>
+                        <p>Designed and optimized a solar PV pumping system using ANSYS CFD, achieving 15% efficiency improvement for rural water access in Mauritania.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">ANSYS</span>
+                            <span class="tech-tag">CFD</span>
+                            <span class="tech-tag">Solar PV</span>
+                        </div>
+                    </div>
                 </div>
-                <!-- Project 2 -->
-                <div class="project-card bg-white rounded-lg shadow-lg p-6">
-                    <img src="project images/irrigation-system.jpg" alt="Irrigation Monitoring Project" class="w-full h-48 object-cover rounded-t-lg">
-                    <h3 class="text-xl font-semibold mt-4">Irrigation Monitoring System</h3>
-                    <p class="text-gray-600 mt-2">Developed an Arduino-based soil moisture sensor and drip irrigation controller. Enhanced water delivery by 20%.</p>
-                    <p class="text-sm text-gray-500 mt-2">Tools: Arduino, FreeCAD, Python</p>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Mining Equipment Structural Analysis</h3>
+                        <p>Performed comprehensive FEA analysis of mining conveyor components using Abaqus, reducing material stress by 12% while maintaining safety factors.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Abaqus</span>
+                            <span class="tech-tag">FEA</span>
+                            <span class="tech-tag">SolidWorks</span>
+                        </div>
+                    </div>
                 </div>
-                <!-- Project 3 -->
-                <div class="project-card bg-white rounded-lg shadow-lg p-6">
-                    <img src="project images/mining-equipment.jpg" alt="Mining Equipment Design" class="w-full h-48 object-cover rounded-t-lg">
-                    <h3 class="text-xl font-semibold mt-4">Mining Equipment Design</h3>
-                    <p class="text-gray-600 mt-2">Modeled a conveyor component in SolidWorks and performed stress analysis in Abaqus, reducing material stress by 12%.</p>
-                    <p class="text-sm text-gray-500 mt-2">Tools: SolidWorks, Abaqus, FEA</p>
-                </div>
-                <!-- Placeholder Projects -->
-                <div class="project-card bg-white rounded-lg shadow-lg p-6">
-                    <img src="project images/placeholder.jpg" alt="Wind Turbine Foundation" class="w-full h-48 object-cover rounded-t-lg">
-                    <h3 class="text-xl font-semibold mt-4">Wind Turbine Foundation</h3>
-                    <p class="text-gray-600 mt-2">Placeholder for upcoming wind turbine foundation design for coastal projects. Details to be added.</p>
-                    <p class="text-sm text-gray-500 mt-2">Tools: TBD</p>
-                </div>
-                <div class="project-card bg-white rounded-lg shadow-lg p-6">
-                    <img src="project images/placeholder.jpg" alt="Water Purification System" class="w-full h-48 object-cover rounded-t-lg">
-                    <h3 class="text-xl font-semibold mt-4">Water Purification System</h3>
-                    <p class="text-gray-600 mt-2">Placeholder for upcoming water purification housing design for rural communities. Details to be added.</p>
-                    <p class="text-sm text-gray-500 mt-2">Tools: TBD</p>
-                </div>
-                <div class="project-card bg-white rounded-lg shadow-lg p-6">
-                    <img src="project images/placeholder.jpg" alt="Future Project 3" class="w-full h-48 object-cover rounded-t-lg">
-                    <h3 class="text-xl font-semibold mt-4">Future Project 3</h3>
-                    <p class="text-gray-600 mt-2">Placeholder for upcoming project in renewable energy or mining. Details to be added.</p>
-                    <p class="text-sm text-gray-500 mt-2">Tools: TBD</p>
-                </div>
-                <div class="project-card bg-white rounded-lg shadow-lg p-6">
-                    <img src="project images/placeholder.jpg" alt="Future Project 4" class="w-full h-48 object-cover rounded-t-lg">
-                    <h3 class="text-xl font-semibold mt-4">Future Project 4</h3>
-                    <p class="text-gray-600 mt-2">Placeholder for upcoming project in renewable energy or mining. Details to be added.</p>
-                    <p class="text-sm text-gray-500 mt-2">Tools: TBD</p>
-                </div>
-                <div class="project-card bg-white rounded-lg shadow-lg p-6">
-                    <img src="project images/placeholder.jpg" alt="Future Project 5" class="w-full h-48 object-cover rounded-t-lg">
-                    <h3 class="text-xl font-semibold mt-4">Future Project 5</h3>
-                    <p class="text-gray-600 mt-2">Placeholder for upcoming project in renewable energy or mining. Details to be added.</p>
-                    <p class="text-sm text-gray-500 mt-2">Tools: TBD</p>
-                </div>
-                <div class="project-card bg-white rounded-lg shadow-lg p-6">
-                    <img src="project images/placeholder.jpg" alt="Future Project 6" class="w-full h-48 object-cover rounded-t-lg">
-                    <h3 class="text-xl font-semibold mt-4">Future Project 6</h3>
-                    <p class="text-gray-600 mt-2">Placeholder for upcoming project in renewable energy or mining. Details to be added.</p>
-                    <p class="text-sm text-gray-500 mt-2">Tools: TBD</p>
-                </div>
-                <div class="project-card bg-white rounded-lg shadow-lg p-6">
-                    <img src="project images/placeholder.jpg" alt="Future Project 7" class="w-full h-48 object-cover rounded-t-lg">
-                    <h3 class="text-xl font-semibold mt-4">Future Project 7</h3>
-                    <p class="text-gray-600 mt-2">Placeholder for upcoming project in renewable energy or mining. Details to be added.</p>
-                    <p class="text-sm text-gray-500 mt-2">Tools: TBD</p>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Automated Irrigation Control System</h3>
+                        <p>Developed Arduino-based smart irrigation system with custom Python interface, improving water delivery efficiency by 20% for agricultural applications.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Arduino</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">IoT</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Resume Section -->
-    <section id="resume" class="py-12 section-bg">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Resume</h2>
-            <div class="bg-white rounded-lg shadow-lg p-6 max-w-3xl mx-auto">
-                <h3 class="text-xl font-semibold">Mohamed Lemine Babahmoudy, B.Eng (Mech.)</h3>
-                <p class="text-gray-600 mt-2"><strong>Contact:</strong> mleminebh@gmail.com | <a href="[invalid url, do not cite] class="text-blue-600 hover:underline">LinkedIn</a> | <a href="[invalid url, do not cite] class="text-blue-600 hover:underline">Website</a></p>
-                <p class="text-gray-600 mt-2"><strong>Profile:</strong> Mechanical Engineer with 5+ years of experience in CAD, FEA, and CFD, delivering 20+ Upwork projects with 5-star ratings. Skilled in Abaqus, ANSYS, SolidWorks, and Python, fluent in English, French, and Arabic, with expertise in renewable energy, mining, and offshore industries.</p>
-                <p class="text-gray-600 mt-2"><strong>Skills:</strong> Abaqus, ANSYS, SolidWorks, AutoCAD, FreeCAD, OpenFOAM, Python, Fortran, MATLAB, Project Management, Trilingual (EN/FR/AR), ISO/API Standards</p>
-                <p class="text-gray-600 mt-2"><strong>Experience:</strong></p>
-                <ul class="list-disc list-inside text-gray-600">
-                    <li>Formateur en CAO, Académie Navale, Mauritania (2025–Present): Trained officers in 2D/3D modeling (AutoCAD, SolidWorks) for maritime applications.</li>
-                    <li>Freelance Mechanical Engineer, Upwork/PeoplePerHour (2024–Present): Delivered 20+ projects in structural analysis and CFD, achieving 5-star ratings.</li>
-                    <li>R&D Engineer, LaMcube, France (2020–2024): Developed fatigue analysis methods, automated simulations with Python-Fortran-Abaqus integration.</li>
-                    <li>R&D Intern, MECAMIX-IMECA, Tunisia (2019–2020): Conducted FEA for offshore petroleum installations using Cast3M.</li>
-                    <li>Maintenance Intern, TRANSTU, Tunisia (2018): Optimized maintenance for Citadis metros, improving reliability.</li>
-                </ul>
-                <p class="text-gray-600 mt-2"><strong>Education:</strong> B.Eng (Mechanical), University of Tunis El Manar, 2020; Bachelor’s (Math/Physics), University of Sfax, 2017; High School (Math), Néma High School, 2015.</p>
-                <p class="text-gray-600 mt-2"><strong>Certifications:</strong> FEA & CFD Certified (Cornell, 2021), PMP (expected 2025), Certified Energy Manager (AEE), Solar PV Design (Coursera).</p>
-                <a href="resume.pdf" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Download Full Resume</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-12">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Testimonials</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <p class="text-gray-600">"Mohamed did a very good job with everything that was asked of him. He worked very hard to meet deadlines and the quality of his work is a high standard."</p>
-                    <p class="text-sm text-gray-500 mt-2">Upwork Client, Apr 2021</p>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <i class="fas fa-user-tie"></i>
                 </div>
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <p class="text-gray-600">"Mohamed delivered good work on this Abaqus project and I enjoyed working with him. His communication was top-notch, he met all deadlines, and his skills were reasonably strong."</p>
-                    <p class="text-sm text-gray-500 mt-2">Upwork Client, Dec 2020</p>
+                <div class="about-text fade-in">
+                    <h2>Engineering Excellence</h2>
+                    <p>
+                        With over 5 years of experience in mechanical engineering, I specialize in delivering 
+                        innovative computational solutions for complex industrial challenges. My expertise spans 
+                        CAD design, FEA analysis, CFD simulation, and programming automation.
+                    </p>
+                    <p>
+                        I've successfully completed 20+ projects on Upwork with consistent 5-star ratings, 
+                        working with global clients across renewable energy, water systems, and mining industries. 
+                        My trilingual capabilities (English, French, Arabic) enable seamless collaboration 
+                        with international teams.
+                    </p>
+                    <p>
+                        Currently serving as CAD/CAO Instructor at Naval Academy, Mauritania, while maintaining 
+                        active freelance consulting practice focused on sustainable engineering solutions.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="stats fade-in">
+                <div class="stat">
+                    <span class="stat-number">20+</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">5★</span>
+                    <span class="stat-label">Average Rating</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Years Experience</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-12 section-bg">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Contact Me</h2>
-            <div class="max-w-lg mx-auto text-center">
-                <p class="text-lg text-gray-600">Interested in collaborating on renewable energy, water, or mining projects? Let’s connect!</p>
-                <p class="text-gray-600 mt-2"><strong>Email:</strong> mleminebh@gmail.com</p>
-                <p class="text-gray-600 mt-2"><strong>Upwork:</strong> <a href="[invalid url, do not cite] class="text-blue-600 hover:underline">View Profile</a></p>
-                <p class="text-gray-600 mt-2"><strong>PeoplePerHour:</strong> <a href="[invalid url, do not cite] class="text-blue-600 hover:underline">View Profile</a></p>
-                <p class="text-gray-600 mt-2"><strong>LinkedIn:</strong> <a href="[invalid url, do not cite] class="text-blue-600 hover:underline">Connect with Me</a></p>
-                <p class="text-gray-600 mt-2"><strong>Blog:</strong> <a href="[invalid url, do not cite] class="text-blue-600 hover:underline">Read My Technical Insights</a></p>
-                <!-- PeoplePerHour Widget -->
-                <div id="pph-hireme" class="mt-4"></div>
-                <script type="text/javascript">
-                    (function(d, s) {
-                        var useSSL = 'https:' == document.location.protocol;
-                        var js, where = d.getElementsByTagName(s)[0],
-                        js = d.createElement(s);
-                        js.src = (useSSL ? 'https:' : 'http:') + '//www.peopleperhour.com/hire/3520836438/5147149.js?width=245&height=320&orientation=vertical&theme=dark&rnd='+parseInt(Math.random()*10000, 10);
-                        try { where.parentNode.insertBefore(js, where); } catch (e) { if (typeof console !== 'undefined' && console.log && e.stack) { console.log(e.stack); } }
-                    }(document, 'script'));
-                </script>
-                <!-- Payment Section -->
-                <div class="mt-6">
-                    <h3 class="text-lg font-semibold">Secure Payment</h3>
-                    <p class="text-gray-600 mt-2">Payments are securely processed via PayPal for your convenience.</p>
-                    <a href="[invalid url, do not cite] class="mt-4 inline-block payment-btn text-white px-6 py-3 rounded-lg font-semibold">Pay with PayPal</a>
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Let's Work Together</h2>
+            <p class="section-subtitle fade-in">
+                Ready to optimize your engineering challenges with cutting-edge computational methods?
+            </p>
+            
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:mleminebh@gmail.com">mleminebh@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="#" target="_blank">LinkedIn Profile</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-briefcase"></i>
+                        <a href="#" target="_blank">Upwork Profile</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <a href="#" target="_blank">PeoplePerHour Profile</a>
+                    </div>
                 </div>
+                
+                <form class="contact-form fade-in">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project">Project Type</label>
+                        <select id="project" name="project" style="width: 100%; padding: 1rem; border: 2px solid #e2e8f0; border-radius: 10px;">
+                            <option value="">Select Service</option>
+                            <option value="cad">CAD Design & Modeling</option>
+                            <option value="fea">FEA Analysis</option>
+                            <option value="cfd">CFD Simulation</option>
+                            <option value="programming">Programming & Automation</option>
+                            <option value="consultation">Engineering Consultation</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Project Details</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-6 text-center">
-        <p>© 2025 Mohamed Lemine Babahmoudy. All rights reserved.</p>
-        <p class="mt-2">Driving sustainable engineering solutions for a better future.</p>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Mohamed Lemine Babahmoudy. All rights reserved.</p>
+            <p>Driving sustainable engineering solutions through computational excellence.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0.2s';
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+            }
+        });
+
+        // Dynamic typing effect for hero title
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect when page loads
+        window.addEventListener('load', function() {
+            const heroTitle = document.querySelector('.hero h1');
+            const originalText = heroTitle.textContent;
+            typeWriter(heroTitle, originalText, 80);
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.5;
+            hero.style.transform = `translateY(${rate}px)`;
+        });
+
+        // Service cards hover effect
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Project cards interactive effect
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('.project-image i');
+                icon.style.transform = 'scale(1.1) rotate(5deg)';
+                icon.style.transition = 'all 0.3s ease';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('.project-image i');
+                icon.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+
+        // Form validation and enhancement
+        const form = document.querySelector('.contact-form');
+        const inputs = form.querySelectorAll('input, textarea, select');
+
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+                this.style.borderColor = '#3b82f6';
+                this.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.1)';
+            });
+
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+                this.style.boxShadow = 'none';
+                if (!this.value) {
+                    this.style.borderColor = '#e2e8f0';
+                }
+            });
+        });
+
+        // Stats counter animation
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-number');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const finalValue = target.textContent;
+                        let currentValue = 0;
+                        const increment = finalValue.includes('+') ? 1 : 0.1;
+                        const duration = 2000;
+                        const stepTime = duration / (parseInt(finalValue) || 5);
+
+                        const counter = setInterval(() => {
+                            if (finalValue.includes('★')) {
+                                target.textContent = '5★';
+                                clearInterval(counter);
+                            } else if (finalValue.includes('+')) {
+                                currentValue += increment;
+                                if (currentValue >= parseInt(finalValue)) {
+                                    target.textContent = finalValue;
+                                    clearInterval(counter);
+                                } else {
+                                    target.textContent = Math.floor(currentValue) + '+';
+                                }
+                            } else {
+                                currentValue += increment;
+                                if (currentValue >= parseInt(finalValue)) {
+                                    target.textContent = finalValue;
+                                    clearInterval(counter);
+                                } else {
+                                    target.textContent = Math.floor(currentValue);
+                                }
+                            }
+                        }, stepTime);
+                    }
+                });
+            });
+
+            stats.forEach(stat => observer.observe(stat));
+        }
+
+        // Initialize stats animation
+        animateStats();
+
+        // Mobile menu toggle (if needed)
+        const createMobileMenu = () => {
+            const nav = document.querySelector('.nav-container');
+            const menuToggle = document.createElement('button');
+            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            menuToggle.className = 'mobile-menu-toggle';
+            menuToggle.style.cssText = `
+                display: none;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+                @media (max-width: 768px) {
+                    display: block;
+                }
+            `;
+
+            const style = document.createElement('style');
+            style.textContent = `
+                @media (max-width: 768px) {
+                    .mobile-menu-toggle { display: block !important; }
+                    .nav-menu { 
+                        display: none;
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        width: 100%;
+                        background: rgba(15, 23, 42, 0.98);
+                        flex-direction: column;
+                        padding: 2rem 0;
+                        gap: 1rem;
+                    }
+                    .nav-menu.active { display: flex; }
+                }
+            `;
+            document.head.appendChild(style);
+
+            menuToggle.addEventListener('click', () => {
+                const menu = document.querySelector('.nav-menu');
+                menu.classList.toggle('active');
+                menuToggle.innerHTML = menu.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+
+            nav.appendChild(menuToggle);
+        };
+
+        createMobileMenu();
+
+        // Performance optimization - Lazy loading for animations
+        const lazyAnimations = document.querySelectorAll('.fade-in');
+        const animationObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                    animationObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        lazyAnimations.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            animationObserver.observe(el);
+        });
+    </script>
 </body>
 </html>
