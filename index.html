@@ -1,1074 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mohamed Lemine Babahmoudy - Expert Mechanical Engineer specializing in CAD, FEA, CFD, and Programming solutions for industrial applications.">
-    <meta name="keywords" content="mechanical engineer, CAD, FEA, CFD, programming, ANSYS, Abaqus, SolidWorks, Python, engineering consultant">
-    <title>Mohamed Lemine Babahmoudy | Engineering Excellence</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #60a5fa;
-            text-decoration: none;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-link {
-            color: #e2e8f0;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-link:hover {
-            color: #60a5fa;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #60a5fa;
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="%2360a5fa" stop-opacity="0.1"/><stop offset="100%" stop-color="%2360a5fa" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"><animate attributeName="r" values="100;150;100" dur="4s" repeatCount="indefinite"/></circle><circle cx="800" cy="300" r="120" fill="url(%23a)"><animate attributeName="r" values="120;180;120" dur="6s" repeatCount="indefinite"/></circle><circle cx="300" cy="800" r="80" fill="url(%23a)"><animate attributeName="r" values="80;120;80" dur="5s" repeatCount="indefinite"/></circle></svg>');
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-
-        .hero-content {
-            max-width: 800px;
-            z-index: 2;
-            position: relative;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #60a5fa, #3b82f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: #cbd5e1;
-            font-weight: 300;
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-            color: #94a3b8;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
-        }
-
-        /* Services Section */
-        .services {
-            padding: 8rem 0;
-            background: #f8fafc;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: #1e293b;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #64748b;
-            margin-bottom: 4rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .service-card:hover::before {
-            left: 100%;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: #3b82f6;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #1e293b;
-        }
-
-        .service-card p {
-            color: #64748b;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-features {
-            list-style: none;
-            text-align: left;
-        }
-
-        .service-features li {
-            color: #64748b;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .service-features li::before {
-            content: '✓';
-            color: #10b981;
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-
-        /* Projects Section */
-        .projects {
-            padding: 8rem 0;
-            background: #1e293b;
-            color: white;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .project-image {
-            height: 200px;
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-        }
-
-        .project-content {
-            padding: 2rem;
-        }
-
-        .project-card h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #e2e8f0;
-        }
-
-        .project-card p {
-            color: #cbd5e1;
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tech-tag {
-            background: rgba(59, 130, 246, 0.2);
-            color: #60a5fa;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        /* About Section */
-        .about {
-            padding: 8rem 0;
-            background: white;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-image {
-            width: 300px;
-            height: 300px;
-            border-radius: 20px;
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 8rem;
-            color: white;
-            margin: 0 auto;
-        }
-
-        .about-text h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 2rem;
-            color: #1e293b;
-        }
-
-        .about-text p {
-            color: #64748b;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #3b82f6;
-            display: block;
-        }
-
-        .stat-label {
-            color: #64748b;
-            font-weight: 500;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 8rem 0;
-            background: #f8fafc;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .contact-info h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            color: #1e293b;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-item i {
-            font-size: 1.2rem;
-            color: #3b82f6;
-            margin-right: 1rem;
-            width: 20px;
-        }
-
-        .contact-item a {
-            color: #64748b;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: #3b82f6;
-        }
-
-        .contact-form {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #1e293b;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #3b82f6;
-        }
-
-        .submit-btn {
-            width: 100%;
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
-        }
-
-        /* Footer */
-        .footer {
-            background: #0f172a;
-            color: #cbd5e1;
-            text-align: center;
-            padding: 3rem 0;
-        }
-
-        .footer p {
-            margin-bottom: 1rem;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .social-links a {
-            color: #64748b;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #60a5fa;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Loading Animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>John Doe &#124; Mechanical Engineer (FEA, CFD, Renewable Energy)</title>
+  <meta name="description" content="John Doe is a freelance mechanical engineer specializing in FEA, CFD, renewable energy, and water projects. Fluent in English, French, and Arabic.">
+  <style>
+    /* Reset and typography */
+    *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+    a { color: #007acc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul { list-style: none; }
+    /* Skip-to-content link */
+    .skip-link {
+      position: absolute; left: -999px; top: auto; width: 1px; height: 1px; overflow: hidden;
+    }
+    .skip-link:focus {
+      position: static; width: auto; height: auto; background: #000; color: #fff;
+      padding: 8px; z-index: 1000;
+    }
+    /* Header and navigation */
+    header {
+      background: #f8f8f8; padding: 10px 20px; position: fixed;
+      width: 100%; top: 0; left: 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); z-index: 100;
+    }
+    .logo { font-size: 1.2rem; font-weight: bold; }
+    nav { display: flex; align-items: center; justify-content: space-between; }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { font-size: 1rem; padding: 8px; }
+    .nav-toggle {
+      display: none; font-size: 1.5rem; background: none; border: none; cursor: pointer;
+    }
+    @media(max-width: 768px) {
+      .nav-links {
+        position: absolute; top: 60px; left: 0;
+        background: #f8f8f8; width: 100%; flex-direction: column; display: none;
+      }
+      .nav-links.show { display: flex; }
+      .nav-toggle { display: block; }
+    }
+    /* Hero section */
+    #hero {
+      background: url('https://cdn.pixabay.com/photo/2020/05/30/17/18/wind-power-plant-5239642_1280.jpg') no-repeat center/cover;
+      color: #fff; padding: 120px 20px 60px; text-align: center; margin-top: 50px;
+    }
+    #hero h1 { font-size: 2rem; margin-bottom: 10px; }
+    #hero p { font-size: 1.1rem; margin-bottom: 20px; }
+    .button {
+      display: inline-block; margin: 5px;
+      padding: 10px 20px; font-size: 1rem;
+      color: #fff; background: #007acc; border-radius: 4px;
+      transition: background 0.3s;
+    }
+    .button:hover { background: #005fa3; }
+    /* Sections */
+    section { padding: 60px 20px; max-width: 900px; margin: auto; }
+    section:nth-of-type(even) { background: #f2f2f2; }
+    h2 { font-size: 1.6rem; margin-bottom: 10px; }
+    /* About */
+    #about img {
+      float: left; max-width: 150px; margin-right: 20px;
+      border-radius: 50%;
+    }
+    /* Skills */
+    .skills-list { display: flex; flex-wrap: wrap; gap: 10px; }
+    .skills-list span {
+      background: #e0e0e0; padding: 5px 10px; border-radius: 4px;
+    }
+    /* Projects */
+    .projects-container { display: flex; flex-direction: column; gap: 30px; }
+    .project { display: flex; flex-direction: column; }
+    .project img {
+      max-width: 100%; height: auto; border-radius: 4px; margin-bottom: 10px;
+    }
+    .project-details h3 { margin: 5px 0; }
+    .project-details p { margin: 5px 0 10px; }
+    /* Testimonials */
+    .testimonial {
+      font-style: italic; background: #fff; padding: 15px; margin-bottom: 10px;
+      border-left: 4px solid #007acc;
+    }
+    .testimonial cite {
+      display: block; text-align: right; margin-top: 10px;
+      font-weight: bold; font-style: normal;
+    }
+    /* Contact */
+    #contact form { display: flex; flex-direction: column; }
+    #contact label { margin: 10px 0 5px; }
+    #contact input, #contact textarea {
+      padding: 8px; width: 100%; max-width: 500px;
+      border: 1px solid #ccc; border-radius: 4px;
+    }
+    #contact button {
+      width: 150px; margin-top: 10px; padding: 10px;
+      background: #007acc; color: #fff; border: none; border-radius: 4px;
+      cursor: pointer;
+    }
+    #contact button:hover { background: #005fa3; }
+    /* Footer */
+    footer {
+      text-align: center; padding: 20px; font-size: 0.9rem;
+      background: #f8f8f8;
+    }
+    /* Mobile adjustments */
+    @media(max-width: 600px) {
+      #hero h1 { font-size: 1.5rem; }
+      #hero p { font-size: 1rem; }
+      #about img {
+        float: none; margin: auto 0 20px; display: block;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">M.L. Babahmoudy</a>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header>
+  <div class="logo">John Doe</div>
+  <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <section id="hero">
+    <h1>John Doe – Mechanical Engineer</h1>
+    <p>Specializing in FEA, CFD, and sustainable energy projects. Fluent in English, Français, العربية.</p>
+    <a href="resume.pdf" class="button">Download CV</a>
+    <a href="#contact" class="button">Book a Call</a>
+    <a href="#projects" class="button">See My Projects</a>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <!-- Placeholder for profile photo: replace with a professional headshot -->
+    <img src="profile.jpg" alt="John Doe profile photo.">
+    <p>I am a freelance mechanical engineer (M.Sc. 2020) with expertise in finite element analysis (FEA), computational fluid dynamics (CFD), renewable energy, and water systems. I hold a Master’s in Mechanical Engineering and have completed multiple projects for NGOs and energy companies. I speak English, French, and Arabic, enabling effective collaboration on international projects. I maintain active profiles on Upwork and LinkedIn, which serve as professional references and networking platforms.</p>
+    <p>My approach combines rigorous technical analysis with a focus on sustainability. I enjoy solving complex problems and have a track record of improving system efficiency and reliability. Outside of work, I stay updated on industry trends and continue learning new software tools to better serve client needs.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <p>Core engineering skills and tools:</p>
+    <div class="skills-list">
+      <span>FEA (ANSYS, Abaqus)</span>
+      <span>CFD (ANSYS Fluent, OpenFOAM)</span>
+      <span>CAD (SolidWorks, AutoCAD)</span>
+      <span>Matlab & Python</span>
+      <span>Renewable Energy Systems</span>
+      <span>Water Resource Modeling</span>
+      <span>Project Management</span>
+      <span>Languages: English, Français, العربية</span>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects & Case Studies</h2>
+    <div class="projects-container">
+      <article class="project">
+        <img src="https://cdn.pixabay.com/photo/2020/05/30/17/18/wind-power-plant-5239642_1280.jpg" alt="Wind turbines at sunset (renewable energy project)">
+        <div class="project-details">
+          <h3>Wind Farm CFD Analysis</h3>
+          <p>Performed CFD simulations for a wind farm to optimize turbine placement and maximize energy output. Improved predicted annual energy by 15% through aerodynamic modeling. Tools: ANSYS Fluent, Python.</p>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content fade-in">
-            <h1>Mohamed Lemine Babahmoudy</h1>
-            <p class="hero-subtitle">Mechanical Engineering Excellence</p>
-            <p class="hero-description">
-                Expert in CAD, FEA, CFD, and Programming solutions. Delivering innovative engineering methods 
-                for industrial applications with cutting-edge computational tools and 5+ years of proven expertise.
-            </p>
-            <a href="#contact" class="cta-button">Start Your Project</a>
+      </article>
+      <article class="project">
+        <img src="https://cdn.pixabay.com/photo/2020/07/20/13/03/dam-5422929_1280.jpg" alt="Hydroelectric dam and reservoir">
+        <div class="project-details">
+          <h3>Hydroelectric Dam Design</h3>
+          <p>Engineered the structure of a small-scale hydroelectric dam, including stress analysis and reservoir impact studies. Completed FEA of the concrete dam wall with factor-of-safety &gt;1.5, ensuring structural reliability under flood loads.</p>
         </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title fade-in">Engineering Services</h2>
-            <p class="section-subtitle fade-in">
-                Comprehensive mechanical engineering solutions powered by advanced computational methods
-            </p>
-            
-            <div class="services-grid">
-                <div class="service-card fade-in">
-                    <i class="fas fa-cube service-icon"></i>
-                    <h3>CAD Design & Modeling</h3>
-                    <p>Precision 3D modeling and design optimization using industry-leading software</p>
-                    <ul class="service-features">
-                        <li>SolidWorks, AutoCAD, FreeCAD</li>
-                        <li>Parametric & Assembly Modeling</li>
-                        <li>Technical Drawings & Documentation</li>
-                        <li>Design for Manufacturing</li>
-                    </ul>
-                </div>
-
-                <div class="service-card fade-in">
-                    <i class="fas fa-chart-line service-icon"></i>
-                    <h3>FEA Analysis</h3>
-                    <p>Advanced structural analysis and optimization for mechanical systems</p>
-                    <ul class="service-features">
-                        <li>ANSYS, Abaqus, Cast3M</li>
-                        <li>Stress & Fatigue Analysis</li>
-                        <li>Modal & Dynamic Analysis</li>
-                        <li>Material Optimization</li>
-                    </ul>
-                </div>
-
-                <div class="service-card fade-in">
-                    <i class="fas fa-wind service-icon"></i>
-                    <h3>CFD Simulation</h3>
-                    <p>Computational fluid dynamics for thermal and flow optimization</p>
-                    <ul class="service-features">
-                        <li>ANSYS Fluent, OpenFOAM</li>
-                        <li>Heat Transfer Analysis</li>
-                        <li>Flow Optimization</li>
-                        <li>Turbulence Modeling</li>
-                    </ul>
-                </div>
-
-                <div class="service-card fade-in">
-                    <i class="fas fa-code service-icon"></i>
-                    <h3>Programming & Automation</h3>
-                    <p>Custom solutions and automation tools for engineering workflows</p>
-                    <ul class="service-features">
-                        <li>Python, MATLAB, Fortran</li>
-                        <li>Simulation Automation</li>
-                        <li>Data Analysis & Visualization</li>
-                        <li>Custom Engineering Tools</li>
-                    </ul>
-                </div>
-            </div>
+      </article>
+      <article class="project">
+        <img src="https://cdn.pixabay.com/photo/2016/03/04/19/36/gears-1236578_1280.jpg" alt="Gear components in mechanical design">
+        <div class="project-details">
+          <h3>Automatic Gearbox Design</h3>
+          <p>Designed and analyzed a 6-speed automatic transmission gearbox. Conducted stress and fatigue analysis on gears and shafts using FEA, increasing mean time between failures by 20% through optimized material selection.</p>
         </div>
-    </section>
+      </article>
+    </div>
+  </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title fade-in" style="color: white;">Featured Projects</h2>
-            <p class="section-subtitle fade-in" style="color: #cbd5e1;">
-                Innovative solutions across renewable energy, water systems, and industrial applications
-            </p>
-            
-            <div class="projects-grid">
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <i class="fas fa-solar-panel"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Solar-Powered Water Pump Optimization</h3>
-                        <p>Designed and optimized a solar PV pumping system using ANSYS CFD, achieving 15% efficiency improvement for rural water access in Mauritania.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">ANSYS</span>
-                            <span class="tech-tag">CFD</span>
-                            <span class="tech-tag">Solar PV</span>
-                        </div>
-                    </div>
-                </div>
+  <section id="testimonials">
+    <h2>Testimonials</h2>
+    <div class="testimonial">
+      <p>"John’s expertise in CFD and energy modeling was instrumental for our wind energy project. He delivered clear results under a tight deadline, and the simulation model significantly improved our design process."</p>
+      <cite>— Project Manager, Green Energy NGO</cite>
+    </div>
+    <div class="testimonial">
+      <p>"I hired John for a water treatment plant design. His structural analysis of the dam was precise, and his communication in French was a great asset for our team."</p>
+      <cite>— Senior Engineer, Global Water Co.</cite>
+    </div>
+  </section>
 
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <i class="fas fa-industry"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Mining Equipment Structural Analysis</h3>
-                        <p>Performed comprehensive FEA analysis of mining conveyor components using Abaqus, reducing material stress by 12% while maintaining safety factors.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Abaqus</span>
-                            <span class="tech-tag">FEA</span>
-                            <span class="tech-tag">SolidWorks</span>
-                        </div>
-                    </div>
-                </div>
+  <section id="contact">
+    <h2>Contact & Call to Action</h2>
+    <p>If you have a project or partnership opportunity, feel free to reach out. I'm available for freelance consulting and collaborating on international projects. You can also <a href="mailto:john.doe@example.com">email me</a> directly, or connect via <a href="https://www.linkedin.com/">LinkedIn</a> or <a href="https://www.upwork.com/">Upwork</a>.</p>
+    <form>
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Your Name">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Your Email">
+      <label for="message">Message</label>
+      <textarea id="message" rows="4" placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p>Alternatively, click <a href="#hero" class="button">Book a Call</a> or <a href="resume.pdf" class="button">Download CV</a> above to take the next step. I look forward to discussing how I can help your organization succeed.</p>
+  </section>
+</main>
 
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <i class="fas fa-microchip"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Automated Irrigation Control System</h3>
-                        <p>Developed Arduino-based smart irrigation system with custom Python interface, improving water delivery efficiency by 20% for agricultural applications.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Arduino</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">IoT</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<footer>
+  <p>&copy; 2025 John Doe. All rights reserved.</p>
+</footer>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-image">
-                    <i class="fas fa-user-tie"></i>
-                </div>
-                <div class="about-text fade-in">
-                    <h2>Engineering Excellence</h2>
-                    <p>
-                        With over 5 years of experience in mechanical engineering, I specialize in delivering 
-                        innovative computational solutions for complex industrial challenges. My expertise spans 
-                        CAD design, FEA analysis, CFD simulation, and programming automation.
-                    </p>
-                    <p>
-                        I've successfully completed 20+ projects on Upwork with consistent 5-star ratings, 
-                        working with global clients across renewable energy, water systems, and mining industries. 
-                        My trilingual capabilities (English, French, Arabic) enable seamless collaboration 
-                        with international teams.
-                    </p>
-                    <p>
-                        Currently serving as CAD/CAO Instructor at Naval Academy, Mauritania, while maintaining 
-                        active freelance consulting practice focused on sustainable engineering solutions.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="stats fade-in">
-                <div class="stat">
-                    <span class="stat-number">20+</span>
-                    <span class="stat-label">Projects Completed</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">5★</span>
-                    <span class="stat-label">Average Rating</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">5+</span>
-                    <span class="stat-label">Years Experience</span>
-                </div>
-            </div>
-        </div>
-    </section>
+<script>
+  // Mobile navigation toggle
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+</script>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title fade-in">Let's Work Together</h2>
-            <p class="section-subtitle fade-in">
-                Ready to optimize your engineering challenges with cutting-edge computational methods?
-            </p>
-            
-            <div class="contact-content">
-                <div class="contact-info fade-in">
-                    <h3>Get In Touch</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:mleminebh@gmail.com">mleminebh@gmail.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <a href="#" target="_blank">LinkedIn Profile</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-briefcase"></i>
-                        <a href="#" target="_blank">Upwork Profile</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-globe"></i>
-                        <a href="#" target="_blank">PeoplePerHour Profile</a>
-                    </div>
-                </div>
-                
-                <form class="contact-form fade-in">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="project">Project Type</label>
-                        <select id="project" name="project" style="width: 100%; padding: 1rem; border: 2px solid #e2e8f0; border-radius: 10px;">
-                            <option value="">Select Service</option>
-                            <option value="cad">CAD Design & Modeling</option>
-                            <option value="fea">FEA Analysis</option>
-                            <option value="cfd">CFD Simulation</option>
-                            <option value="programming">Programming & Automation</option>
-                            <option value="consultation">Engineering Consultation</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Project Details</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Mohamed Lemine Babahmoudy. All rights reserved.</p>
-            <p>Driving sustainable engineering solutions through computational excellence.</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Add fade-in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationDelay = '0.2s';
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Form submission
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
-            this.reset();
-        });
-
-        // Navbar background on scroll
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 100) {
-                navbar.style.background = 'rgba(15, 23, 42, 0.98)';
-            } else {
-                navbar.style.background = 'rgba(15, 23, 42, 0.95)';
-            }
-        });
-
-        // Dynamic typing effect for hero title
-        function typeWriter(element, text, speed = 100) {
-            let i = 0;
-            element.innerHTML = '';
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            type();
-        }
-
-        // Initialize typing effect when page loads
-        window.addEventListener('load', function() {
-            const heroTitle = document.querySelector('.hero h1');
-            const originalText = heroTitle.textContent;
-            typeWriter(heroTitle, originalText, 80);
-        });
-
-        // Parallax effect for hero section
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            const rate = scrolled * -0.5;
-            hero.style.transform = `translateY(${rate}px)`;
-        });
-
-        // Service cards hover effect
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Project cards interactive effect
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                const icon = this.querySelector('.project-image i');
-                icon.style.transform = 'scale(1.1) rotate(5deg)';
-                icon.style.transition = 'all 0.3s ease';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                const icon = this.querySelector('.project-image i');
-                icon.style.transform = 'scale(1) rotate(0deg)';
-            });
-        });
-
-        // Form validation and enhancement
-        const form = document.querySelector('.contact-form');
-        const inputs = form.querySelectorAll('input, textarea, select');
-
-        inputs.forEach(input => {
-            input.addEventListener('focus', function() {
-                this.parentElement.style.transform = 'scale(1.02)';
-                this.style.borderColor = '#3b82f6';
-                this.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.1)';
-            });
-
-            input.addEventListener('blur', function() {
-                this.parentElement.style.transform = 'scale(1)';
-                this.style.boxShadow = 'none';
-                if (!this.value) {
-                    this.style.borderColor = '#e2e8f0';
-                }
-            });
-        });
-
-        // Stats counter animation
-        function animateStats() {
-            const stats = document.querySelectorAll('.stat-number');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const target = entry.target;
-                        const finalValue = target.textContent;
-                        let currentValue = 0;
-                        const increment = finalValue.includes('+') ? 1 : 0.1;
-                        const duration = 2000;
-                        const stepTime = duration / (parseInt(finalValue) || 5);
-
-                        const counter = setInterval(() => {
-                            if (finalValue.includes('★')) {
-                                target.textContent = '5★';
-                                clearInterval(counter);
-                            } else if (finalValue.includes('+')) {
-                                currentValue += increment;
-                                if (currentValue >= parseInt(finalValue)) {
-                                    target.textContent = finalValue;
-                                    clearInterval(counter);
-                                } else {
-                                    target.textContent = Math.floor(currentValue) + '+';
-                                }
-                            } else {
-                                currentValue += increment;
-                                if (currentValue >= parseInt(finalValue)) {
-                                    target.textContent = finalValue;
-                                    clearInterval(counter);
-                                } else {
-                                    target.textContent = Math.floor(currentValue);
-                                }
-                            }
-                        }, stepTime);
-                    }
-                });
-            });
-
-            stats.forEach(stat => observer.observe(stat));
-        }
-
-        // Initialize stats animation
-        animateStats();
-
-        // Mobile menu toggle (if needed)
-        const createMobileMenu = () => {
-            const nav = document.querySelector('.nav-container');
-            const menuToggle = document.createElement('button');
-            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            menuToggle.className = 'mobile-menu-toggle';
-            menuToggle.style.cssText = `
-                display: none;
-                background: none;
-                border: none;
-                color: white;
-                font-size: 1.5rem;
-                cursor: pointer;
-                @media (max-width: 768px) {
-                    display: block;
-                }
-            `;
-
-            const style = document.createElement('style');
-            style.textContent = `
-                @media (max-width: 768px) {
-                    .mobile-menu-toggle { display: block !important; }
-                    .nav-menu { 
-                        display: none;
-                        position: absolute;
-                        top: 100%;
-                        left: 0;
-                        width: 100%;
-                        background: rgba(15, 23, 42, 0.98);
-                        flex-direction: column;
-                        padding: 2rem 0;
-                        gap: 1rem;
-                    }
-                    .nav-menu.active { display: flex; }
-                }
-            `;
-            document.head.appendChild(style);
-
-            menuToggle.addEventListener('click', () => {
-                const menu = document.querySelector('.nav-menu');
-                menu.classList.toggle('active');
-                menuToggle.innerHTML = menu.classList.contains('active') 
-                    ? '<i class="fas fa-times"></i>' 
-                    : '<i class="fas fa-bars"></i>';
-            });
-
-            nav.appendChild(menuToggle);
-        };
-
-        createMobileMenu();
-
-        // Performance optimization - Lazy loading for animations
-        const lazyAnimations = document.querySelectorAll('.fade-in');
-        const animationObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, index * 100);
-                    animationObserver.unobserve(entry.target);
-                }
-            });
-        });
-
-        lazyAnimations.forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s ease';
-            animationObserver.observe(el);
-        });
-    </script>
 </body>
 </html>
