@@ -1,0 +1,146 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Babahmoudy, a Mechanical Engineer specializing in CAD, FEA, CFD, and renewable energy solutions for water, irrigation, and mining projects.">
+    <meta name="keywords" content="mechanical engineer, CAD, FEA, CFD, renewable energy, solar irrigation, water systems, mining design, Abaqus, ANSYS, Python, Mauritania, freelance engineer">
+    <meta name="author" content="Babahmoudy">
+    <title>Babahmoudy - Mechanical Engineering Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Arial', sans-serif; }
+        .hero-bg { background: linear-gradient(to right, #1e3a8a, #3b82f6); }
+        .section-bg { background-color: #f9fafb; }
+        .project-card { transition: transform 0.3s; }
+        .project-card:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="hero-bg text-white py-16 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold">Babahmoudy</h1>
+        <p class="text-lg md:text-xl mt-2">Mechanical Engineer | CAD, FEA, CFD Specialist | Renewable Energy & Water Solutions</p>
+        <a href="#contact" class="mt-4 inline-block bg-white text-blue-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200">Get in Touch</a>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-12 section-bg">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">About Me</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                I’m a mechanical engineer (B.Eng, 2020) passionate about solving water and energy challenges through advanced design and simulation. With expertise in CAD (SolidWorks, FreeCAD), FEA/CFD (Abaqus, ANSYS, OpenFOAM), and Python, I deliver innovative solutions for renewable energy, irrigation, and mining projects. Fluent in English, French, and Arabic, I’ve worked in Mauritania, Tunisia, and France, collaborating with global clients. My projects, like optimizing solar water pumps (15% efficiency gain), drive sustainable impact. <a href="https://www.upwork.com/freelancers/~babahmoudy" class="text-blue-600 hover:underline">View my Upwork profile</a>.
+            </p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-lg shadow-lg p-6">
+                    <img src="https://via.placeholder.com/300x200?text=Solar+Pump" alt="Solar Water Pump Project" class="w-full h-48 object-cover rounded-t-lg">
+                    <h3 class="text-xl font-semibold mt-4">Solar-Powered Water Pump</h3>
+                    <p class="text-gray-600 mt-2">Designed a solar PV pumping system for a village well in Mauritania using ANSYS. Improved pump efficiency by 15% through CFD optimization.</p>
+                    <p class="text-sm text-gray-500 mt-2">Tools: ANSYS, CFD, Solar PV Modeling</p>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-lg shadow-lg p-6">
+                    <img src="https://via.placeholder.com/300x200?text=Irrigation+System" alt="Irrigation Monitoring Project" class="w-full h-48 object-cover rounded-t-lg">
+                    <h3 class="text-xl font-semibold mt-4">Irrigation Monitoring System</h3>
+                    <p class="text-gray-600 mt-2">Developed an Arduino-based soil moisture sensor and drip irrigation controller. Enhanced water delivery by 20%.</p>
+                    <p class="text-sm text-gray-500 mt-2">Tools: Arduino, FreeCAD, Python</p>
+                </div>
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-lg shadow-lg p-6">
+                    <img src="https://via.placeholder.com/300x200?text=Mining+Equipment" alt="Mining Equipment Design" class="w-full h-48 object-cover rounded-t-lg">
+                    <h3 class="text-xl font-semibold mt-4">Mining Equipment Design</h3>
+                    <p class="text-gray-600 mt-2">Modeled a conveyor component in SolidWorks and performed stress analysis in Abaqus, reducing material stress by 12%.</p>
+                    <p class="text-sm text-gray-500 mt-2">Tools: SolidWorks, Abaqus, FEA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="py-12 section-bg">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Resume</h2>
+            <div class="bg-white rounded-lg shadow-lg p-6 max-w-3xl mx-auto">
+                <h3 class="text-xl font-semibold">Babahmoudy, B.Eng (Mech.)</h3>
+                <p class="text-gray-600 mt-2"><strong>Contact:</strong> babahmoudy@engineering.com | <a href="https://www.linkedin.com/in/babahmoudy" class="text-blue-600 hover:underline">LinkedIn</a> | <a href="https://babahmoudy.github.io" class="text-blue-600 hover:underline">Website</a></p>
+                <p class="text-gray-600 mt-2"><strong>Profile:</strong> Mechanical Engineer with 3+ years in renewable energy and water projects, skilled in FEA/CFD and fluent in English, French, Arabic. Passionate about sustainable design.</p>
+                <p class="text-gray-600 mt-2"><strong>Skills:</strong> Abaqus, ANSYS, SolidWorks, FreeCAD, OpenFOAM, Python, Project Management, Trilingual (EN/FR/AR)</p>
+                <p class="text-gray-600 mt-2"><strong>Experience:</strong></p>
+                <ul class="list-disc list-inside text-gray-600">
+                    <li>Freelance Mechanical Engineer (2022–present): Designed solar irrigation systems and performed simulations for NGOs.</li>
+                    <li>Intern, TRANSTU, Tunisia (2018): Maintained Citadis metros, improved reliability through CAD and stress analysis.</li>
+                </ul>
+                <p class="text-gray-600 mt-2"><strong>Education:</strong> B.Eng (Mechanical), [University], 2020. Course highlights: Renewable Energy, Fluid Mechanics, FEA.</p>
+                <p class="text-gray-600 mt-2"><strong>Certifications:</strong> PMP (expected 2025), Certified Energy Manager (AEE), Solar PV Design (Coursera).</p>
+                <a href="resume.pdf" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Download Full Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Contact Me</h2>
+            <div class="max-w-lg mx-auto">
+                <p class="text-lg text-gray-600">Interested in collaborating on renewable energy, water, or mining projects? Reach out!</p>
+                <p class="text-gray-600 mt-2"><strong>Email:</strong> babahmoudy@engineering.com</p>
+                <p class="text-gray-600 mt-2"><strong>Upwork:</strong> <a href="https://www.upwork.com/freelancers/~babahmoudy" class="text-blue-600 hover:underline">View Profile</a></p>
+                <p class="text-gray-600 mt-2"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/babahmoudy" class="text-blue-600 hover:underline">Connect with Me</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 text-center">
+        <p>&copy; 2025 Babahmoudy. All rights reserved.</p>
+        <p class="mt-2">Designed for sustainable engineering solutions.</p>
+    </footer>
+</body>
+</html>
