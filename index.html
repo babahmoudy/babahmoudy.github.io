@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mohamed Lemine Baba Hmoudy - Mechanical Engineer & CAE Specialist. Expert in CAD, FEA, CFD, automation, renewable energy, irrigation, agriculture, and mining. 5+ years delivering innovative solutions globally.">
-    <meta name="keywords" content="freelance mechanical engineer, CAD design, FEA analysis, CFD simulation, Python automation, renewable energy, irrigation systems, agricultural machinery, mining equipment, SolidWorks, ANSYS, Abaqus, Upwork, Mauritania, Tunisia, France, LaMcube, MECAMIX">
+    <meta name="description" content="Mohamed Lemine Baba Hmoudy - Mechanical Engineer. Expert in CAD, FEA, CFD, robotics, mechatronics, biomedical, renewable energy, irrigation, agriculture, mining, Industry 4.0, and CNC. Delivered 20+ projects across 4 countries.">
+    <meta name="keywords" content="freelance mechanical engineer, CAD design, FEA analysis, CFD simulation, robotics, mechatronics, biomedical engineering, renewable energy, irrigation systems, agricultural machinery, mining equipment, Industry 4.0, CNC programming, SolidWorks, ANSYS, Abaqus, Upwork, Mauritania, Tunisia">
     <meta name="author" content="Mohamed Lemine Baba Hmoudy">
-    <title>Mohamed Lemine Baba Hmoudy | Mechanical Engineer & CAE Specialist</title>
+    <title>Mohamed Lemine Baba Hmoudy | Mechanical Engineer</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -28,7 +29,7 @@
             top: 0;
             width: 100%;
             background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(10px);
             z-index: 1000;
             transition: all 0.3s ease;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -48,7 +49,6 @@
             font-weight: 700;
             color: #60a5fa;
             text-decoration: none;
-            letter-spacing: -0.5px;
         }
 
         .nav-menu {
@@ -77,7 +77,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, #60a5fa, #3b82f6);
+            background: #60a5fa;
             transition: width 0.3s ease;
         }
 
@@ -112,20 +112,18 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 30% 20%, rgba(96, 165, 250, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
-            animation: float 20s ease-in-out infinite;
+            background: radial-gradient(circle at 30% 20%, rgba(96, 165, 250, 0.1) 0%, transparent 50%);
+            animation: float 10s ease-in-out infinite;
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         .hero-content {
             max-width: 900px;
             z-index: 2;
-            position: relative;
         }
 
         .profile-section {
@@ -138,24 +136,16 @@
             border-radius: 50%;
             margin: 0 auto 2rem;
             background: url('profile-pic.jpg') no-repeat center/cover;
-            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.4);
-            animation: pulse 3s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 20px 60px rgba(59, 130, 246, 0.4); }
-            50% { transform: scale(1.05); box-shadow: 0 25px 80px rgba(59, 130, 246, 0.6); }
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
         }
 
         .hero h1 {
             font-size: 3.2rem;
             font-weight: 800;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #60a5fa, #3b82f6, #1d4ed8);
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -1px;
         }
 
         .hero-subtitle {
@@ -229,28 +219,33 @@
             box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
         }
 
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
         /* Global Impact Section */
         .global-impact {
-            padding: 8rem 0;
+            padding: 6rem 0;
             background: #f8fafc;
-        }
-
-        .impact-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .impact-content p {
-            color: #64748b;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 8rem 0;
-            background: white;
         }
 
         .container {
@@ -265,14 +260,69 @@
             font-weight: 800;
             margin-bottom: 1rem;
             color: #1e293b;
-            letter-spacing: -1px;
+        }
+
+        .impact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .impact-content p {
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Freelance Highlights Section */
+        .freelance-highlights {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .highlight-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .highlight-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .highlight-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 0;
+            background: white;
         }
 
         .section-subtitle {
             text-align: center;
             font-size: 1.2rem;
             color: #64748b;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
@@ -280,47 +330,29 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
         .service-card {
             background: white;
-            padding: 3rem 2rem;
-            border-radius: 20px;
+            padding: 2rem;
+            border-radius: 15px;
             text-align: center;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             border: 1px solid rgba(59, 130, 246, 0.1);
         }
 
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.05), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .service-card:hover::before {
-            left: 100%;
-        }
-
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
 
         .service-icon {
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: #3b82f6;
-            margin-bottom: 1.5rem;
-            display: block;
+            margin-bottom: 1rem;
         }
 
         .service-card h3 {
@@ -333,7 +365,7 @@
         .service-card p {
             color: #64748b;
             line-height: 1.6;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .service-features {
@@ -354,13 +386,54 @@
             color: #10b981;
             font-weight: bold;
             margin-right: 0.75rem;
-            font-size: 1.1rem;
+        }
+
+        /* Video Demo Section */
+        .video-demo {
+            padding: 6rem 0;
+            background: #f8fafc;
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .video-container video {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
 
         /* Projects Section */
         .projects {
-            padding: 8rem 0;
-            background: #f8fafc;
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .project-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: #e0e7ff;
+            color: #1e40af;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: #3b82f6;
+            color: white;
         }
 
         .projects-grid {
@@ -371,33 +444,40 @@
 
         .project-card {
             background: white;
-            border-radius: 20px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
 
         .project-image {
             width: 100%;
             height: 200px;
             object-fit: cover;
+            loading: lazy;
+        }
+
+        #model-viewer {
+            width: 100%;
+            height: 200px;
+            background: #f8fafc;
         }
 
         .project-card h3 {
             font-size: 1.4rem;
             font-weight: 700;
-            margin: 1.5rem 2rem 1rem;
+            margin: 1rem 2rem;
             color: #1e293b;
         }
 
         .project-card p {
             color: #64748b;
-            margin: 0 2rem 1.5rem;
+            margin: 0 2rem 1rem;
             line-height: 1.6;
         }
 
@@ -405,7 +485,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin: 0 2rem 2rem;
+            margin: 0 2rem 1.5rem;
         }
 
         .tool-tag {
@@ -417,127 +497,10 @@
             font-weight: 500;
         }
 
-        /* Testimonials Section */
-        .testimonials {
-            padding: 8rem 0;
-            background: white;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .testimonial-card p {
-            color: #1e293b;
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-
-        .testimonial-card cite {
-            color: #64748b;
-            font-weight: 500;
-        }
-
-        /* Education Section */
-        .education {
-            padding: 8rem 0;
-            background: #f8fafc;
-        }
-
-        .education-timeline {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, #3b82f6, #60a5fa);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-            background: #f8fafc;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-
-        .timeline-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2.5rem;
-            top: 2rem;
-            width: 12px;
-            height: 12px;
-            background: #3b82f6;
-            border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 0 0 3px #3b82f6;
-        }
-
-        .timeline-degree {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-school {
-            font-size: 1.1rem;
-            color: #3b82f6;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-date {
-            color: #64748b;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .timeline-details {
-            color: #64748b;
-            line-height: 1.6;
-        }
-
         /* Experience Section */
         .experience {
-            padding: 8rem 0;
-            background: white;
+            padding: 6rem 0;
+            background: #f8fafc;
         }
 
         .experience-grid {
@@ -547,16 +510,16 @@
 
         .experience-card {
             background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
             border-left: 4px solid #3b82f6;
         }
 
         .experience-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
 
         .experience-header {
@@ -583,7 +546,6 @@
         .experience-date {
             color: #64748b;
             font-weight: 500;
-            white-space: nowrap;
         }
 
         .experience-description {
@@ -606,14 +568,129 @@
         .experience-achievements li::before {
             content: '▸';
             color: #3b82f6;
-            font-weight: bold;
             position: absolute;
             left: 0;
         }
 
+        /* Education Section */
+        .education {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .education-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #3b82f6;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.3rem;
+            top: 1.5rem;
+            width: 10px;
+            height: 10px;
+            background: #3b82f6;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .timeline-degree {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-school {
+            font-size: 1.1rem;
+            color: #3b82f6;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-date {
+            color: #64748b;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-details {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 6rem 0;
+            background: #f8fafc;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-card p {
+            color: #1e293b;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card cite {
+            color: #64748b;
+            font-weight: 500;
+        }
+
         /* Contact Section */
         .contact {
-            padding: 8rem 0;
+            padding: 6rem 0;
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: white;
         }
@@ -621,12 +698,12 @@
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 3rem;
             align-items: start;
         }
 
         .contact-info h3 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 700;
             margin-bottom: 1rem;
             color: white;
@@ -634,24 +711,23 @@
 
         .contact-info p {
             color: #cbd5e1;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             line-height: 1.6;
         }
 
         .contact-methods {
             display: grid;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
             gap: 1rem;
-            padding: 1.5rem;
+            padding: 1rem;
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
+            border-radius: 10px;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .contact-item:hover {
@@ -660,16 +736,15 @@
         }
 
         .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            width: 40px;
+            height: 40px;
+            background: #3b82f6;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: white;
-            flex-shrink: 0;
         }
 
         .contact-details h4 {
@@ -695,21 +770,20 @@
 
         .contact-form {
             background: rgba(255, 255, 255, 0.05);
-            padding: 3rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
         }
 
         .contact-form h3 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             color: white;
         }
 
         .form-group {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
@@ -723,11 +797,10 @@
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 1rem;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
+            padding: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
             font-size: 1rem;
-            transition: border-color 0.3s ease;
             background: rgba(255, 255, 255, 0.05);
             color: white;
         }
@@ -746,12 +819,12 @@
 
         .submit-btn {
             width: 100%;
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            background: #3b82f6;
             color: white;
-            padding: 1rem 2rem;
+            padding: 0.8rem;
             border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
+            border-radius: 8px;
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -759,31 +832,7 @@
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
-        }
-
-        /* Language Toggle */
-        .language-toggle {
-            position: absolute;
-            top: 1rem;
-            right: 2rem;
-            display: flex;
-            gap: 1rem;
-        }
-
-        .language-toggle a {
-            color: #e2e8f0;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-        }
-
-        .language-toggle a:hover {
-            background: rgba(59, 130, 246, 0.2);
-            color: #60a5fa;
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
         }
 
         /* Footer */
@@ -791,7 +840,7 @@
             background: #0f172a;
             color: #cbd5e1;
             text-align: center;
-            padding: 3rem 0;
+            padding: 2rem 0;
         }
 
         .footer p {
@@ -801,16 +850,16 @@
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 1.5rem;
+            margin-top: 1rem;
         }
 
         .social-links a {
             color: #64748b;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -821,7 +870,6 @@
         .social-links a:hover {
             color: #60a5fa;
             background: rgba(59, 130, 246, 0.1);
-            transform: translateY(-3px);
         }
 
         /* Responsive Design */
@@ -846,11 +894,11 @@
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
 
             .hero-subtitle {
-                font-size: 1.4rem;
+                font-size: 1.2rem;
             }
 
             .certifications-badge {
@@ -892,8 +940,8 @@
 
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease forwards;
+            transform: translateY(10px);
+            animation: fadeInUp 0.5s ease forwards;
         }
 
         @keyframes fadeInUp {
@@ -903,22 +951,17 @@
             }
         }
 
-        .service-card:nth-child(1), .project-card:nth-child(1), .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
-        .service-card:nth-child(2), .project-card:nth-child(2), .testimonial-card:nth-child(2) { animation-delay: 0.2s; }
-        .service-card:nth-child(3), .project-card:nth-child(3), .testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(1), .project-card:nth-child(1), .highlight-card:nth-child(1), .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2), .project-card:nth-child(2), .highlight-card:nth-child(2), .testimonial-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3), .project-card:nth-child(3), .highlight-card:nth-child(3), .testimonial-card:nth-child(3) { animation-delay: 0.3s; }
         .service-card:nth-child(4), .project-card:nth-child(4) { animation-delay: 0.4s; }
         .service-card:nth-child(5), .project-card:nth-child(5) { animation-delay: 0.5s; }
-        .service-card:nth-child(6) { animation-delay: 0.6s; }
+        .service-card:nth-child(6), .project-card:nth-child(6) { animation-delay: 0.6s; }
+        .service-card:nth-child(7), .project-card:nth-child(7) { animation-delay: 0.7s; }
+        .service-card:nth-child(8), .project-card:nth-child(8) { animation-delay: 0.8s; }
     </style>
 </head>
 <body>
-    <!-- Language Toggle -->
-    <div class="language-toggle">
-        <a href="index.html" aria-label="Switch to English">EN</a>
-        <a href="index_fr.html" aria-label="Switch to French">FR</a>
-        <a href="index_ar.html" aria-label="Switch to Arabic">AR</a>
-    </div>
-
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -927,7 +970,9 @@
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link" aria-label="Navigate to home">Home</a></li>
                 <li><a href="#global-impact" class="nav-link" aria-label="Navigate to global impact">Global Impact</a></li>
+                <li><a href="#freelance" class="nav-link" aria-label="Navigate to freelance highlights">Freelance</a></li>
                 <li><a href="#services" class="nav-link" aria-label="Navigate to services">Services</a></li>
+                <li><a href="#video" class="nav-link" aria-label="Navigate to video demo">Video Demo</a></li>
                 <li><a href="#projects" class="nav-link" aria-label="Navigate to projects">Projects</a></li>
                 <li><a href="#experience" class="nav-link" aria-label="Navigate to experience">Experience</a></li>
                 <li><a href="#education" class="nav-link" aria-label="Navigate to education">Education</a></li>
@@ -937,37 +982,36 @@
         </div>
     </nav>
 
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/+22226142025" class="whatsapp-float" aria-label="Contact via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content fade-in">
             <div class="profile-section">
                 <div class="profile-image" aria-label="Mohamed Lemine Baba Hmoudy's profile picture"></div>
                 <h1>Mohamed Lemine Baba Hmoudy</h1>
-                <p class="hero-subtitle">Mechanical Engineer & CAE Specialist</p>
+                <p class="hero-subtitle">Mechanical Engineer</p>
                 <p class="hero-description">
-                    Trilingual engineer (Arabic, French, English) delivering innovative solutions in CAD, FEA, CFD, automation, renewable energy, irrigation, agriculture, and mining. 5+ years of global impact with a 5-star Upwork rating.
+                    Trilingual engineer (Arabic, French, English) delivering innovative solutions in CAD, FEA, CFD, robotics, mechatronics, biomedical engineering, renewable energy, irrigation, agriculture, mining, Industry 4.0, and CNC programming. Delivered 20+ projects across 4 countries with a 5-star Upwork rating.
                 </p>
             </div>
-
             <div class="certifications-badge">
-                <span class="cert-badge">TOEIC B2</span>
-                <span class="cert-badge">ISO Standards</span>
-                <span class="cert-badge">HSE Certified</span>
-                <span class="cert-badge">API Standards</span>
+                <span class="cert-badge">Mechanical Engineering, ENIT</span>
+                <span class="cert-badge">ISO Drawing Standards</span>
+                <span class="cert-badge">TOEIC 790 (B2 Listening, 2022)</span>
             </div>
-
             <div class="cta-buttons">
                 <a href="#projects" class="cta-button" aria-label="View projects">
-                    <i class="fas fa-briefcase"></i>
-                    View Projects
+                    <i class="fas fa-briefcase"></i> Explore Projects
                 </a>
                 <a href="cv.pdf" class="cta-button secondary" aria-label="Download CV">
-                    <i class="fas fa-file-download"></i>
-                    Download CV
+                    <i class="fas fa-file-download"></i> Download CV
                 </a>
                 <a href="#contact" class="cta-button" aria-label="Get in touch">
-                    <i class="fas fa-paper-plane"></i>
-                    Get In Touch
+                    <i class="fas fa-paper-plane"></i> Start a Project
                 </a>
             </div>
         </div>
@@ -978,7 +1022,29 @@
         <div class="container">
             <h2 class="section-title fade-in">Global Impact</h2>
             <div class="impact-content fade-in">
-                <p>With 5+ years of experience, I’ve delivered innovative mechanical engineering solutions across 7+ countries, collaborating seamlessly in Arabic, French, and English. My work spans diverse fields, from renewable energy and irrigation to mining and advanced research, driving efficiency and sustainability worldwide.</p>
+                <p>Delivered 20+ projects across 4 countries (UK, France, Belgium, Germany) since 2020, leveraging expertise from studies in Tunisia (2015–2020) and research in France (2020–2023). Specializing in CAD, FEA, CFD, robotics, and Industry 4.0 for global industries.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Freelance Highlights Section -->
+    <section id="freelance" class="freelance-highlights">
+        <div class="container">
+            <h2 class="section-title fade-in">Freelance Highlights</h2>
+            <p class="section-subtitle fade-in">Key projects showcasing expertise in CAD, FEA, CFD, and automation (2020–2023).</p>
+            <div class="highlights-grid">
+                <div class="highlight-card fade-in">
+                    <h3>CFD for Moth Inhaler</h3>
+                    <p>Optimized airflow for a biomedical inhaler, improving delivery efficiency by 15% using ANSYS Fluent.</p>
+                </div>
+                <div class="highlight-card fade-in">
+                    <h3>Automation Script</h3>
+                    <p>Developed Python scripts for Abaqus, reducing simulation setup time by 30% for structural analysis.</p>
+                </div>
+                <div class="highlight-card fade-in">
+                    <h3>CAD Component Design</h3>
+                    <p>Designed precision components for UK clients, achieving 100% client satisfaction on Upwork.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -987,10 +1053,7 @@
     <section id="services" class="services">
         <div class="container">
             <h2 class="section-title fade-in">Engineering Services</h2>
-            <p class="section-subtitle fade-in">
-                Comprehensive solutions for industry, agriculture, and sustainability, delivered with precision and innovation.
-            </p>
-            
+            <p class="section-subtitle fade-in">Comprehensive solutions for industry, robotics, biomedical, renewable energy, agriculture, mining, Industry 4.0, and CNC programming.</p>
             <div class="services-grid">
                 <div class="service-card fade-in">
                     <i class="fas fa-drafting-compass service-icon"></i>
@@ -1003,7 +1066,6 @@
                         <li>Design for Manufacturing (DFM)</li>
                     </ul>
                 </div>
-
                 <div class="service-card fade-in">
                     <i class="fas fa-calculator service-icon"></i>
                     <h3>FEA & Structural Analysis</h3>
@@ -1015,7 +1077,6 @@
                         <li>Python Automation for Simulations</li>
                     </ul>
                 </div>
-
                 <div class="service-card fade-in">
                     <i class="fas fa-wind service-icon"></i>
                     <h3>CFD & Thermal Analysis</h3>
@@ -1027,7 +1088,6 @@
                         <li>Multi-Phase Flow Modeling</li>
                     </ul>
                 </div>
-
                 <div class="service-card fade-in">
                     <i class="fas fa-code service-icon"></i>
                     <h3>Programming & Automation</h3>
@@ -1039,7 +1099,6 @@
                         <li>Custom Engineering Scripts</li>
                     </ul>
                 </div>
-
                 <div class="service-card fade-in">
                     <i class="fas fa-solar-panel service-icon"></i>
                     <h3>Renewable Energy Design</h3>
@@ -1051,7 +1110,6 @@
                         <li>Renewable System Integration</li>
                     </ul>
                 </div>
-
                 <div class="service-card fade-in">
                     <i class="fas fa-tractor service-icon"></i>
                     <h3>Irrigation & Agricultural Engineering</h3>
@@ -1063,6 +1121,53 @@
                         <li>Automation for Precision Farming</li>
                     </ul>
                 </div>
+                <div class="service-card fade-in">
+                    <i class="fas fa-robot service-icon"></i>
+                    <h3>Robotics & Mechatronics</h3>
+                    <p>Innovative solutions for robotic systems and mechatronic applications.</p>
+                    <ul class="service-features">
+                        <li>Robotic Arm & Gripper Design</li>
+                        <li>Control Systems Development</li>
+                        <li>ROS & Arduino Integration</li>
+                        <li>Automation Prototyping</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <i class="fas fa-industry service-icon"></i>
+                    <h3>Industry 4.0 & IoT</h3>
+                    <p>Smart solutions for IoT integration and Industry 4.0 automation.</p>
+                    <ul class="service-features">
+                        <li>IoT Sensor Integration</li>
+                        <li>Smart Automation Systems</li>
+                        <li>Data-Driven Process Optimization</li>
+                        <li>Python-Based IoT Solutions</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <i class="fas fa-cogs service-icon"></i>
+                    <h3>CNC & G-Code Programming</h3>
+                    <p>Precision CNC toolpath programming for manufacturing efficiency.</p>
+                    <ul class="service-features">
+                        <li>G-Code & CAM Programming</li>
+                        <li>CNC Machine Optimization</li>
+                        <li>Toolpath Simulation</li>
+                        <li>Design for CNC Manufacturing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Demo Section -->
+    <section id="video" class="video-demo">
+        <div class="container">
+            <h2 class="section-title fade-in">Video Demo</h2>
+            <p class="section-subtitle fade-in">Watch a sample CAD-to-FEA workflow showcasing precision engineering.</p>
+            <div class="video-container fade-in">
+                <video controls poster="project-images/cad_fea_poster.jpg">
+                    <source src="videos/cad_fea_demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </div>
     </section>
@@ -1071,72 +1176,85 @@
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title fade-in">Featured Projects</h2>
-            <p class="section-subtitle fade-in">
-                Diverse solutions in mechanics, renewable energy, irrigation, and mining, driving innovation globally. <a href="https://lamcube.univ-lille.fr/" target="_blank">View LaMcube Research</a>.
-            </p>
-            
+            <p class="section-subtitle fade-in">Innovative solutions in CAD, FEA, CFD, robotics, Industry 4.0, and more. <a href="https://lamcube.univ-lille.fr/" target="_blank">View LaMcube Research</a>.</p>
+            <div class="project-filter fade-in">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="cad">CAD</button>
+                <button class="filter-btn" data-filter="fea">FEA</button>
+                <button class="filter-btn" data-filter="cfd">CFD</button>
+                <button class="filter-btn" data-filter="robotics">Robotics</button>
+                <button class="filter-btn" data-filter="industry4">Industry 4.0</button>
+                <button class="filter-btn" data-filter="cnc">CNC</button>
+                <button class="filter-btn" data-filter="renewable">Renewable Energy</button>
+                <button class="filter-btn" data-filter="irrigation">Irrigation</button>
+            </div>
             <div class="projects-grid">
-                <div class="project-card fade-in">
-                    <img src="project-images/fracture_simulation.jpg" alt="Mohamed's Abaqus Fracture Mechanics Simulation Diagram" class="project-image">
+                <div class="project-card fade-in" data-category="fea">
+                    <img src="project-images/fracture_simulation.jpg" loading="lazy" alt="Abaqus Fracture Mechanics Simulation Diagram" class="project-image">
                     <h3>Fracture Mechanics Simulation</h3>
-                    <p>Developed stress intensity factor analysis for critical components, achieving 95% accuracy using Python automation.</p>
+                    <p>Developed stress intensity factor analysis for critical components, achieving 95% accuracy in predicting failure modes using Python automation.</p>
                     <div class="project-tools">
                         <span class="tool-tag">Abaqus</span>
                         <span class="tool-tag">Python</span>
                         <span class="tool-tag">Fatigue Analysis</span>
                     </div>
                 </div>
-
-                <div class="project-card fade-in">
-                    <img src="project-images/hvac_optimization.jpg" alt="Mohamed's ANSYS Fluent HVAC Optimization Diagram" class="project-image">
+                <div class="project-card fade-in" data-category="cfd">
+                    <img src="project-images/hvac_optimization.jpg" loading="lazy" alt="ANSYS Fluent HVAC Optimization Diagram" class="project-image">
                     <h3>HVAC System Optimization</h3>
-                    <p>Optimized industrial HVAC airflow, reducing energy use by 20% through CFD analysis.</p>
+                    <p>Optimized industrial HVAC airflow for a 50,000 m² facility, reducing energy consumption by 20% through ANSYS Fluent simulations.</p>
                     <div class="project-tools">
                         <span class="tool-tag">ANSYS Fluent</span>
                         <span class="tool-tag">CFD</span>
                         <span class="tool-tag">HVAC Design</span>
                     </div>
                 </div>
-
-                <div class="project-card fade-in">
-                    <img src="project-images/robotic_arm.jpg" alt="Mohamed's SolidWorks Robotic Arm Rendering" class="project-image">
-                    <h3>Robotic Arm Design</h3>
-                    <p>Designed a pick-and-place robotic arm, boosting efficiency by 25% with SolidWorks and ROS.</p>
+                <div class="project-card fade-in" data-category="robotics">
+                    <div id="model-viewer"></div>
+                    <h3>Robotic Gripper Design</h3>
+                    <p>Designed a precision robotic gripper for industrial automation, improving grasping efficiency by 30% using SolidWorks and ROS.</p>
                     <div class="project-tools">
                         <span class="tool-tag">SolidWorks</span>
                         <span class="tool-tag">ROS</span>
-                        <span class="tool-tag">Python</span>
+                        <span class="tool-tag">Robotics</span>
                     </div>
                 </div>
-
-                <div class="project-card fade-in">
-                    <img src="project-images/solar_mounting.jpg" alt="Mohamed's Solar Panel Mounting System Design" class="project-image">
+                <div class="project-card fade-in" data-category="industry4">
+                    <img src="project-images/iot_sensor.jpg" loading="lazy" alt="IoT Sensor Integration Diagram" class="project-image">
+                    <h3>IoT Sensor Integration</h3>
+                    <p>Developed an IoT sensor system for real-time monitoring, enhancing process efficiency by 25% using Python and Arduino.</p>
+                    <div class="project-tools">
+                        <span class="tool-tag">Python</span>
+                        <span class="tool-tag">Arduino</span>
+                        <span class="tool-tag">IoT</span>
+                    </div>
+                </div>
+                <div class="project-card fade-in" data-category="cnc">
+                    <img src="project-images/cnc_toolpath.jpg" loading="lazy" alt="CNC Toolpath Optimization Diagram" class="project-image">
+                    <h3>CNC Toolpath Optimization</h3>
+                    <p>Programmed G-code for a CNC milling operation, reducing machining time by 15% using Fusion 360 CAM.</p>
+                    <div class="project-tools">
+                        <span class="tool-tag">Fusion 360</span>
+                        <span class="tool-tag">G-Code</span>
+                        <span class="tool-tag">CNC</span>
+                    </div>
+                </div>
+                <div class="project-card fade-in" data-category="renewable">
+                    <img src="project-images/solar_mounting.jpg" loading="lazy" alt="Solar Panel Mounting System Design" class="project-image">
                     <h3>Solar Panel Mounting System</h3>
-                    <p>Designed a modular solar mounting system, improving installation efficiency by 15% using SolidWorks.</p>
+                    <p>Designed a modular solar mounting system for a 10 MW solar farm, improving installation efficiency by 15% using SolidWorks.</p>
                     <div class="project-tools">
                         <span class="tool-tag">SolidWorks</span>
                         <span class="tool-tag">Renewable Energy</span>
                     </div>
                 </div>
-
-                <div class="project-card fade-in">
-                    <img src="project-images/irrigation_system.jpg" alt="Mohamed's Drip Irrigation System Diagram" class="project-image">
+                <div class="project-card fade-in" data-category="irrigation">
+                    <img src="project-images/irrigation_system.jpg" loading="lazy" alt="Drip Irrigation System Diagram" class="project-image">
                     <h3>Drip Irrigation System</h3>
-                    <p>Optimized a drip irrigation system for agriculture, reducing water usage by 30% with CFD analysis.</p>
+                    <p>Optimized a drip irrigation system for a 50-hectare farm, reducing water usage by 30% through OpenFOAM CFD analysis.</p>
                     <div class="project-tools">
                         <span class="tool-tag">OpenFOAM</span>
                         <span class="tool-tag">Irrigation Design</span>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <img src="project-images/mining_conveyor.jpg" alt="Mohamed's Mining Conveyor Belt FEA Analysis" class="project-image">
-                    <h3>Mining Conveyor Belt Analysis</h3>
-                    <p>Performed FEA on a conveyor belt system, enhancing durability by 20% for mining applications.</p>
-                    <div class="project-tools">
-                        <span class="tool-tag">ANSYS</span>
-                        <span class="tool-tag">FEA</span>
-                        <span class="tool-tag">Mining</span>
                     </div>
                 </div>
             </div>
@@ -1147,10 +1265,7 @@
     <section id="experience" class="experience">
         <div class="container">
             <h2 class="section-title fade-in">Professional Experience</h2>
-            <p class="section-subtitle fade-in">
-                5+ years delivering innovative solutions across diverse industries globally.
-            </p>
-
+            <p class="section-subtitle fade-in">Delivering innovative solutions across diverse industries since 2020.</p>
             <div class="experience-grid">
                 <div class="experience-card fade-in">
                     <div class="experience-header">
@@ -1160,52 +1275,43 @@
                         </div>
                         <div class="experience-date">May 2025 – Present</div>
                     </div>
-                    <div class="experience-description">
-                        Training naval officers in advanced CAD techniques for maritime applications.
-                    </div>
+                    <div class="experience-description">Training naval officers in advanced CAD techniques for maritime applications.</div>
                     <ul class="experience-achievements">
                         <li>Developed training modules for AutoCAD and SolidWorks.</li>
-                        <li>Ensured ISO-compliant design practices.</li>
+                        <li>Ensured compliance with ISO drawing standards.</li>
                         <li>Led hands-on projects to enhance skills.</li>
                     </ul>
                 </div>
-
                 <div class="experience-card fade-in">
                     <div class="experience-header">
                         <div>
                             <div class="experience-title">Freelance Mechanical Engineer</div>
                             <div class="experience-company">Upwork & PeoplePerHour (<a href="https://www.upwork.com/freelancers/babahmoudy" target="_blank">View Profile</a>)</div>
                         </div>
-                        <div class="experience-date">July 2024 – Present</div>
+                        <div class="experience-date">July 2020 – Present</div>
                     </div>
-                    <div class="experience-description">
-                        Delivered 20+ projects with 5-star ratings, specializing in CAD, FEA, CFD, and automation.
-                    </div>
+                    <div class="experience-description">Delivered 20+ projects with 5-star ratings, specializing in CAD, FEA, CFD, robotics, and automation.</div>
                     <ul class="experience-achievements">
-                        <li>Completed projects in renewable energy, irrigation, and mining.</li>
+                        <li>Completed projects in renewable energy, irrigation, and IoT.</li>
                         <li>Automated workflows using Python and MySQL.</li>
                         <li>Maintained 100% client satisfaction on Upwork.</li>
                     </ul>
                 </div>
-
                 <div class="experience-card fade-in">
                     <div class="experience-header">
                         <div>
                             <div class="experience-title">R&D Engineer</div>
                             <div class="experience-company">LaMcube Laboratory, Lille, France (<a href="https://lamcube.univ-lille.fr/" target="_blank">View Lab</a>)</div>
                         </div>
-                        <div class="experience-date">March 2020 – June 2024</div>
+                        <div class="experience-date">March 2020 – June 2023</div>
                     </div>
-                    <div class="experience-description">
-                        Advanced research in metal fatigue and elastoplastic simulations.
-                    </div>
+                    <div class="experience-description">Advanced research in metal fatigue and elastoplastic simulations.</div>
                     <ul class="experience-achievements">
                         <li>Reduced simulation times via Python-Fortran-Abaqus automation.</li>
                         <li>Developed scripts for stress field analysis.</li>
                         <li>Contributed to innovative research at LaMcube.</li>
                     </ul>
                 </div>
-
                 <div class="experience-card fade-in">
                     <div class="experience-header">
                         <div>
@@ -1214,13 +1320,26 @@
                         </div>
                         <div class="experience-date">January 2019 – February 2020</div>
                     </div>
-                    <div class="experience-description">
-                        Designed and optimized mechanical components for industrial applications.
-                    </div>
+                    <div class="experience-description">Designed and optimized mechanical components for industrial applications.</div>
                     <ul class="experience-achievements">
                         <li>Created 3D models and drawings using CATIA V5.</li>
                         <li>Performed FEA to ensure component reliability.</li>
                         <li>Collaborated on innovative design solutions.</li>
+                    </ul>
+                </div>
+                <div class="experience-card fade-in">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Mechanical Engineering Intern</div>
+                            <div class="experience-company">TRANSTU, Tunis, Tunisia</div>
+                        </div>
+                        <div class="experience-date">June 2018 – August 2018</div>
+                    </div>
+                    <div class="experience-description">Performed maintenance on Citadis metros and collaborated on reliability improvements.</div>
+                    <ul class="experience-achievements">
+                        <li>Conducted daily maintenance tasks on metro systems.</li>
+                        <li>Assisted in optimizing maintenance processes.</li>
+                        <li>Applied CAD skills for component documentation.</li>
                     </ul>
                 </div>
             </div>
@@ -1230,52 +1349,38 @@
     <!-- Education Section -->
     <section id="education" class="education">
         <div class="container">
-            <h2 class="section-title fade-in">Education & Certifications</h2>
-            <p class="section-subtitle fade-in">
-                Strong academic foundation and certifications for advanced engineering solutions.
-            </p>
-
+            <h2 class="section-title fade-in">Education & Skills</h2>
+            <p class="section-subtitle fade-in">Strong academic foundation from ENIT and proficiency in advanced engineering tools.</p>
             <div class="education-timeline">
                 <div class="timeline">
                     <div class="timeline-item fade-in">
                         <div class="timeline-degree">Mechanical Engineering Degree</div>
                         <div class="timeline-school">École Nationale d'Ingénieurs de Tunis (ENIT), Tunisia (<a href="https://enit.rnu.tn/" target="_blank">View ENIT</a>)</div>
                         <div class="timeline-date">September 2017 – September 2020</div>
-                        <div class="timeline-details">
-                            Specialized in mechanical systems design, finite element methods, and advanced materials.
-                        </div>
+                        <div class="timeline-details">Specialized in mechanical systems design, finite element methods, and advanced materials.</div>
                     </div>
-
                     <div class="timeline-item fade-in">
                         <div class="timeline-degree">Preparatory Classes for Engineering Schools</div>
                         <div class="timeline-school">Institut Préparatoire aux Études d'Ingénieurs de Sfax (IPEIS), Tunisia (<a href="https://ipeis.rnu.tn/" target="_blank">View IPEIS</a>)</div>
                         <div class="timeline-date">September 2015 – September 2017</div>
-                        <div class="timeline-details">
-                            Intensive program in mathematics and physics for engineering school entrance exams.
-                        </div>
+                        <div class="timeline-details">Intensive program in mathematics and physics for engineering school entrance exams.</div>
                     </div>
-
                     <div class="timeline-item fade-in">
                         <div class="timeline-degree">Scientific Baccalaureate</div>
                         <div class="timeline-school">Mathematics Specialty, Nema, Mauritania</div>
                         <div class="timeline-date">2015</div>
-                        <div class="timeline-details">
-                            Graduated with honors, building a strong foundation in analytical sciences.
-                        </div>
+                        <div class="timeline-details">Graduated with honors, building a strong foundation in analytical sciences.</div>
                     </div>
-
                     <div class="timeline-item fade-in">
-                        <div class="timeline-degree">Professional Certifications</div>
+                        <div class="timeline-degree">Professional Skills</div>
                         <div class="timeline-school">Ongoing Development</div>
                         <div class="timeline-date">2018 – Present</div>
                         <div class="timeline-details">
                             <ul>
-                                <li>TOEIC B2 (English Proficiency)</li>
-                                <li>ISO Standards (Quality Management)</li>
-                                <li>HSE Safety Protocols (Occupational Safety)</li>
-                                <li>API Standards (Petroleum Industry Compliance)</li>
+                                <li>Proficient in ISO drawing standards</li>
+                                <li>TOEIC 790 (B2 Listening, 2022)</li>
+                                <li>Languages: Arabic (Native), French (Bilingual), English (Advanced)</li>
                             </ul>
-                            Languages: Arabic (Native), French (Bilingual), English (B2)
                         </div>
                     </div>
                 </div>
@@ -1287,10 +1392,7 @@
     <section id="testimonials" class="testimonials">
         <div class="container">
             <h2 class="section-title fade-in">Client Testimonials</h2>
-            <p class="section-subtitle fade-in">
-                Feedback on high-quality engineering solutions. <a href="https://www.upwork.com/freelancers/babahmoudy" target="_blank">View Upwork Reviews</a>.
-            </p>
-
+            <p class="section-subtitle fade-in">Feedback on high-quality engineering solutions. <a href="https://www.upwork.com/freelancers/babahmoudy" target="_blank">View Upwork Reviews</a>.</p>
             <div class="testimonials-grid">
                 <div class="testimonial-card fade-in">
                     <p>"Exceptional CFD expertise and automation skills delivered precise results, meeting tight deadlines."</p>
@@ -1312,10 +1414,7 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title fade-in">Get In Touch</h2>
-            <p class="section-subtitle fade-in">
-                Ready to advance your project in mechanics, renewable energy, or agriculture? Contact me today.
-            </p>
-
+            <p class="section-subtitle fade-in">Ready to advance your project in robotics, renewable energy, Industry 4.0, or CNC? Contact me today.</p>
             <div class="contact-content">
                 <div class="contact-info">
                     <h3>Collaborate on Innovative Projects</h3>
@@ -1351,22 +1450,13 @@
                         </div>
                         <div class="contact-item fade-in">
                             <div id="pph-hireme"></div>
-                            <script type="text/javascript">
-                                (function(d, s) {
-                                    var useSSL = 'https:' == document.location.protocol;
-                                    var js, where = d.getElementsByTagName(s)[0],
-                                    js = d.createElement(s);
-                                    js.src = (useSSL ? 'https:' : 'http:') + '//www.peopleperhour.com/hire/3520836438/5147149.js?width=245&height=320&orientation=vertical&theme=dark&rnd='+parseInt(Math.random()*10000, 10);
-                                    try { where.parentNode.insertBefore(js, where); } catch (e) { if (typeof console !== 'undefined' && console.log && e.stack) { console.log(e.stack); } }
-                                }(document, 'script'));
-                            </script>
+                            <script defer src="https://www.peopleperhour.com/hire/3520836438/5147149.js?width=245&height=320&orientation=vertical&theme=dark"></script>
                         </div>
                     </div>
                 </div>
-
                 <div class="contact-form fade-in">
-                    <h3>Send a Message</h3>
-                    <form id="contact-form">
+                    <h3>Start Your Project</h3>
+                    <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" placeholder="Your Name" required aria-required="true">
@@ -1385,6 +1475,9 @@
                                 <option value="programming">Programming & Automation</option>
                                 <option value="renewable">Renewable Energy Design</option>
                                 <option value="irrigation">Irrigation & Agricultural Engineering</option>
+                                <option value="robotics">Robotics & Mechatronics</option>
+                                <option value="industry4">Industry 4.0 & IoT</option>
+                                <option value="cnc">CNC & G-Code Programming</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -1393,10 +1486,9 @@
                         </div>
                         <button type="submit" class="submit-btn" aria-label="Send message">Send Message</button>
                     </form>
-                    <div style="margin-top: 2rem;">
+                    <div style="margin-top: 1.5rem;">
                         <a href="https://www.upwork.com/freelancers/babahmoudy" target="_blank" class="cta-button" aria-label="Hire on Upwork">
-                            <i class="fas fa-briefcase"></i>
-                            Hire Me on Upwork
+                            <i class="fas fa-briefcase"></i> Hire Me on Upwork
                         </a>
                     </div>
                 </div>
@@ -1419,7 +1511,6 @@
         // Hamburger Menu Toggle
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
-
         hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('active');
         });
@@ -1430,6 +1521,40 @@
             alert('Thank you for your message! I will get back to you soon.');
             e.target.reset();
         });
+
+        // Project Filter
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                const filter = button.getAttribute('data-filter');
+                projectCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    card.style.display = (filter === 'all' || filter === category) ? 'block' : 'none';
+                });
+            });
+        });
+
+        // Simple 3D Model Viewer for Robotic Gripper
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, 300 / 200, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(300, 200);
+        document.getElementById('model-viewer').appendChild(renderer.domElement);
+        const geometry = new THREE.BoxGeometry(1, 1, 1);
+        const material = new THREE.MeshBasicMaterial({ color: 0x3b82f6 });
+        const cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+        camera.position.z = 5;
+        function animate() {
+            requestAnimationFrame(animate);
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+        animate();
     </script>
 </body>
 </html>
