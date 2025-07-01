@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mohamed Lemine Baba Hmoudy - Mechanical Engineer. Expert in CAD, FEA, CFD, robotics, mechatronics, biomedical, renewable energy, irrigation, agriculture, mining, Industry 4.0, and CNC. Delivered 20+ projects across 4 countries.">
-    <meta name="keywords" content="freelance mechanical engineer, CAD design, FEA analysis, CFD simulation, robotics, mechatronics, biomedical engineering, renewable energy, irrigation systems, agricultural machinery, mining equipment, Industry 4.0, CNC programming, SolidWorks, ANSYS, Abaqus, Upwork, Mauritania, Tunisia">
+    <meta name="description" content="Mohamed Lemine Baba Hmoudy - Mechanical Engineer. Expert in CAD, FEA, CFD, and Python automation. Delivered 20+ projects across 4 countries.">
+    <meta name="keywords" content="freelance mechanical engineer, CAD design, FEA analysis, CFD simulation, Python automation, SolidWorks, ANSYS, Abaqus, Fusion 360, OpenFOAM, Upwork, Mauritania, Tunisia">
     <meta name="author" content="Mohamed Lemine Baba Hmoudy">
     <title>Mohamed Lemine Baba Hmoudy | Mechanical Engineer</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -103,6 +103,7 @@
             color: white;
             position: relative;
             overflow: hidden;
+            padding-top: 70px;
         }
 
         .hero::before {
@@ -262,6 +263,16 @@
             color: #1e293b;
         }
 
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .impact-content {
             max-width: 800px;
             margin: 0 auto;
@@ -316,16 +327,6 @@
         .services {
             padding: 6rem 0;
             background: white;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #64748b;
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .services-grid {
@@ -388,28 +389,10 @@
             margin-right: 0.75rem;
         }
 
-        /* Video Demo Section */
-        .video-demo {
-            padding: 6rem 0;
-            background: #f8fafc;
-        }
-
-        .video-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .video-container video {
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-        }
-
         /* Projects Section */
         .projects {
             padding: 6rem 0;
-            background: white;
+            background: #f8fafc;
         }
 
         .project-filter {
@@ -497,10 +480,100 @@
             font-weight: 500;
         }
 
+        .parameters-table {
+            margin: 1rem 2rem;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .parameters-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .parameters-table th, .parameters-table td {
+            padding: 0.5rem;
+            border: 1px solid #e0e7ff;
+            text-align: left;
+        }
+
+        .parameters-table th {
+            background: #e0e7ff;
+            color: #1e40af;
+        }
+
+        /* Visual Portfolio Subsection */
+        .visual-portfolio {
+            margin-top: 4rem;
+        }
+
+        .visual-portfolio h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #1e293b;
+            text-align: center;
+        }
+
+        .visual-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .visual-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .visual-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .visual-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .visual-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Video Demo Section */
+        .video-demo {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .video-container video {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 1rem;
+        }
+
         /* Experience Section */
         .experience {
             padding: 6rem 0;
-            background: #f8fafc;
+            background: white;
         }
 
         .experience-grid {
@@ -575,7 +648,7 @@
         /* Education Section */
         .education {
             padding: 6rem 0;
-            background: white;
+            background: #f8fafc;
         }
 
         .education-timeline {
@@ -654,7 +727,7 @@
         /* Testimonials Section */
         .testimonials {
             padding: 6rem 0;
-            background: #f8fafc;
+            background: white;
         }
 
         .testimonials-grid {
@@ -893,6 +966,10 @@
                 display: block;
             }
 
+            .hero {
+                padding-top: 60px;
+            }
+
             .hero h1 {
                 font-size: 2rem;
             }
@@ -958,7 +1035,6 @@
         .service-card:nth-child(5), .project-card:nth-child(5) { animation-delay: 0.5s; }
         .service-card:nth-child(6), .project-card:nth-child(6) { animation-delay: 0.6s; }
         .service-card:nth-child(7), .project-card:nth-child(7) { animation-delay: 0.7s; }
-        .service-card:nth-child(8), .project-card:nth-child(8) { animation-delay: 0.8s; }
     </style>
 </head>
 <body>
@@ -972,8 +1048,8 @@
                 <li><a href="#global-impact" class="nav-link" aria-label="Navigate to global impact">Global Impact</a></li>
                 <li><a href="#freelance" class="nav-link" aria-label="Navigate to freelance highlights">Freelance</a></li>
                 <li><a href="#services" class="nav-link" aria-label="Navigate to services">Services</a></li>
-                <li><a href="#video" class="nav-link" aria-label="Navigate to video demo">Video Demo</a></li>
                 <li><a href="#projects" class="nav-link" aria-label="Navigate to projects">Projects</a></li>
+                <li><a href="#video" class="nav-link" aria-label="Navigate to video demo">Video Demo</a></li>
                 <li><a href="#experience" class="nav-link" aria-label="Navigate to experience">Experience</a></li>
                 <li><a href="#education" class="nav-link" aria-label="Navigate to education">Education</a></li>
                 <li><a href="#testimonials" class="nav-link" aria-label="Navigate to testimonials">Testimonials</a></li>
@@ -995,7 +1071,7 @@
                 <h1>Mohamed Lemine Baba Hmoudy</h1>
                 <p class="hero-subtitle">Mechanical Engineer</p>
                 <p class="hero-description">
-                    Trilingual engineer (Arabic, French, English) delivering innovative solutions in CAD, FEA, CFD, robotics, mechatronics, biomedical engineering, renewable energy, irrigation, agriculture, mining, Industry 4.0, and CNC programming. Delivered 20+ projects across 4 countries with a 5-star Upwork rating.
+                    Mechanical engineer with expertise in CAD, FEA, CFD, and Python automation, delivering 20+ projects across 4 countries with a 5-star Upwork rating. Passionate about robotics, Industry 4.0, and CNC programming.
                 </p>
             </div>
             <div class="certifications-badge">
@@ -1022,7 +1098,7 @@
         <div class="container">
             <h2 class="section-title fade-in">Global Impact</h2>
             <div class="impact-content fade-in">
-                <p>Delivered 20+ projects across 4 countries (UK, France, Belgium, Germany) since 2020, leveraging expertise from studies in Tunisia (2015–2020) and research in France (2020–2023). Specializing in CAD, FEA, CFD, robotics, and Industry 4.0 for global industries.</p>
+                <p>Completed 20+ projects for clients in 4 countries (UK, France, Belgium, Germany) since 2020, applying skills from ENIT (Tunisia) and research in France.</p>
             </div>
         </div>
     </section>
@@ -1053,14 +1129,14 @@
     <section id="services" class="services">
         <div class="container">
             <h2 class="section-title fade-in">Engineering Services</h2>
-            <p class="section-subtitle fade-in">Comprehensive solutions for industry, robotics, biomedical, renewable energy, agriculture, mining, Industry 4.0, and CNC programming.</p>
+            <p class="section-subtitle fade-in">Tailored solutions in CAD, FEA, CFD, Python automation, robotics, Industry 4.0, and CNC programming.</p>
             <div class="services-grid">
                 <div class="service-card fade-in">
                     <i class="fas fa-drafting-compass service-icon"></i>
                     <h3>CAD Design & Modeling</h3>
                     <p>High-precision 3D modeling and technical drawings for manufacturing and prototyping.</p>
                     <ul class="service-features">
-                        <li>SolidWorks, AutoCAD, CATIA V5, Fusion 360</li>
+                        <li>SolidWorks, AutoCAD, CATIA, Fusion 360</li>
                         <li>Parametric & Assembly Modeling</li>
                         <li>Technical Drawings & GD&T</li>
                         <li>Design for Manufacturing (DFM)</li>
@@ -1100,31 +1176,9 @@
                     </ul>
                 </div>
                 <div class="service-card fade-in">
-                    <i class="fas fa-solar-panel service-icon"></i>
-                    <h3>Renewable Energy Design</h3>
-                    <p>Sustainable solutions for solar, wind, and hybrid energy systems.</p>
-                    <ul class="service-features">
-                        <li>Solar Panel Mounting Design</li>
-                        <li>Wind Turbine Component Analysis</li>
-                        <li>Energy Efficiency Optimization</li>
-                        <li>Renewable System Integration</li>
-                    </ul>
-                </div>
-                <div class="service-card fade-in">
-                    <i class="fas fa-tractor service-icon"></i>
-                    <h3>Irrigation & Agricultural Engineering</h3>
-                    <p>Efficient irrigation systems and machinery for sustainable agriculture.</p>
-                    <ul class="service-features">
-                        <li>Drip & Sprinkler System Design</li>
-                        <li>Agricultural Machinery Optimization</li>
-                        <li>Water Flow Analysis</li>
-                        <li>Automation for Precision Farming</li>
-                    </ul>
-                </div>
-                <div class="service-card fade-in">
                     <i class="fas fa-robot service-icon"></i>
                     <h3>Robotics & Mechatronics</h3>
-                    <p>Innovative solutions for robotic systems and mechatronic applications.</p>
+                    <p>Exploratory solutions for robotic systems and mechatronic applications.</p>
                     <ul class="service-features">
                         <li>Robotic Arm & Gripper Design</li>
                         <li>Control Systems Development</li>
@@ -1135,7 +1189,7 @@
                 <div class="service-card fade-in">
                     <i class="fas fa-industry service-icon"></i>
                     <h3>Industry 4.0 & IoT</h3>
-                    <p>Smart solutions for IoT integration and Industry 4.0 automation.</p>
+                    <p>Exploratory smart solutions for IoT integration and Industry 4.0 automation.</p>
                     <ul class="service-features">
                         <li>IoT Sensor Integration</li>
                         <li>Smart Automation Systems</li>
@@ -1158,25 +1212,11 @@
         </div>
     </section>
 
-    <!-- Video Demo Section -->
-    <section id="video" class="video-demo">
-        <div class="container">
-            <h2 class="section-title fade-in">Video Demo</h2>
-            <p class="section-subtitle fade-in">Watch a sample CAD-to-FEA workflow showcasing precision engineering.</p>
-            <div class="video-container fade-in">
-                <video controls poster="project-images/cad_fea_poster.jpg">
-                    <source src="videos/cad_fea_demo.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
-    </section>
-
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title fade-in">Featured Projects</h2>
-            <p class="section-subtitle fade-in">Innovative solutions in CAD, FEA, CFD, robotics, Industry 4.0, and more. <a href="https://lamcube.univ-lille.fr/" target="_blank">View LaMcube Research</a>.</p>
+            <p class="section-subtitle fade-in">Showcasing expertise in CAD, FEA, CFD, and automation with visualizations. <a href="https://lamcube.univ-lille.fr/" target="_blank">View LaMcube Research</a>.</p>
             <div class="project-filter fade-in">
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="cad">CAD</button>
@@ -1185,78 +1225,163 @@
                 <button class="filter-btn" data-filter="robotics">Robotics</button>
                 <button class="filter-btn" data-filter="industry4">Industry 4.0</button>
                 <button class="filter-btn" data-filter="cnc">CNC</button>
-                <button class="filter-btn" data-filter="renewable">Renewable Energy</button>
-                <button class="filter-btn" data-filter="irrigation">Irrigation</button>
             </div>
             <div class="projects-grid">
+                <div class="project-card fade-in" data-category="cad">
+                    <img src="project-images/phone_stand.jpg" loading="lazy" alt="SolidWorks Modular Phone Stand Rendering" class="project-image">
+                    <h3>Modular Phone Stand Design</h3>
+                    <p>Designed a customizable phone stand with adjustable angles, rendered in KeyShot for client presentation.</p>
+                    <div class="parameters-table">
+                        <table>
+                            <tr><th>Parameter</th><th>Value</th></tr>
+                            <tr><td>Material</td><td>ABS Plastic</td></tr>
+                            <tr><td>Dimensions</td><td>100x50x30 mm</td></tr>
+                            <tr><td>Features</td><td>Adjustable hinge, non-slip base</td></tr>
+                        </table>
+                    </div>
+                    <div class="project-tools">
+                        <span class="tool-tag">SolidWorks</span>
+                        <span class="tool-tag">KeyShot</span>
+                        <span class="tool-tag">CAD</span>
+                    </div>
+                </div>
                 <div class="project-card fade-in" data-category="fea">
-                    <img src="project-images/fracture_simulation.jpg" loading="lazy" alt="Abaqus Fracture Mechanics Simulation Diagram" class="project-image">
-                    <h3>Fracture Mechanics Simulation</h3>
-                    <p>Developed stress intensity factor analysis for critical components, achieving 95% accuracy in predicting failure modes using Python automation.</p>
+                    <img src="project-images/cantilever_fea.jpg" loading="lazy" alt="Abaqus Cantilever Beam Stress Analysis" class="project-image">
+                    <h3>Cantilever Beam Stress Analysis</h3>
+                    <p>Performed FEA on a steel cantilever beam, achieving 98% accuracy in stress prediction using Abaqus and Python automation.</p>
+                    <div class="parameters-table">
+                        <table>
+                            <tr><th>Parameter</th><th>Value</th></tr>
+                            <tr><td>Material</td><td>Steel (E = 200 GPa, ν = 0.3)</td></tr>
+                            <tr><td>Mesh Size</td><td>5 mm (C3D8R elements)</td></tr>
+                            <tr><td>Load</td><td>10 kN (distributed)</td></tr>
+                            <tr><td>Boundary Condition</td><td>Fixed at one end</td></tr>
+                        </table>
+                    </div>
                     <div class="project-tools">
                         <span class="tool-tag">Abaqus</span>
                         <span class="tool-tag">Python</span>
-                        <span class="tool-tag">Fatigue Analysis</span>
+                        <span class="tool-tag">FEA</span>
                     </div>
                 </div>
                 <div class="project-card fade-in" data-category="cfd">
-                    <img src="project-images/hvac_optimization.jpg" loading="lazy" alt="ANSYS Fluent HVAC Optimization Diagram" class="project-image">
-                    <h3>HVAC System Optimization</h3>
-                    <p>Optimized industrial HVAC airflow for a 50,000 m² facility, reducing energy consumption by 20% through ANSYS Fluent simulations.</p>
+                    <img src="project-images/pipe_flow.jpg" loading="lazy" alt="ANSYS Fluent Pipe Flow Analysis" class="project-image">
+                    <h3>Pipe Flow CFD Analysis</h3>
+                    <p>Simulated laminar flow in a 50 mm diameter pipe, visualizing velocity contours with ANSYS Fluent.</p>
+                    <div class="parameters-table">
+                        <table>
+                            <tr><th>Parameter</th><th>Value</th></tr>
+                            <tr><td>Fluid</td><td>Water (ρ = 1000 kg/m³)</td></tr>
+                            <tr><td>Reynolds Number</td><td>2000</td></tr>
+                            <tr><td>Inlet Velocity</td><td>0.1 m/s</td></tr>
+                            <tr><td>Mesh</td><td>10,000 tetrahedral elements</td></tr>
+                        </table>
+                    </div>
                     <div class="project-tools">
                         <span class="tool-tag">ANSYS Fluent</span>
                         <span class="tool-tag">CFD</span>
-                        <span class="tool-tag">HVAC Design</span>
-                    </div>
-                </div>
-                <div class="project-card fade-in" data-category="robotics">
-                    <div id="model-viewer"></div>
-                    <h3>Robotic Gripper Design</h3>
-                    <p>Designed a precision robotic gripper for industrial automation, improving grasping efficiency by 30% using SolidWorks and ROS.</p>
-                    <div class="project-tools">
-                        <span class="tool-tag">SolidWorks</span>
-                        <span class="tool-tag">ROS</span>
-                        <span class="tool-tag">Robotics</span>
-                    </div>
-                </div>
-                <div class="project-card fade-in" data-category="industry4">
-                    <img src="project-images/iot_sensor.jpg" loading="lazy" alt="IoT Sensor Integration Diagram" class="project-image">
-                    <h3>IoT Sensor Integration</h3>
-                    <p>Developed an IoT sensor system for real-time monitoring, enhancing process efficiency by 25% using Python and Arduino.</p>
-                    <div class="project-tools">
-                        <span class="tool-tag">Python</span>
-                        <span class="tool-tag">Arduino</span>
-                        <span class="tool-tag">IoT</span>
                     </div>
                 </div>
                 <div class="project-card fade-in" data-category="cnc">
-                    <img src="project-images/cnc_toolpath.jpg" loading="lazy" alt="CNC Toolpath Optimization Diagram" class="project-image">
+                    <img src="project-images/cnc_toolpath.jpg" loading="lazy" alt="Fusion 360 CNC Toolpath" class="project-image">
                     <h3>CNC Toolpath Optimization</h3>
-                    <p>Programmed G-code for a CNC milling operation, reducing machining time by 15% using Fusion 360 CAM.</p>
+                    <p>Programmed G-code for a 50x50 mm aluminum plate, reducing machining time by 15% using Fusion 360 CAM.</p>
+                    <div class="parameters-table">
+                        <tr><th>Parameter</th><th>Value</th></tr>
+                        <tr><td>Material</td><td>Aluminum 6061</td></tr>
+                        <tr><td>Tool</td><td>6 mm end mill</td></tr>
+                        <tr><td>Spindle Speed</td><td>10,000 RPM</td></tr>
+                        <tr><td>Feed Rate</td><td>500 mm/min</td></tr>
+                    </table>
                     <div class="project-tools">
                         <span class="tool-tag">Fusion 360</span>
                         <span class="tool-tag">G-Code</span>
                         <span class="tool-tag">CNC</span>
                     </div>
                 </div>
-                <div class="project-card fade-in" data-category="renewable">
-                    <img src="project-images/solar_mounting.jpg" loading="lazy" alt="Solar Panel Mounting System Design" class="project-image">
-                    <h3>Solar Panel Mounting System</h3>
-                    <p>Designed a modular solar mounting system for a 10 MW solar farm, improving installation efficiency by 15% using SolidWorks.</p>
-                    <div class="project-tools">
-                        <span class="tool-tag">SolidWorks</span>
-                        <span class="tool-tag">Renewable Energy</span>
+                <div class="project-card fade-in" data-category="cfd">
+                    <img src="project-images/irrigation_emitter.jpg" loading="lazy" alt="OpenFOAM Irrigation Emitter Analysis" class="project-image">
+                    <h3>Drip Irrigation Emitter Analysis</h3>
+                    <p>Optimized flow in a drip emitter for a 50-hectare farm, reducing water usage by 30% using OpenFOAM.</p>
+                    <div class="parameters-table">
+                        <table>
+                            <tr><th>Parameter</th><th>Value</th></tr>
+                            <tr><td>Flow Rate</td><td>0.5 L/h</td></tr>
+                            <tr><td>Fluid</td><td>Water (μ = 0.001 Pa·s)</td></tr>
+                            <tr><td>Mesh</td><td>50,000 hexahedral elements</td></tr>
+                            <tr><td>Solver</td><td>simpleFoam</td></tr>
+                        </table>
                     </div>
-                </div>
-                <div class="project-card fade-in" data-category="irrigation">
-                    <img src="project-images/irrigation_system.jpg" loading="lazy" alt="Drip Irrigation System Diagram" class="project-image">
-                    <h3>Drip Irrigation System</h3>
-                    <p>Optimized a drip irrigation system for a 50-hectare farm, reducing water usage by 30% through OpenFOAM CFD analysis.</p>
                     <div class="project-tools">
                         <span class="tool-tag">OpenFOAM</span>
-                        <span class="tool-tag">Irrigation Design</span>
+                        <span class="tool-tag">CFD</span>
                     </div>
                 </div>
+                <div class="project-card fade-in" data-category="robotics">
+                    <div id="model-viewer"></div>
+                    <h3>Robotic Gripper Design</h3>
+                    <p>Designed an exploratory robotic gripper for automation, simulated in ROS and modeled in SolidWorks.</p>
+                    <div class="parameters-table">
+                        <table>
+                            <tr><th>Parameter</th><th>Value</th></tr>
+                            <tr><td>Material</td><td>Aluminum alloy</td></tr>
+                            <tr><td>Grip Force</td><td>50 N</td></tr>
+                            <tr><td>Degrees of Freedom</td><td>3</td></tr>
+                        </table>
+                    </div>
+                    <div class="project-tools">
+                        <span class="tool-tag">SolidWorks</span>
+                        <span class="tool-tag">ROS</span>
+                        <span class="tool-tag">Robotics</span>
+                    </div>
+                </div>
+            </div>
+            <div class="visual-portfolio">
+                <h3>Visual Portfolio</h3>
+                <div class="visual-grid">
+                    <div class="visual-item fade-in">
+                        <img src="project-images/phone_stand_render.jpg" loading="lazy" alt="Phone Stand Rendering">
+                        <div class="visual-caption">SolidWorks Phone Stand Rendering</div>
+                    </div>
+                    <div class="visual-item fade-in">
+                        <img src="project-images/cantilever_fea_plot.jpg" loading="lazy" alt="Abaqus Stress Plot">
+                        <div class="visual-caption">Abaqus Stress Plot</div>
+                    </div>
+                    <div class="visual-item fade-in">
+                        <img src="project-images/pipe_flow_contour.jpg" loading="lazy" alt="ANSYS Fluent Velocity Contour">
+                        <div class="visual-caption">ANSYS Fluent Velocity Contour</div>
+                    </div>
+                    <div class="visual-item fade-in">
+                        <img src="project-images/cnc_toolpath_sim.jpg" loading="lazy" alt="Fusion 360 CNC Simulation">
+                        <div class="visual-caption">Fusion 360 CNC Simulation</div>
+                    </div>
+                    <div class="visual-item fade-in">
+                        <img src="project-images/irrigation_flow.jpg" loading="lazy" alt="OpenFOAM Emitter Flow">
+                        <div class="visual-caption">OpenFOAM Emitter Flow</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Demo Section -->
+    <section id="video" class="video-demo">
+        <div class="container">
+            <h2 class="section-title fade-in">Video Demos</h2>
+            <p class="section-subtitle fade-in">Watch workflows showcasing CAD, FEA, CFD, and CNC expertise.</p>
+            <div class="video-container fade-in">
+                <video controls poster="project-images/cad_fea_poster.jpg">
+                    <source src="videos/cad_fea_demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <video controls poster="project-images/cfd_demo_poster.jpg">
+                    <source src="videos/cfd_demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <video controls poster="project-images/cnc_demo_poster.jpg">
+                    <source src="videos/cnc_demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </div>
     </section>
@@ -1290,7 +1415,7 @@
                         </div>
                         <div class="experience-date">July 2020 – Present</div>
                     </div>
-                    <div class="experience-description">Delivered 20+ projects with 5-star ratings, specializing in CAD, FEA, CFD, robotics, and automation.</div>
+                    <div class="experience-description">Delivered 20+ projects with 5-star ratings, specializing in CAD, FEA, CFD, and automation.</div>
                     <ul class="experience-achievements">
                         <li>Completed projects in renewable energy, irrigation, and IoT.</li>
                         <li>Automated workflows using Python and MySQL.</li>
@@ -1414,7 +1539,7 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title fade-in">Get In Touch</h2>
-            <p class="section-subtitle fade-in">Ready to advance your project in robotics, renewable energy, Industry 4.0, or CNC? Contact me today.</p>
+            <p class="section-subtitle fade-in">Ready to advance your project with CAD, FEA, CFD, or automation? Contact me today.</p>
             <div class="contact-content">
                 <div class="contact-info">
                     <h3>Collaborate on Innovative Projects</h3>
@@ -1473,8 +1598,6 @@
                                 <option value="fea">FEA Analysis</option>
                                 <option value="cfd">CFD Simulation</option>
                                 <option value="programming">Programming & Automation</option>
-                                <option value="renewable">Renewable Energy Design</option>
-                                <option value="irrigation">Irrigation & Agricultural Engineering</option>
                                 <option value="robotics">Robotics & Mechatronics</option>
                                 <option value="industry4">Industry 4.0 & IoT</option>
                                 <option value="cnc">CNC & G-Code Programming</option>
