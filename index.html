@@ -1,1683 +1,438 @@
-<!DOCTYPE html>
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mohamed Lemine Baba Hmoudy - Mechanical Engineer. Expert in CAD, FEA, CFD, and Python automation. Delivered 20+ projects across 4 countries.">
-    <meta name="keywords" content="freelance mechanical engineer, CAD design, FEA analysis, CFD simulation, Python automation, SolidWorks, ANSYS, Abaqus, Fusion 360, OpenFOAM, Upwork, Mauritania, Tunisia">
+    <meta name="description" content="Mohamed Lemine Baba Hmoudy - Mechanical Engineer specializing in CAD, FEA, CFD, automation, robotics, and tutoring in SolidWorks, ANSYS, Abaqus. Serving energy, manufacturing, and mining industries globally.">
+    <meta name="keywords" content="mechanical engineering, CAD design, FEA analysis, CFD simulation, SolidWorks tutoring, ANSYS training, Abaqus, Python automation, robotics, CNC programming, Mauritania engineering, freelance engineering">
     <meta name="author" content="Mohamed Lemine Baba Hmoudy">
-    <title>Mohamed Lemine Baba Hmoudy | Mechanical Engineer</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <title>M.L. Baba Hmoudy - Mechanical Engineering & Tutoring</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #1e293b;
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #60a5fa;
-            text-decoration: none;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-link {
-            color: #e2e8f0;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-            font-size: 0.95rem;
-        }
-
-        .nav-link:hover {
-            color: #60a5fa;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #60a5fa;
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .hamburger {
-            display: none;
-            font-size: 1.5rem;
-            color: #e2e8f0;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #334155 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-            padding-top: 70px;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 20%, rgba(96, 165, 250, 0.1) 0%, transparent 50%);
-            animation: float 10s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .hero-content {
-            max-width: 900px;
-            z-index: 2;
-        }
-
-        .profile-section {
-            margin-bottom: 3rem;
-        }
-
-        .profile-image {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            margin: 0 auto 2rem;
-            background: url('profile-pic.jpg') no-repeat center/cover;
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
-        }
-
-        .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #60a5fa, #3b82f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-subtitle {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            color: #fbbf24;
-            font-weight: 600;
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            color: #cbd5e1;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
-        }
-
-        .certifications-badge {
-            display: inline-flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .cert-badge {
-            background: rgba(255, 255, 255, 0.05);
-            color: #e2e8f0;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            border: 1px solid rgba(59, 130, 246, 0.3);
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
-            font-size: 1rem;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
-        }
-
-        .cta-button.secondary {
-            background: linear-gradient(135deg, #10b981, #059669);
-            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
-        }
-
-        .cta-button.secondary:hover {
-            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
-        }
-
-        /* WhatsApp Button */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-        }
-
-        /* Global Impact Section */
-        .global-impact {
-            padding: 6rem 0;
-            background: #f8fafc;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: #1e293b;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #64748b;
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .impact-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .impact-content p {
-            color: #64748b;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Freelance Highlights Section */
-        .freelance-highlights {
-            padding: 6rem 0;
-            background: white;
-        }
-
-        .highlights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .highlight-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .highlight-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .highlight-card h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #1e293b;
-        }
-
-        .highlight-card p {
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 6rem 0;
-            background: white;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(59, 130, 246, 0.1);
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
-            color: #3b82f6;
-            margin-bottom: 1rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #1e293b;
-        }
-
-        .service-card p {
-            color: #64748b;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .service-features {
-            list-style: none;
-            text-align: left;
-        }
-
-        .service-features li {
-            color: #64748b;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            font-size: 0.95rem;
-        }
-
-        .service-features li::before {
-            content: '✓';
-            color: #10b981;
-            font-weight: bold;
-            margin-right: 0.75rem;
-        }
-
-        /* Projects Section */
-        .projects {
-            padding: 6rem 0;
-            background: #f8fafc;
-        }
-
-        .project-filter {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            background: #e0e7ff;
-            color: #1e40af;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            background: #3b82f6;
-            color: white;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            loading: lazy;
-        }
-
-        #model-viewer {
-            width: 100%;
-            height: 200px;
-            background: #f8fafc;
-        }
-
-        .project-card h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin: 1rem 2rem;
-            color: #1e293b;
-        }
-
-        .project-card p {
-            color: #64748b;
-            margin: 0 2rem 1rem;
-            line-height: 1.6;
-        }
-
-        .project-tools {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 0 2rem 1.5rem;
-        }
-
-        .tool-tag {
-            background: #e0e7ff;
-            color: #1e40af;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .parameters-table {
-            margin: 1rem 2rem;
-            font-size: 0.9rem;
-            color: #64748b;
-        }
-
-        .parameters-table table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .parameters-table th, .parameters-table td {
-            padding: 0.5rem;
-            border: 1px solid #e0e7ff;
-            text-align: left;
-        }
-
-        .parameters-table th {
-            background: #e0e7ff;
-            color: #1e40af;
-        }
-
-        /* Visual Portfolio Subsection */
-        .visual-portfolio {
-            margin-top: 4rem;
-        }
-
-        .visual-portfolio h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            color: #1e293b;
-            text-align: center;
-        }
-
-        .visual-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .visual-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .visual-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .visual-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .visual-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            padding: 0.5rem;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        /* Video Demo Section */
-        .video-demo {
-            padding: 6rem 0;
-            background: white;
-        }
-
-        .video-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .video-container video {
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            margin-bottom: 1rem;
-        }
-
-        /* Experience Section */
-        .experience {
-            padding: 6rem 0;
-            background: white;
-        }
-
-        .experience-grid {
-            display: grid;
-            gap: 2rem;
-        }
-
-        .experience-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border-left: 4px solid #3b82f6;
-        }
-
-        .experience-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .experience-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #1e293b;
-        }
-
-        .experience-company {
-            color: #3b82f6;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-date {
-            color: #64748b;
-            font-weight: 500;
-        }
-
-        .experience-description {
-            color: #64748b;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .experience-achievements {
-            list-style: none;
-        }
-
-        .experience-achievements li {
-            color: #64748b;
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .experience-achievements li::before {
-            content: '▸';
-            color: #3b82f6;
-            position: absolute;
-            left: 0;
-        }
-
-        /* Education Section */
-        .education {
-            padding: 6rem 0;
-            background: #f8fafc;
-        }
-
-        .education-timeline {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: #3b82f6;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2rem;
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-
-        .timeline-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2.3rem;
-            top: 1.5rem;
-            width: 10px;
-            height: 10px;
-            background: #3b82f6;
-            border-radius: 50%;
-            border: 2px solid white;
-        }
-
-        .timeline-degree {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-school {
-            font-size: 1.1rem;
-            color: #3b82f6;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-date {
-            color: #64748b;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-details {
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            padding: 6rem 0;
-            background: white;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .testimonial-card p {
-            color: #1e293b;
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-
-        .testimonial-card cite {
-            color: #64748b;
-            font-weight: 500;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .contact-info h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        .contact-info p {
-            color: #cbd5e1;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .contact-methods {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-3px);
-        }
-
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            background: #3b82f6;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            color: white;
-        }
-
-        .contact-details h4 {
-            margin-bottom: 0.5rem;
-            color: #e2e8f0;
-            font-weight: 600;
-        }
-
-        .contact-details p {
-            color: #cbd5e1;
-            margin: 0;
-        }
-
-        .contact-details a {
-            color: #60a5fa;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-details a:hover {
-            color: #3b82f6;
-        }
-
-        .contact-form {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(5px);
-        }
-
-        .contact-form h3 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #e2e8f0;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            font-size: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            color: white;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #3b82f6;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: #94a3b8;
-        }
-
-        .submit-btn {
-            width: 100%;
-            background: #3b82f6;
-            color: white;
-            padding: 0.8rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
-        }
-
-        /* Footer */
-        .footer {
-            background: #0f172a;
-            color: #cbd5e1;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        .footer p {
-            margin-bottom: 1rem;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            color: #64748b;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .social-links a:hover {
-            color: #60a5fa;
-            background: rgba(59, 130, 246, 0.1);
-        }
-
-        /* Responsive Design */
+        body { font-family: 'Arial', sans-serif; background-color: #f4f4f4; scroll-behavior: smooth; }
+        .navbar { background-color: #1e3a8a; }
+        .navbar a { color: #ffffff; padding: 0.75rem; transition: background-color 0.3s; }
+        .navbar a:hover { background-color: #2563eb; }
+        .hero { background: linear-gradient(to right, #1e3a8a, #f97316); color: #ffffff; }
+        .section-bg { background-color: #ffffff; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+        .btn-primary { background-color: #f97316; color: #ffffff; padding: 0.5rem 1rem; border-radius: 0.375rem; transition: background-color 0.3s; }
+        .btn-primary:hover { background-color: #ea580c; }
+        .btn-secondary { background-color: #1e3a8a; color: #ffffff; padding: 0.5rem 1rem; border-radius: 0.375rem; transition: background-color 0.3s; }
+        .btn-secondary:hover { background-color: #2563eb; }
+        .project-card { transition: transform 0.3s; }
+        .project-card:hover { transform: translateY(-0.25rem); }
+        .contact-form input, .contact-form textarea { transition: border-color 0.3s; }
+        .contact-form input:focus, .contact-form textarea:focus { border-color: #f97316; outline: none; }
         @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                background: rgba(15, 23, 42, 0.95);
-                padding: 1rem 0;
-            }
-
-            .nav-menu.active {
-                display: flex;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
-            .hero {
-                padding-top: 60px;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-
-            .certifications-badge {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-
-            .experience-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .timeline {
-                padding-left: 1.5rem;
-            }
-
-            .timeline-item::before {
-                left: -2rem;
-            }
+            .navbar a { display: block; padding: 0.5rem; }
+            .section-bg { padding: 1rem; }
+            .hero { padding: 4rem 1rem; }
         }
-
-        /* Animations */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(10px);
-            animation: fadeInUp 0.5s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .service-card:nth-child(1), .project-card:nth-child(1), .highlight-card:nth-child(1), .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
-        .service-card:nth-child(2), .project-card:nth-child(2), .highlight-card:nth-child(2), .testimonial-card:nth-child(2) { animation-delay: 0.2s; }
-        .service-card:nth-child(3), .project-card:nth-child(3), .highlight-card:nth-child(3), .testimonial-card:nth-child(3) { animation-delay: 0.3s; }
-        .service-card:nth-child(4), .project-card:nth-child(4) { animation-delay: 0.4s; }
-        .service-card:nth-child(5), .project-card:nth-child(5) { animation-delay: 0.5s; }
-        .service-card:nth-child(6), .project-card:nth-child(6) { animation-delay: 0.6s; }
-        .service-card:nth-child(7), .project-card:nth-child(7) { animation-delay: 0.7s; }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">M.L. Baba Hmoudy</a>
-            <i class="fas fa-bars hamburger" aria-label="Toggle menu"></i>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link" aria-label="Navigate to home">Home</a></li>
-                <li><a href="#global-impact" class="nav-link" aria-label="Navigate to global impact">Global Impact</a></li>
-                <li><a href="#freelance" class="nav-link" aria-label="Navigate to freelance highlights">Freelance</a></li>
-                <li><a href="#services" class="nav-link" aria-label="Navigate to services">Services</a></li>
-                <li><a href="#projects" class="nav-link" aria-label="Navigate to projects">Projects</a></li>
-                <li><a href="#video" class="nav-link" aria-label="Navigate to video demo">Video Demo</a></li>
-                <li><a href="#experience" class="nav-link" aria-label="Navigate to experience">Experience</a></li>
-                <li><a href="#education" class="nav-link" aria-label="Navigate to education">Education</a></li>
-                <li><a href="#testimonials" class="nav-link" aria-label="Navigate to testimonials">Testimonials</a></li>
-                <li><a href="#contact" class="nav-link" aria-label="Navigate to contact">Contact</a></li>
-            </ul>
+    <nav class="navbar fixed top-0 w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-3">
+                <div class="text-lg font-bold text-white">M.L. Baba Hmoudy</div>
+                <div class="hidden md:flex space-x-2">
+                    <a href="#home" class="hover:bg-blue-700 rounded">Home</a>
+                    <a href="#about" class="hover:bg-blue-700 rounded">About</a>
+                    <a href="#services" class="hover:bg-blue-700 rounded">Services</a>
+                    <a href="#tutoring" class="hover:bg-blue-700 rounded">Tutoring</a>
+                    <a href="#projects" class="hover:bg-blue-700 rounded">Projects</a>
+                    <a href="#blog" class="hover:bg-blue-700 rounded">Blog</a>
+                    <a href="#youtube" class="hover:bg-blue-700 rounded">YouTube</a>
+                    <a href="#contact" class="hover:bg-blue-700 rounded">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden bg-blue-800">
+                <a href="#home" class="block px-4 py-2 text-white hover:bg-blue-700">Home</a>
+                <a href="#about" class="block px-4 py-2 text-white hover:bg-blue-700">About</a>
+                <a href="#services" class="block px-4 py-2 text-white hover:bg-blue-700">Services</a>
+                <a href="#tutoring" class="block px-4 py-2 text-white hover:bg-blue-700">Tutoring</a>
+                <a href="#projects" class="block px-4 py-2 text-white hover:bg-blue-700">Projects</a>
+                <a href="#blog" class="block px-4 py-2 text-white hover:bg-blue-700">Blog</a>
+                <a href="#youtube" class="block px-4 py-2 text-white hover:bg-blue-700">YouTube</a>
+                <a href="#contact" class="block px-4 py-2 text-white hover:bg-blue-700">Contact</a>
+            </div>
         </div>
     </nav>
 
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/+22226142025" class="whatsapp-float" aria-label="Contact via WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content fade-in">
-            <div class="profile-section">
-                <div class="profile-image" aria-label="Mohamed Lemine Baba Hmoudy's profile picture"></div>
-                <h1>Mohamed Lemine Baba Hmoudy</h1>
-                <p class="hero-subtitle">Mechanical Engineer</p>
-                <p class="hero-description">
-                    Mechanical engineer with expertise in CAD, FEA, CFD, and Python automation, delivering 20+ projects across 4 countries with a 5-star Upwork rating. Passionate about robotics, Industry 4.0, and CNC programming.
-                </p>
-            </div>
-            <div class="certifications-badge">
-                <span class="cert-badge">Mechanical Engineering, ENIT</span>
-                <span class="cert-badge">ISO Drawing Standards</span>
-                <span class="cert-badge">TOEIC 790 (B2 Listening, 2022)</span>
-            </div>
-            <div class="cta-buttons">
-                <a href="#projects" class="cta-button" aria-label="View projects">
-                    <i class="fas fa-briefcase"></i> Explore Projects
-                </a>
-                <a href="cv.pdf" class="cta-button secondary" aria-label="Download CV">
-                    <i class="fas fa-file-download"></i> Download CV
-                </a>
-                <a href="#contact" class="cta-button" aria-label="Get in touch">
-                    <i class="fas fa-paper-plane"></i> Start a Project
-                </a>
+    <section id="home" class="hero py-16 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <img src="profile.jpg" alt="Mohamed Lemine Baba Hmoudy" class="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-white">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">Mohamed Lemine Baba Hmoudy</h1>
+            <h2 class="text-xl md:text-2xl mb-6">Mechanical Engineer & Expert Tutor</h2>
+            <p class="text-base md:text-lg mb-6">Trilingual mechanical engineer (Arabic, French, English) delivering innovative solutions in CAD, FEA, CFD, automation, robotics, and CNC programming. With 20+ projects for global clients in energy, manufacturing, and mining, I offer precision engineering and tailored tutoring.</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#projects" class="btn-primary">View Projects</a>
+                <a href="cv.pdf" class="btn-secondary" download>Download CV</a>
+                <a href="#contact" class="btn-primary">Contact Me</a>
             </div>
         </div>
     </section>
 
-    <!-- Global Impact Section -->
-    <section id="global-impact" class="global-impact">
-        <div class="container">
-            <h2 class="section-title fade-in">Global Impact</h2>
-            <div class="impact-content fade-in">
-                <p>Completed 20+ projects for clients in 4 countries (UK, France, Belgium, Germany) since 2020, applying skills from ENIT (Tunisia) and research in France.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Freelance Highlights Section -->
-    <section id="freelance" class="freelance-highlights">
-        <div class="container">
-            <h2 class="section-title fade-in">Freelance Highlights</h2>
-            <p class="section-subtitle fade-in">Key projects showcasing expertise in CAD, FEA, CFD, and automation (2020–2023).</p>
-            <div class="highlights-grid">
-                <div class="highlight-card fade-in">
-                    <h3>CFD for Moth Inhaler</h3>
-                    <p>Optimized airflow for a biomedical inhaler, improving delivery efficiency by 15% using ANSYS Fluent.</p>
-                </div>
-                <div class="highlight-card fade-in">
-                    <h3>Automation Script</h3>
-                    <p>Developed Python scripts for Abaqus, reducing simulation setup time by 30% for structural analysis.</p>
-                </div>
-                <div class="highlight-card fade-in">
-                    <h3>CAD Component Design</h3>
-                    <p>Designed precision components for UK clients, achieving 100% client satisfaction on Upwork.</p>
-                </div>
+    <!-- About Section -->
+    <section id="about" class="py-12 bg-gray-100">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">About Me</h2>
+            <p class="text-base md:text-lg mb-4 text-center">With a Mechanical Engineering degree from ENIT, Tunisia (2020), and experience delivering 20+ projects across the UK, France, Belgium, and Germany, I bring technical expertise and global insight. As a CAD trainer at the Naval Academy (ESO) in Nouadhibou, Mauritania, I’m passionate about teaching SolidWorks, ANSYS, and Abaqus.</p>
+            <p class="text-base md:text-lg mb-4 text-center">My trilingual skills ensure clear communication, and my commitment to ethical, high-quality work drives solutions for industries like energy, manufacturing, and mining. Whether you need precise designs, advanced simulations, or personalized tutoring, I’m here to help you succeed.</p>
+            <div class="text-center">
+                <a href="#contact" class="btn-primary mt-4 inline-block">Work With Me</a>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title fade-in">Engineering Services</h2>
-            <p class="section-subtitle fade-in">Tailored solutions in CAD, FEA, CFD, Python automation, robotics, Industry 4.0, and CNC programming.</p>
-            <div class="services-grid">
-                <div class="service-card fade-in">
-                    <i class="fas fa-drafting-compass service-icon"></i>
-                    <h3>CAD Design & Modeling</h3>
-                    <p>High-precision 3D modeling and technical drawings for manufacturing and prototyping.</p>
-                    <ul class="service-features">
+    <section id="services" class="py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">Engineering Services</h2>
+            <p class="text-center mb-6 text-base md:text-lg">Tailored solutions for industrial design, simulation, and automation.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="section-bg p-4">
+                    <h3 class="text-lg font-semibold mb-2">CAD Design & Modeling</h3>
+                    <p class="text-sm md:text-base">Precision 3D modeling and technical drawings for manufacturing, automotive, and aerospace.</p>
+                    <ul class="list-disc pl-5 mt-2 text-sm md:text-base">
                         <li>SolidWorks, AutoCAD, CATIA, Fusion 360</li>
                         <li>Parametric & Assembly Modeling</li>
-                        <li>Technical Drawings & GD&T</li>
-                        <li>Design for Manufacturing (DFM)</li>
+                        <li>GD&T and ISO Standards</li>
+                        <li>Design for Manufacturing</li>
                     </ul>
+                    <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $25–$45/hour or $150–$400/project</p>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">Hire Now</a>
                 </div>
-                <div class="service-card fade-in">
-                    <i class="fas fa-calculator service-icon"></i>
-                    <h3>FEA & Structural Analysis</h3>
-                    <p>Advanced finite element analysis for robust structural design and failure prevention.</p>
-                    <ul class="service-features">
+                <div class="section-bg p-4">
+                    <h3 class="text-lg font-semibold mb-2">FEA & Structural Analysis</h3>
+                    <p class="text-sm md:text-base">Advanced finite element analysis for energy, construction, and mining.</p>
+                    <ul class="list-disc pl-5 mt-2 text-sm md:text-base">
                         <li>ANSYS, Abaqus, Cast3M</li>
-                        <li>Fatigue & Fracture Mechanics</li>
-                        <li>Modal & Dynamic Analysis</li>
-                        <li>Python Automation for Simulations</li>
+                        <li>Fatigue, Creep, Modal Analysis</li>
+                        <li>Python & Fortran Automation</li>
+                        <li>Fracture Mechanics</li>
                     </ul>
+                    <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $35–$60/hour or $250–$600/project</p>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">Hire Now</a>
                 </div>
-                <div class="service-card fade-in">
-                    <i class="fas fa-wind service-icon"></i>
-                    <h3>CFD & Thermal Analysis</h3>
-                    <p>Optimized fluid dynamics and thermal solutions for energy-efficient systems.</p>
-                    <ul class="service-features">
+                <div class="section-bg p-4">
+                    <h3 class="text-lg font-semibold mb-2">CFD & Thermal Analysis</h3>
+                    <p class="text-sm md:text-base">Fluid dynamics and thermal solutions for HVAC and energy systems.</p>
+                    <ul class="list-disc pl-5 mt-2 text-sm md:text-base">
                         <li>ANSYS Fluent, OpenFOAM, Star-CCM+</li>
-                        <li>Heat Transfer & Flow Analysis</li>
-                        <li>HVAC System Optimization</li>
-                        <li>Multi-Phase Flow Modeling</li>
+                        <li>Heat Transfer & Multiphase Flow</li>
+                        <li>Piping & HVAC Optimization</li>
+                        <li>Thermal Management</li>
                     </ul>
+                    <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $35–$60/hour or $250–$600/project</p>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">Hire Now</a>
                 </div>
-                <div class="service-card fade-in">
-                    <i class="fas fa-code service-icon"></i>
-                    <h3>Programming & Automation</h3>
-                    <p>Custom tools to streamline engineering workflows and enhance productivity.</p>
-                    <ul class="service-features">
+                <div class="section-bg p-4">
+                    <h3 class="text-lg font-semibold mb-2">Robotics & Mechatronics</h3>
+                    <p class="text-sm md:text-base">Innovative solutions for robotic systems and automation.</p>
+                    <ul class="list-disc pl-5 mt-2 text-sm md:text-base">
+                        <li>Arduino, ROS, Sensor Integration</li>
+                        <li>Robotic Grippers & Actuators</li>
+                        <li>Control Systems Development</li>
+                        <li>Prototyping & Testing</li>
+                    </ul>
+                    <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $30–$50/hour or $200–$500/project</p>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">Hire Now</a>
+                </div>
+                <div class="section-bg p-4">
+                    <h3 class="text-lg font-semibold mb-2">Programming & Automation</h3>
+                    <p class="text-sm md:text-base">Custom scripts to streamline engineering workflows.</p>
+                    <ul class="list-disc pl-5 mt-2 text-sm md:text-base">
                         <li>Python, MATLAB, Fortran, C++</li>
                         <li>Simulation Automation</li>
                         <li>Data Analysis & Visualization</li>
-                        <li>Custom Engineering Scripts</li>
+                        <li>Custom Engineering Tools</li>
                     </ul>
+                    <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $25–$45/hour or $150–$400/project</p>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">Hire Now</a>
                 </div>
-                <div class="service-card fade-in">
-                    <i class="fas fa-robot service-icon"></i>
-                    <h3>Robotics & Mechatronics</h3>
-                    <p>Exploratory solutions for robotic systems and mechatronic applications.</p>
-                    <ul class="service-features">
-                        <li>Robotic Arm & Gripper Design</li>
-                        <li>Control Systems Development</li>
-                        <li>ROS & Arduino Integration</li>
-                        <li>Automation Prototyping</li>
-                    </ul>
-                </div>
-                <div class="service-card fade-in">
-                    <i class="fas fa-industry service-icon"></i>
-                    <h3>Industry 4.0 & IoT</h3>
-                    <p>Exploratory smart solutions for IoT integration and Industry 4.0 automation.</p>
-                    <ul class="service-features">
-                        <li>IoT Sensor Integration</li>
-                        <li>Smart Automation Systems</li>
-                        <li>Data-Driven Process Optimization</li>
-                        <li>Python-Based IoT Solutions</li>
-                    </ul>
-                </div>
-                <div class="service-card fade-in">
-                    <i class="fas fa-cogs service-icon"></i>
-                    <h3>CNC & G-Code Programming</h3>
-                    <p>Precision CNC toolpath programming for manufacturing efficiency.</p>
-                    <ul class="service-features">
-                        <li>G-Code & CAM Programming</li>
-                        <li>CNC Machine Optimization</li>
+                <div class="section-bg p-4">
+                    <h3 class="text-lg font-semibold mb-2">CNC & G-Code Programming</h3>
+                    <p class="text-sm md:text-base">Precision toolpath programming for manufacturing.</p>
+                    <ul class="list-disc pl-5 mt-2 text-sm md:text-base">
+                        <li>Fusion 360, Mastercam</li>
+                        <li>G-Code Generation</li>
                         <li>Toolpath Simulation</li>
-                        <li>Design for CNC Manufacturing</li>
+                        <li>CNC Optimization</li>
                     </ul>
+                    <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $25–$45/hour or $150–$400/project</p>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">Hire Now</a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Tutoring Section -->
+    <section id="tutoring" class="py-12 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">Tutoring Packages</h2>
+            <p class="text-center mb-6 text-base md:text-lg">Learn CAD, FEA, and CFD with personalized tutoring for all skill levels.</p>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="section-bg p-4">
+                    <h3 class="text-lg font-semibold mb-2">Beginner Package</h3>
+                    <p class="text-sm md:text-base">Ideal for students and entry-level engineers starting with CAD or FEA.</p>
+                    <ul class="list-disc pl-5 mt-2 text-sm md:text-base">
+                        <li>5 hours of live tutoring (1-hour sessions)</li>
+                        <li>SolidWorks, AutoCAD, or ANSYS basics</li>
+                        <li>Hands-on exercises (e.g., 2D drafting)</li>
+                        <li>Recorded sessions & project files</li>
+                        <li>Email/WhatsApp support for 1 month</li>
+                    </ul>
+                    <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $50 (~2,000 MRU)</p>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">Enroll Now</a>
+                </div>
+                <div class="section-bg p-4">
+                    <h3 class="text-lg font-semibold mb-2">Intermediate Package</h3>
+                    <p class="text-sm md:text-base">Advanced skills for practical engineering applications.</p>
+                    <ul class="list-disc pl-5 mt-2 text-sm md:text-base">
+                        <li>8 hours of live tutoring (2-hour sessions)</li>
+                        <li>Advanced SolidWorks or ANSYS/Abaqus</li>
+                        <li>Real-world project (e.g., component design)</li>
+                        <li>Python scripting basics</li>
+                        <li>Recorded sessions & templates</li>
+                    </ul>
+                    <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $100 (~4,000 MRU)</p>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">Enroll Now</a>
+                </div>
+                <div class="section-bg p-4">
+                    <h3 class="text-lg font-semibold mb-2">Advanced Package</h3>
+                    <p class="text-sm md:text-base">Master complex simulations for professional projects.</p>
+                    <ul class="list-disc pl-5 mt-2 text-sm md:text-base">
+                        <li>12 hours of live tutoring (2-hour sessions)</li>
+                        <li>CFD, multiphysics, or advanced FEA</li>
+                        <li>Industry-grade project (e.g., HVAC design)</li>
+                        <li>Advanced Python automation</li>
+                        <li>1:1 mentorship & project review</li>
+                    </ul>
+                    <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $150 (~6,000 MRU)</p>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">Enroll Now</a>
+                </div>
+            </div>
+            <p class="text-center mt-4 text-sm md:text-base">Custom tutoring available. <a href="#contact" class="text-blue-600 hover:underline">Contact me</a>.</p>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title fade-in">Featured Projects</h2>
-            <p class="section-subtitle fade-in">Showcasing expertise in CAD, FEA, CFD, and automation with visualizations. <a href="https://lamcube.univ-lille.fr/" target="_blank">View LaMcube Research</a>.</p>
-            <div class="project-filter fade-in">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="cad">CAD</button>
-                <button class="filter-btn" data-filter="fea">FEA</button>
-                <button class="filter-btn" data-filter="cfd">CFD</button>
-                <button class="filter-btn" data-filter="robotics">Robotics</button>
-                <button class="filter-btn" data-filter="industry4">Industry 4.0</button>
-                <button class="filter-btn" data-filter="cnc">CNC</button>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card fade-in" data-category="cad">
-                    <img src="project-images/phone_stand.jpg" loading="lazy" alt="SolidWorks Modular Phone Stand Rendering" class="project-image">
-                    <h3>Modular Phone Stand Design</h3>
-                    <p>Designed a customizable phone stand with adjustable angles, rendered in KeyShot for client presentation.</p>
-                    <div class="parameters-table">
-                        <table>
-                            <tr><th>Parameter</th><th>Value</th></tr>
-                            <tr><td>Material</td><td>ABS Plastic</td></tr>
-                            <tr><td>Dimensions</td><td>100x50x30 mm</td></tr>
-                            <tr><td>Features</td><td>Adjustable hinge, non-slip base</td></tr>
-                        </table>
-                    </div>
-                    <div class="project-tools">
-                        <span class="tool-tag">SolidWorks</span>
-                        <span class="tool-tag">KeyShot</span>
-                        <span class="tool-tag">CAD</span>
-                    </div>
-                </div>
-                <div class="project-card fade-in" data-category="fea">
-                    <img src="project-images/cantilever_fea.jpg" loading="lazy" alt="Abaqus Cantilever Beam Stress Analysis" class="project-image">
-                    <h3>Cantilever Beam Stress Analysis</h3>
-                    <p>Performed FEA on a steel cantilever beam, achieving 98% accuracy in stress prediction using Abaqus and Python automation.</p>
-                    <div class="parameters-table">
-                        <table>
-                            <tr><th>Parameter</th><th>Value</th></tr>
-                            <tr><td>Material</td><td>Steel (E = 200 GPa, ν = 0.3)</td></tr>
-                            <tr><td>Mesh Size</td><td>5 mm (C3D8R elements)</td></tr>
-                            <tr><td>Load</td><td>10 kN (distributed)</td></tr>
-                            <tr><td>Boundary Condition</td><td>Fixed at one end</td></tr>
-                        </table>
-                    </div>
-                    <div class="project-tools">
-                        <span class="tool-tag">Abaqus</span>
-                        <span class="tool-tag">Python</span>
-                        <span class="tool-tag">FEA</span>
-                    </div>
-                </div>
-                <div class="project-card fade-in" data-category="cfd">
-                    <img src="project-images/pipe_flow.jpg" loading="lazy" alt="ANSYS Fluent Pipe Flow Analysis" class="project-image">
-                    <h3>Pipe Flow CFD Analysis</h3>
-                    <p>Simulated laminar flow in a 50 mm diameter pipe, visualizing velocity contours with ANSYS Fluent.</p>
-                    <div class="parameters-table">
-                        <table>
-                            <tr><th>Parameter</th><th>Value</th></tr>
-                            <tr><td>Fluid</td><td>Water (ρ = 1000 kg/m³)</td></tr>
-                            <tr><td>Reynolds Number</td><td>2000</td></tr>
-                            <tr><td>Inlet Velocity</td><td>0.1 m/s</td></tr>
-                            <tr><td>Mesh</td><td>10,000 tetrahedral elements</td></tr>
-                        </table>
-                    </div>
-                    <div class="project-tools">
-                        <span class="tool-tag">ANSYS Fluent</span>
-                        <span class="tool-tag">CFD</span>
-                    </div>
-                </div>
-                <div class="project-card fade-in" data-category="cnc">
-                    <img src="project-images/cnc_toolpath.jpg" loading="lazy" alt="Fusion 360 CNC Toolpath" class="project-image">
-                    <h3>CNC Toolpath Optimization</h3>
-                    <p>Programmed G-code for a 50x50 mm aluminum plate, reducing machining time by 15% using Fusion 360 CAM.</p>
-                    <div class="parameters-table">
+    <section id="projects" class="py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">Featured Projects</h2>
+            <p class="text-center mb-6 text-base md:text-lg">Showcasing innovative solutions in CAD, FEA, CFD, and robotics.</p>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="section-bg p-4 project-card">
+                    <img src="project_images/bracket_fea.jpg" alt="Bracket FEA Analysis" class="w-full h-40 object-cover mb-3 rounded">
+                    <h3 class="text-lg font-semibold mb-2">Bracket Stress Analysis</h3>
+                    <p class="text-sm md:text-base">Simulated stress in a steel bracket using Abaqus, achieving 98% accuracy.</p>
+                    <table class="w-full mt-3 text-xs md:text-sm">
                         <tr><th>Parameter</th><th>Value</th></tr>
-                        <tr><td>Material</td><td>Aluminum 6061</td></tr>
-                        <tr><td>Tool</td><td>6 mm end mill</td></tr>
-                        <tr><td>Spindle Speed</td><td>10,000 RPM</td></tr>
-                        <tr><td>Feed Rate</td><td>500 mm/min</td></tr>
+                        <tr><td>Material</td><td>Steel (E = 200 GPa)</td></tr>
+                        <tr><td>Load</td><td>10 kN</td></tr>
+                        <tr><td>Tool</td><td>Abaqus</td></tr>
                     </table>
-                    <div class="project-tools">
-                        <span class="tool-tag">Fusion 360</span>
-                        <span class="tool-tag">G-Code</span>
-                        <span class="tool-tag">CNC</span>
-                    </div>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">View Details</a>
                 </div>
-                <div class="project-card fade-in" data-category="cfd">
-                    <img src="project-images/irrigation_emitter.jpg" loading="lazy" alt="OpenFOAM Irrigation Emitter Analysis" class="project-image">
-                    <h3>Drip Irrigation Emitter Analysis</h3>
-                    <p>Optimized flow in a drip emitter for a 50-hectare farm, reducing water usage by 30% using OpenFOAM.</p>
-                    <div class="parameters-table">
-                        <table>
-                            <tr><th>Parameter</th><th>Value</th></tr>
-                            <tr><td>Flow Rate</td><td>0.5 L/h</td></tr>
-                            <tr><td>Fluid</td><td>Water (μ = 0.001 Pa·s)</td></tr>
-                            <tr><td>Mesh</td><td>50,000 hexahedral elements</td></tr>
-                            <tr><td>Solver</td><td>simpleFoam</td></tr>
-                        </table>
-                    </div>
-                    <div class="project-tools">
-                        <span class="tool-tag">OpenFOAM</span>
-                        <span class="tool-tag">CFD</span>
-                    </div>
+                <div class="section-bg p-4 project-card">
+                    <img src="project_images/pipe_flow_cfd.jpg" alt="Pipe Flow CFD" class="w-full h-40 object-cover mb-3 rounded">
+                    <h3 class="text-lg font-semibold mb-2">Pipe Flow CFD</h3>
+                    <p class="text-sm md:text-base">Analyzed laminar/turbulent flow in a 50 mm pipe using ANSYS Fluent.</p>
+                    <table class="w-full mt-3 text-xs md:text-sm">
+                        <tr><th>Parameter</th><th>Value</th></tr>
+                        <tr><td>Fluid</td><td>Water (ρ = 1000 kg/m³)</td></tr>
+                        <tr><td>Reynolds Number</td><td>2000</td></tr>
+                        <tr><td>Tool</td><td>ANSYS Fluent</td></tr>
+                    </table>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">View Details</a>
                 </div>
-                <div class="project-card fade-in" data-category="robotics">
-                    <div id="model-viewer"></div>
-                    <h3>Robotic Gripper Design</h3>
-                    <p>Designed an exploratory robotic gripper for automation, simulated in ROS and modeled in SolidWorks.</p>
-                    <div class="parameters-table">
-                        <table>
-                            <tr><th>Parameter</th><th>Value</th></tr>
-                            <tr><td>Material</td><td>Aluminum alloy</td></tr>
-                            <tr><td>Grip Force</td><td>50 N</td></tr>
-                            <tr><td>Degrees of Freedom</td><td>3</td></tr>
-                        </table>
-                    </div>
-                    <div class="project-tools">
-                        <span class="tool-tag">SolidWorks</span>
-                        <span class="tool-tag">ROS</span>
-                        <span class="tool-tag">Robotics</span>
-                    </div>
+                <div class="section-bg p-4 project-card">
+                    <img src="project_images/phone_stand_cad.jpg" alt="CAD Phone Stand" class="w-full h-40 object-cover mb-3 rounded">
+                    <h3 class="text-lg font-semibold mb-2">CAD: Modular Phone Stand</h3>
+                    <p class="text-sm md:text-base">Designed a customizable phone stand in SolidWorks.</p>
+                    <table class="w-full mt-3 text-xs md:text-sm">
+                        <tr><th>Parameter</th><th>Value</th></tr>
+                        <tr><td>Material</td><td>ABS Plastic</td></tr>
+                        <tr><td>Dimensions</td><td>100x50x30 mm</td></tr>
+                        <tr><td>Tool</td><td>SolidWorks</td></tr>
+                    </table>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">View Details</a>
+                </div>
+                <div class="section-bg p-4 project-card">
+                    <img src="project_images/heat_exchanger.jpg" alt="Heat Exchanger Analysis" class="w-full h-40 object-cover mb-3 rounded">
+                    <h3 class="text-lg font-semibold mb-2">Heat Exchanger Analysis</h3>
+                    <p class="text-sm md:text-base">Thermal analysis of a compact heat exchanger using ANSYS Fluent.</p>
+                    <table class="w-full mt-3 text-xs md:text-sm">
+                        <tr><th>Parameter</th><th>Value</th></tr>
+                        <tr><td>Material</td><td>Copper</td></tr>
+                        <tr><td>Heat Transfer Rate</td><td>500 W</td></tr>
+                        <tr><td>Tool</td><td>ANSYS Fluent</td></tr>
+                    </table>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">View Details</a>
+                </div>
+                <div class="section-bg p-4 project-card">
+                    <img src="project_images/robotic_gripper.jpg" alt="Robotic Gripper Design" class="w-full h-40 object-cover mb-3 rounded">
+                    <h3 class="text-lg font-semibold mb-2">Robotic Gripper Design</h3>
+                    <p class="text-sm md:text-base">Designed a pneumatic gripper for delicate object handling.</p>
+                    <table class="w-full mt-3 text-xs md:text-sm">
+                        <tr><th>Parameter</th><th>Value</th></tr>
+                        <tr><td>Material</td><td>Aluminum</td></tr>
+                        <tr><td>Max Load</td><td>2 kg</td></tr>
+                        <tr><td>Tool</td><td>SolidWorks, ANSYS</td></tr>
+                    </table>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">View Details</a>
+                </div>
+                <div class="section-bg p-4 project-card">
+                    <img src="project_images/cnc_toolpath.jpg" alt="CNC Toolpath Programming" class="w-full h-40 object-cover mb-3 rounded">
+                    <h3 class="text-lg font-semibold mb-2">CNC Toolpath Programming</h3>
+                    <p class="text-sm md:text-base">Developed G-code for a precision component using Fusion 360.</p>
+                    <table class="w-full mt-3 text-xs md:text-sm">
+                        <tr><th>Parameter</th><th>Value</th></tr>
+                        <tr><td>Material</td><td>Aluminum</td></tr>
+                        <tr><td>Toolpath Type</td><td>2.5D Milling</td></tr>
+                        <tr><td>Tool</td><td>Fusion 360</td></tr>
+                    </table>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">View Details</a>
                 </div>
             </div>
-            <div class="visual-portfolio">
-                <h3>Visual Portfolio</h3>
-                <div class="visual-grid">
-                    <div class="visual-item fade-in">
-                        <img src="project-images/phone_stand_render.jpg" loading="lazy" alt="Phone Stand Rendering">
-                        <div class="visual-caption">SolidWorks Phone Stand Rendering</div>
-                    </div>
-                    <div class="visual-item fade-in">
-                        <img src="project-images/cantilever_fea_plot.jpg" loading="lazy" alt="Abaqus Stress Plot">
-                        <div class="visual-caption">Abaqus Stress Plot</div>
-                    </div>
-                    <div class="visual-item fade-in">
-                        <img src="project-images/pipe_flow_contour.jpg" loading="lazy" alt="ANSYS Fluent Velocity Contour">
-                        <div class="visual-caption">ANSYS Fluent Velocity Contour</div>
-                    </div>
-                    <div class="visual-item fade-in">
-                        <img src="project-images/cnc_toolpath_sim.jpg" loading="lazy" alt="Fusion 360 CNC Simulation">
-                        <div class="visual-caption">Fusion 360 CNC Simulation</div>
-                    </div>
-                    <div class="visual-item fade-in">
-                        <img src="project-images/irrigation_flow.jpg" loading="lazy" alt="OpenFOAM Emitter Flow">
-                        <div class="visual-caption">OpenFOAM Emitter Flow</div>
-                    </div>
+            <p class="text-center mt-4 text-sm md:text-base">Need a custom project? <a href="#contact" class="text-blue-600 hover:underline">Contact me</a>.</p>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-12 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">Blog & Insights</h2>
+            <p class="text-center mb-6 text-base md:text-lg">Expert tips and tutorials on mechanical engineering tools.</p>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="section-bg p-4">
+                    <h3 class="text-lg font-semibold mb-2">SolidWorks Basics for Beginners</h3>
+                    <p class="text-sm md:text-base">Learn 3D modeling and sketching to start your CAD journey.</p>
+                    <a href="#" class="text-blue-600 mt-2 inline-block hover:underline">Read More</a>
+                </div>
+                <div class="section-bg p-4">
+                    <h3 class="text-lg font-semibold mb-2">FEA Essentials with ANSYS</h3>
+                    <p class="text-sm md:text-base">Master structural simulations for real-world applications.</p>
+                    <a href="#" class="text-blue-600 mt-2 inline-block hover:underline">Read More</a>
+                </div>
+                <div class="section-bg p-4">
+                    <h3 class="text-lg font-semibold mb-2">Automating Abaqus with Python</h3>
+                    <p class="text-sm md:text-base">Streamline FEA tasks with Python scripting.</p>
+                    <a href="#" class="text-blue-600 mt-2 inline-block hover:underline">Read More</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Video Demo Section -->
-    <section id="video" class="video-demo">
-        <div class="container">
-            <h2 class="section-title fade-in">Video Demos</h2>
-            <p class="section-subtitle fade-in">Watch workflows showcasing CAD, FEA, CFD, and CNC expertise.</p>
-            <div class="video-container fade-in">
-                <video controls poster="project-images/cad_fea_poster.jpg">
-                    <source src="videos/cad_fea_demo.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <video controls poster="project-images/cfd_demo_poster.jpg">
-                    <source src="videos/cfd_demo.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <video controls poster="project-images/cnc_demo_poster.jpg">
-                    <source src="videos/cnc_demo.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title fade-in">Professional Experience</h2>
-            <p class="section-subtitle fade-in">Delivering innovative solutions across diverse industries since 2020.</p>
-            <div class="experience-grid">
-                <div class="experience-card fade-in">
-                    <div class="experience-header">
-                        <div>
-                            <div class="experience-title">CAD Trainer</div>
-                            <div class="experience-company">Naval Academy (ESO), Nouadhibou, Mauritania</div>
-                        </div>
-                        <div class="experience-date">May 2025 – Present</div>
-                    </div>
-                    <div class="experience-description">Training naval officers in advanced CAD techniques for maritime applications.</div>
-                    <ul class="experience-achievements">
-                        <li>Developed training modules for AutoCAD and SolidWorks.</li>
-                        <li>Ensured compliance with ISO drawing standards.</li>
-                        <li>Led hands-on projects to enhance skills.</li>
-                    </ul>
-                </div>
-                <div class="experience-card fade-in">
-                    <div class="experience-header">
-                        <div>
-                            <div class="experience-title">Freelance Mechanical Engineer</div>
-                            <div class="experience-company">Upwork & PeoplePerHour (<a href="https://www.upwork.com/freelancers/babahmoudy" target="_blank">View Profile</a>)</div>
-                        </div>
-                        <div class="experience-date">July 2020 – Present</div>
-                    </div>
-                    <div class="experience-description">Delivered 20+ projects with 5-star ratings, specializing in CAD, FEA, CFD, and automation.</div>
-                    <ul class="experience-achievements">
-                        <li>Completed projects in renewable energy, irrigation, and IoT.</li>
-                        <li>Automated workflows using Python and MySQL.</li>
-                        <li>Maintained 100% client satisfaction on Upwork.</li>
-                    </ul>
-                </div>
-                <div class="experience-card fade-in">
-                    <div class="experience-header">
-                        <div>
-                            <div class="experience-title">R&D Engineer</div>
-                            <div class="experience-company">LaMcube Laboratory, Lille, France (<a href="https://lamcube.univ-lille.fr/" target="_blank">View Lab</a>)</div>
-                        </div>
-                        <div class="experience-date">March 2020 – June 2023</div>
-                    </div>
-                    <div class="experience-description">Advanced research in metal fatigue and elastoplastic simulations.</div>
-                    <ul class="experience-achievements">
-                        <li>Reduced simulation times via Python-Fortran-Abaqus automation.</li>
-                        <li>Developed scripts for stress field analysis.</li>
-                        <li>Contributed to innovative research at LaMcube.</li>
-                    </ul>
-                </div>
-                <div class="experience-card fade-in">
-                    <div class="experience-header">
-                        <div>
-                            <div class="experience-title">Mechanical Engineer</div>
-                            <div class="experience-company">MECAMIX-IMECA, Tunisia (<a href="https://mecamix-rd.com/home.html" target="_blank">View Company</a>)</div>
-                        </div>
-                        <div class="experience-date">January 2019 – February 2020</div>
-                    </div>
-                    <div class="experience-description">Designed and optimized mechanical components for industrial applications.</div>
-                    <ul class="experience-achievements">
-                        <li>Created 3D models and drawings using CATIA V5.</li>
-                        <li>Performed FEA to ensure component reliability.</li>
-                        <li>Collaborated on innovative design solutions.</li>
-                    </ul>
-                </div>
-                <div class="experience-card fade-in">
-                    <div class="experience-header">
-                        <div>
-                            <div class="experience-title">Mechanical Engineering Intern</div>
-                            <div class="experience-company">TRANSTU, Tunis, Tunisia</div>
-                        </div>
-                        <div class="experience-date">June 2018 – August 2018</div>
-                    </div>
-                    <div class="experience-description">Performed maintenance on Citadis metros and collaborated on reliability improvements.</div>
-                    <ul class="experience-achievements">
-                        <li>Conducted daily maintenance tasks on metro systems.</li>
-                        <li>Assisted in optimizing maintenance processes.</li>
-                        <li>Applied CAD skills for component documentation.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="education">
-        <div class="container">
-            <h2 class="section-title fade-in">Education & Skills</h2>
-            <p class="section-subtitle fade-in">Strong academic foundation from ENIT and proficiency in advanced engineering tools.</p>
-            <div class="education-timeline">
-                <div class="timeline">
-                    <div class="timeline-item fade-in">
-                        <div class="timeline-degree">Mechanical Engineering Degree</div>
-                        <div class="timeline-school">École Nationale d'Ingénieurs de Tunis (ENIT), Tunisia (<a href="https://enit.rnu.tn/" target="_blank">View ENIT</a>)</div>
-                        <div class="timeline-date">September 2017 – September 2020</div>
-                        <div class="timeline-details">Specialized in mechanical systems design, finite element methods, and advanced materials.</div>
-                    </div>
-                    <div class="timeline-item fade-in">
-                        <div class="timeline-degree">Preparatory Classes for Engineering Schools</div>
-                        <div class="timeline-school">Institut Préparatoire aux Études d'Ingénieurs de Sfax (IPEIS), Tunisia (<a href="https://ipeis.rnu.tn/" target="_blank">View IPEIS</a>)</div>
-                        <div class="timeline-date">September 2015 – September 2017</div>
-                        <div class="timeline-details">Intensive program in mathematics and physics for engineering school entrance exams.</div>
-                    </div>
-                    <div class="timeline-item fade-in">
-                        <div class="timeline-degree">Scientific Baccalaureate</div>
-                        <div class="timeline-school">Mathematics Specialty, Nema, Mauritania</div>
-                        <div class="timeline-date">2015</div>
-                        <div class="timeline-details">Graduated with honors, building a strong foundation in analytical sciences.</div>
-                    </div>
-                    <div class="timeline-item fade-in">
-                        <div class="timeline-degree">Professional Skills</div>
-                        <div class="timeline-school">Ongoing Development</div>
-                        <div class="timeline-date">2018 – Present</div>
-                        <div class="timeline-details">
-                            <ul>
-                                <li>Proficient in ISO drawing standards</li>
-                                <li>TOEIC 790 (B2 Listening, 2022)</li>
-                                <li>Languages: Arabic (Native), French (Bilingual), English (Advanced)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2 class="section-title fade-in">Client Testimonials</h2>
-            <p class="section-subtitle fade-in">Feedback on high-quality engineering solutions. <a href="https://www.upwork.com/freelancers/babahmoudy" target="_blank">View Upwork Reviews</a>.</p>
-            <div class="testimonials-grid">
-                <div class="testimonial-card fade-in">
-                    <p>"Exceptional CFD expertise and automation skills delivered precise results, meeting tight deadlines."</p>
-                    <cite>— Energy Sector Client, Upwork</cite>
-                </div>
-                <div class="testimonial-card fade-in">
-                    <p>"Flawless structural analysis with clear communication in multiple languages."</p>
-                    <cite>— Petroleum Industry Client, Upwork</cite>
-                </div>
-                <div class="testimonial-card fade-in">
-                    <p>"CAD designs and automation streamlined our workflow, saving significant time and costs."</p>
-                    <cite>— Robotics Industry Client, Upwork</cite>
-                </div>
+    <!-- YouTube Section -->
+    <section id="youtube" class="py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">YouTube Tutorials</h2>
+            <div class="section-bg p-4 text-center">
+                <p class="text-base md:text-lg mb-4">Coming soon! Free tutorials on CAD, FEA, CFD, and automation. Subscribe for updates.</p>
+                <a href="https://www.youtube.com/@MLBabaHmoudy" class="btn-primary">Subscribe Now</a>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title fade-in">Get In Touch</h2>
-            <p class="section-subtitle fade-in">Ready to advance your project with CAD, FEA, CFD, or automation? Contact me today.</p>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Collaborate on Innovative Projects</h3>
-                    <p>With a 5-star track record on <a href="https://www.upwork.com/freelancers/babahmoudy" target="_blank">Upwork</a> and <a href="https://www.peopleperhour.com" target="_blank">PeoplePerHour</a>, I deliver tailored solutions globally.</p>
-                    <div class="contact-methods">
-                        <div class="contact-item fade-in">
-                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                            <div class="contact-details">
-                                <h4>Email</h4>
-                                <p><a href="mailto:mleminebh@gmail.com">mleminebh@gmail.com</a></p>
-                            </div>
-                        </div>
-                        <div class="contact-item fade-in">
-                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                            <div class="contact-details">
-                                <h4>Phone</h4>
-                                <p><a href="tel:+22226142025">+222 26 14 20 25</a></p>
-                            </div>
-                        </div>
-                        <div class="contact-item fade-in">
-                            <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
-                            <div class="contact-details">
-                                <h4>WhatsApp</h4>
-                                <p><a href="https://wa.me/+22226142025" target="_blank">+222 26 14 20 25</a></p>
-                            </div>
-                        </div>
-                        <div class="contact-item fade-in">
-                            <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
-                            <div class="contact-details">
-                                <h4>LinkedIn</h4>
-                                <p><a href="https://www.linkedin.com/in/yourprofile" target="_blank">Connect on LinkedIn</a></p>
-                            </div>
-                        </div>
-                        <div class="contact-item fade-in">
-                            <div id="pph-hireme"></div>
-                            <script defer src="https://www.peopleperhour.com/hire/3520836438/5147149.js?width=245&height=320&orientation=vertical&theme=dark"></script>
-                        </div>
+    <section id="contact" class="py-12">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">Get in Touch</h2>
+            <div class="section-bg p-4">
+                <p class="text-sm md:text-base mb-3"><strong>Email:</strong> <a href="mailto:mleminebh@gmail.com" class="text-blue-600 hover:underline">mleminebh@gmail.com</a></p>
+                <p class="text-sm md:text-base mb-3"><strong>WhatsApp:</strong> <a href="https://wa.me/22226142025" class="text-blue-600 hover:underline">+222 26 14 20 25</a></p>
+                <p class="text-sm md:text-base mb-3"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mlbabahmoudy" class="text-blue-600 hover:underline">mlbabahmoudy</a></p>
+                <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form mt-4">
+                    <div class="mb-3">
+                        <label class="block text-sm font-medium mb-1" for="name">Name</label>
+                        <input class="w-full p-2 border rounded text-sm" type="text" id="name" name="name" required>
                     </div>
-                </div>
-                <div class="contact-form fade-in">
-                    <h3>Start Your Project</h3>
-                    <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your Name" required aria-required="true">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Your Email" required aria-required="true">
-                        </div>
-                        <div class="form-group">
-                            <label for="project-type">Project Type</label>
-                            <select id="project-type" name="project-type" aria-required="true">
-                                <option value="">Select Service</option>
-                                <option value="cad">CAD Design & Modeling</option>
-                                <option value="fea">FEA Analysis</option>
-                                <option value="cfd">CFD Simulation</option>
-                                <option value="programming">Programming & Automation</option>
-                                <option value="robotics">Robotics & Mechatronics</option>
-                                <option value="industry4">Industry 4.0 & IoT</option>
-                                <option value="cnc">CNC & G-Code Programming</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="details">Project Details</label>
-                            <textarea id="details" name="details" rows="5" placeholder="Describe your project" required aria-required="true"></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn" aria-label="Send message">Send Message</button>
-                    </form>
-                    <div style="margin-top: 1.5rem;">
-                        <a href="https://www.upwork.com/freelancers/babahmoudy" target="_blank" class="cta-button" aria-label="Hire on Upwork">
-                            <i class="fas fa-briefcase"></i> Hire Me on Upwork
-                        </a>
+                    <div class="mb-3">
+                        <label class="block text-sm font-medium mb-1" for="email">Email</label>
+                        <input class="w-full p-2 border rounded text-sm" type="email" id="email" name="email" required>
                     </div>
-                </div>
+                    <div class="mb-3">
+                        <label class="block text-sm font-medium mb-1" for="message">Message</label>
+                        <textarea class="w-full p-2 border rounded text-sm" id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <p>© 2025 Mohamed Lemine Baba Hmoudy. All rights reserved.</p>
-        <p>Engineering innovative solutions for a sustainable future.</p>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.upwork.com/freelancers/babahmoudy" target="_blank" aria-label="Upwork profile"><i class="fas fa-briefcase"></i></a>
-            <a href="https://www.peopleperhour.com" target="_blank" aria-label="PeoplePerHour profile"><i class="fas fa-user-tie"></i></a>
-        </div>
+    <footer class="py-6 bg-gray-800 text-white text-center">
+        <p class="text-sm md:text-base">© 2025 Mohamed Lemine Baba Hmoudy. All rights reserved.</p>
+        <p class="text-sm md:text-base mt-2">Serving clients worldwide from Nouadhibou, Mauritania.</p>
     </footer>
 
     <script>
-        // Hamburger Menu Toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // Form Submission Simulation
-        document.getElementById('contact-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
-            e.target.reset();
-        });
-
-        // Project Filter
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                const filter = button.getAttribute('data-filter');
-                projectCards.forEach(card => {
-                    const category = card.getAttribute('data-category');
-                    card.style.display = (filter === 'all' || filter === category) ? 'block' : 'none';
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
             });
         });
 
-        // Simple 3D Model Viewer for Robotic Gripper
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, 300 / 200, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize(300, 200);
-        document.getElementById('model-viewer').appendChild(renderer.domElement);
-        const geometry = new THREE.BoxGeometry(1, 1, 1);
-        const material = new THREE.MeshBasicMaterial({ color: 0x3b82f6 });
-        const cube = new THREE.Mesh(geometry, material);
-        scene.add(cube);
-        camera.position.z = 5;
-        function animate() {
-            requestAnimationFrame(animate);
-            cube.rotation.x += 0.01;
-            cube.rotation.y += 0.01;
-            renderer.render(scene, camera);
-        }
-        animate();
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
     </script>
 </body>
 </html>
