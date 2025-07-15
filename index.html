@@ -1,43 +1,4 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -66,7 +27,9 @@
             .navbar a { display: block; padding: 0.5rem; }
             .section-bg { padding: 1rem; }
             .hero { padding: 4rem 1rem; }
+            .hire-me-grid { grid-template-columns: 1fr; }
         }
+        .hire-me-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 1rem; }
     </style>
 </head>
 <body>
@@ -378,8 +341,8 @@
         <div class="max-w-7xl mx-auto px-4">
             <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">YouTube Tutorials</h2>
             <div class="section-bg p-4 text-center">
-                <p class="text-base md:text-lg mb-4">Coming soon! Free tutorials on CAD, FEA, CFD, and automation. Subscribe for updates.</p>
-                <a href="https://www.youtube.com/@MLBabaHmoudy" class="btn-primary">Subscribe Now</a>
+                <p class="text-base md:text-lg mb-4">Free tutorials on CAD, FEA, CFD, and automation. Subscribe for updates!</p>
+                <a href="https://www.youtube.com/@BABAHMOUDY" class="btn-primary">Subscribe Now</a>
             </div>
         </div>
     </section>
@@ -391,7 +354,13 @@
             <div class="section-bg p-4">
                 <p class="text-sm md:text-base mb-3"><strong>Email:</strong> <a href="mailto:mleminebh@gmail.com" class="text-blue-600 hover:underline">mleminebh@gmail.com</a></p>
                 <p class="text-sm md:text-base mb-3"><strong>WhatsApp:</strong> <a href="https://wa.me/22226142025" class="text-blue-600 hover:underline">+222 26 14 20 25</a></p>
-                <p class="text-sm md:text-base mb-3"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mlbabahmoudy" class="text-blue-600 hover:underline">mlbabahmoudy</a></p>
+                <h3 class="text-lg font-semibold mb-3">Hire Me</h3>
+                <div class="hire-me-grid mb-4">
+                    <div id="pph-hireme"></div>
+                    <a href="https://www.upwork.com/freelancers/babahmoudy" class="btn-primary text-center">Hire Me on Upwork</a>
+                    <a href="https://www.linkedin.com/in/babahmoudy/" class="btn-secondary text-center">Connect on LinkedIn</a>
+                </div>
+                <h3 class="text-lg font-semibold mb-3">Contact Form</h3>
                 <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form mt-4">
                     <div class="mb-3">
                         <label class="block text-sm font-medium mb-1" for="name">Name</label>
@@ -417,6 +386,18 @@
         <p class="text-sm md:text-base mt-2">Serving clients worldwide from Nouadhibou, Mauritania.</p>
     </footer>
 
+    <!-- PeoplePerHour Widget Script -->
+    <script type="text/javascript">
+        (function(d, s) {
+            var useSSL = 'https:' == document.location.protocol;
+            var js, where = d.getElementsByTagName(s)[0],
+            js = d.createElement(s);
+            js.src = (useSSL ? 'https:' : 'http:') + '//www.peopleperhour.com/hire/3520836438/5147149.js?width=245&height=320&orientation=vertical&theme=dark&rnd='+parseInt(Math.random()*10000, 10);
+            try { where.parentNode.insertBefore(js, where); } catch (e) { if (typeof console !== 'undefined' && console.log && e.stack) { console.log(e.stack); } }
+        }(document, 'script'));
+    </script>
+
+    <!-- Smooth Scrolling and Mobile Menu -->
     <script>
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
