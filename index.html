@@ -42,33 +42,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mohamed Lemine Baba Hmoudy - Mechanical Engineer specializing in CAD, FEA, CFD, automation, robotics, and tutoring in SolidWorks, ANSYS, Abaqus. Serving energy, manufacturing, and mining industries globally.">
-    <meta name="keywords" content="mechanical engineering, CAD design, FEA analysis, CFD simulation, SolidWorks tutoring, ANSYS training, Abaqus, Python automation, robotics, CNC programming, Mauritania engineering, freelance engineering">
-    <meta name="author" content="Mohamed Lemine Baba Hmoudy">
-    <title>M.L. Baba Hmoudy - Mechanical Engineering & Tutoring</title>
+    <meta name="description" content="MLBH (Mohamed Lemine Baba Hmoudy) - Mechanical Engineer specializing in CAD, FEA, CFD, automation, and tutoring worldwide.">
+    <meta name="keywords" content="mechanical engineering, CAD design, FEA analysis, CFD simulation, SolidWorks tutoring, ANSYS training, Abaqus, Python automation, robotics, CNC programming">
+    <meta name="author" content="MLBH (Mohamed Lemine Baba Hmoudy)">
+    <title>MLBH - Mechanical Engineering & Tutoring</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: 'Arial', sans-serif; background-color: #f4f4f4; scroll-behavior: smooth; }
+        body { font-family: 'Arial', sans-serif; background-color: #f8fafc; scroll-behavior: smooth; }
         .navbar { background-color: #1e3a8a; }
         .navbar a { color: #ffffff; padding: 0.75rem; transition: background-color 0.3s; }
         .navbar a:hover { background-color: #2563eb; }
-        .hero { background: linear-gradient(to right, #1e3a8a, #f97316); color: #ffffff; }
-        .section-bg { background-color: #ffffff; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+        .hero { background: linear-gradient(to right, #1e3a8a, #22c55e); color: #ffffff; padding: 4rem 1rem 2rem; text-align: center; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05); }
+        .section-bg { background-color: #ffffff; border-radius: 8px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05); padding: 1.5rem; margin: 1rem auto; }
         .btn-primary { background-color: #f97316; color: #ffffff; padding: 0.5rem 1rem; border-radius: 0.375rem; transition: background-color 0.3s; }
         .btn-primary:hover { background-color: #ea580c; }
-        .btn-secondary { background-color: #1e3a8a; color: #ffffff; padding: 0.5rem 1rem; border-radius: 0.375rem; transition: background-color 0.3s; }
-        .btn-secondary:hover { background-color: #2563eb; }
+        .btn-upwork { background-color: #37A000; color: #ffffff; padding: 0.5rem 1rem; border-radius: 0.375rem; transition: background-color 0.3s; }
+        .btn-upwork:hover { background-color: #2c8000; }
+        .btn-linkedin { background-color: #0077B5; color: #ffffff; padding: 0.5rem 1rem; border-radius: 0.375rem; transition: background-color 0.3s; }
+        .btn-linkedin:hover { background-color: #005f91; }
+        .btn-pph { background-color: #FF5733; color: #ffffff; padding: 0.5rem 1rem; border-radius: 0.375rem; transition: background-color 0.3s; }
+        .btn-pph:hover { background-color: #e04e2a; }
         .project-card { transition: transform 0.3s; }
         .project-card:hover { transform: translateY(-0.25rem); }
-        .contact-form input, .contact-form textarea { transition: border-color 0.3s; }
+        .contact-form input, .contact-form textarea { transition: border-color 0.3s; width: 100%; margin-bottom: 1rem; padding: 0.7rem; border-radius: 6px; border: 1px solid #cbd5e1; }
         .contact-form input:focus, .contact-form textarea:focus { border-color: #f97316; outline: none; }
+        .hire-me-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+        .hire-me-btn { display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem; border-radius: 0.375rem; text-decoration: none; font-weight: 600; }
+        .hire-me-btn:hover { opacity: 0.9; }
         @media (max-width: 768px) {
             .navbar a { display: block; padding: 0.5rem; }
             .section-bg { padding: 1rem; }
-            .hero { padding: 4rem 1rem; }
+            .hero { padding: 3rem 1rem 1.5rem; }
             .hire-me-grid { grid-template-columns: 1fr; }
+            .section { margin: 0.5rem auto; }
         }
-        .hire-me-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 1rem; }
     </style>
 </head>
 <body>
@@ -76,7 +84,7 @@
     <nav class="navbar fixed top-0 w-full z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-3">
-                <div class="text-lg font-bold text-white">M.L. Baba Hmoudy</div>
+                <div class="text-lg font-bold text-white">MLBH</div>
                 <div class="hidden md:flex space-x-2">
                     <a href="#home" class="hover:bg-blue-700 rounded">Home</a>
                     <a href="#about" class="hover:bg-blue-700 rounded">About</a>
@@ -109,13 +117,12 @@
     </nav>
 
     <!-- Hero Section -->
-    <!-- Ensure profile.jpg is in the root directory (Website Portfolio/) -->
-    <section id="home" class="hero py-16 text-center">
+    <section id="home" class="hero">
         <div class="max-w-4xl mx-auto px-4">
-            <img src="profile.jpg" alt="Mohamed Lemine Baba Hmoudy" class="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-white">
-            <h1 class="text-3xl md:text-4xl font-bold mb-4">Mohamed Lemine Baba Hmoudy</h1>
+            <img src="profile.jpg" alt="MLBH (Mohamed Lemine Baba Hmoudy)" class="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-white">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">MLBH</h1>
             <h2 class="text-xl md:text-2xl mb-6">Mechanical Engineer & Expert Tutor</h2>
-            <p class="text-base md:text-lg mb-6">Trilingual mechanical engineer (Arabic, French, English) delivering innovative solutions in CAD, FEA, CFD, automation, robotics, and CNC programming. With 20+ projects for global clients in energy, manufacturing, and mining, I offer precision engineering and tailored tutoring.</p>
+            <p class="text-base md:text-lg mb-6">Trilingual (Arabic, French, English) engineer with over 4 years of experience in CAD, FEA, CFD, and automation. I’ve completed 20+ projects worldwide in industrial, energy, and biomedical fields, offering precise designs, simulations, and tutoring.</p>
             <div class="flex justify-center space-x-4">
                 <a href="#projects" class="btn-primary">View Projects</a>
                 <a href="cv.pdf" class="btn-secondary" download>Download CV</a>
@@ -128,8 +135,9 @@
     <section id="about" class="py-12 bg-gray-100">
         <div class="max-w-4xl mx-auto px-4">
             <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">About Me</h2>
-            <p class="text-base md:text-lg mb-4 text-center">With a Mechanical Engineering degree from ENIT, Tunisia (2020), and experience delivering 20+ projects across the UK, France, Belgium, and Germany, I bring technical expertise and global insight. As a CAD trainer at the Naval Academy (ESO) in Nouadhibou, Mauritania, I’m passionate about teaching SolidWorks, ANSYS, and Abaqus.</p>
-            <p class="text-base md:text-lg mb-4 text-center">My trilingual skills ensure clear communication, and my commitment to ethical, high-quality work drives solutions for industries like energy, manufacturing, and mining. Whether you need precise designs, advanced simulations, or personalized tutoring, I’m here to help you succeed.</p>
+            <p class="text-base md:text-lg mb-4 text-center">With a Mechanical Engineering degree from ENIT, Tunisia (September 2020), I bring over 4 years of experience in finite element analysis (FEA), computational fluid dynamics (CFD), and numerical computation. Having delivered 20+ projects across industrial, energy, and biomedical fields for clients in Saudi Arabia, Canada, UK, France, Belgium, and Germany, I offer global expertise. My work spans design sketching to manufacturing, validated through advanced simulation techniques and multiphysics analysis, with a passion for material mechanics, chemistry, thermodynamics, vibration, and all related aspects.</p>
+            <p class="text-base md:text-lg mb-4 text-center">I have contributed to R&D at Mecamix (https://mecamix-rd.com/home.html) and Lamcube (https://lamcube.univ-lille.fr/), and previously served as a CAD trainer, where I honed my skills in sharing knowledge. I am dedicated to supporting engineers in mechanical, structural, and civil engineering fields, leveraging tools like AutoCAD, SolidWorks, ANSYS, and Abaqus—both commercial and open-source—while fostering collaboration and learning.</p>
+            <p class="text-base md:text-lg mb-4 text-center">My trilingual proficiency (Arabic, French, English) ensures clear communication, and my commitment to ethical, high-quality work drives innovative solutions. Whether you need precise designs, advanced simulations, or personalized tutoring, I’m here to help you succeed.</p>
             <div class="text-center">
                 <a href="#contact" class="btn-primary mt-4 inline-block">Work With Me</a>
             </div>
@@ -140,30 +148,30 @@
     <section id="services" class="py-12">
         <div class="max-w-7xl mx-auto px-4">
             <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">Engineering Services</h2>
-            <p class="text-center mb-6 text-base md:text-lg">Tailored solutions for industrial design, simulation, and automation.</p>
+            <p class="text-center mb-6 text-base md:text-lg">Tailored solutions for industrial design, simulation, and automation worldwide. Current hourly rate is $15 (introductory offer to build my client base, will increase in the future).</p>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div class="section-bg p-4">
                     <h3 class="text-lg font-semibold mb-2">CAD Design & Modeling</h3>
-                    <p class="text-sm md:text-base">Precision 3D modeling and technical drawings for manufacturing, automotive, and aerospace.</p>
+                    <p class="text-sm md:text-base">Precision 3D modeling and technical drawings for manufacturing and aerospace.</p>
                     <ul class="list-disc pl-5 mt-2 text-sm md:text-base">
                         <li>SolidWorks, AutoCAD, CATIA, Fusion 360</li>
                         <li>Parametric & Assembly Modeling</li>
                         <li>GD&T and ISO Standards</li>
                         <li>Design for Manufacturing</li>
                     </ul>
-                    <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $25–$45/hour or $150–$400/project</p>
+                    <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $15/hour or $100–$300/project</p>
                     <a href="#contact" class="btn-primary mt-3 inline-block">Hire Now</a>
                 </div>
                 <div class="section-bg p-4">
                     <h3 class="text-lg font-semibold mb-2">FEA & Structural Analysis</h3>
-                    <p class="text-sm md:text-base">Advanced finite element analysis for energy, construction, and mining.</p>
+                    <p class="text-sm md:text-base">Advanced analysis for energy, construction, and biomedical applications.</p>
                     <ul class="list-disc pl-5 mt-2 text-sm md:text-base">
                         <li>ANSYS, Abaqus, Cast3M</li>
                         <li>Fatigue, Creep, Modal Analysis</li>
                         <li>Python & Fortran Automation</li>
                         <li>Fracture Mechanics</li>
                     </ul>
-                    <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $35–$60/hour or $250–$600/project</p>
+                    <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $15/hour or $150–$400/project</p>
                     <a href="#contact" class="btn-primary mt-3 inline-block">Hire Now</a>
                 </div>
                 <div class="section-bg p-4">
@@ -175,7 +183,7 @@
                         <li>Piping & HVAC Optimization</li>
                         <li>Thermal Management</li>
                     </ul>
-                    <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $35–$60/hour or $250–$600/project</p>
+                    <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $15/hour or $150–$400/project</p>
                     <a href="#contact" class="btn-primary mt-3 inline-block">Hire Now</a>
                 </div>
                 <div class="section-bg p-4">
@@ -187,7 +195,7 @@
                         <li>Control Systems Development</li>
                         <li>Prototyping & Testing</li>
                     </ul>
-                    <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $30–$50/hour or $200–$500/project</p>
+                    <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $15/hour or $120–$300/project</p>
                     <a href="#contact" class="btn-primary mt-3 inline-block">Hire Now</a>
                 </div>
                 <div class="section-bg p-4">
@@ -199,7 +207,7 @@
                         <li>Data Analysis & Visualization</li>
                         <li>Custom Engineering Tools</li>
                     </ul>
-                    <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $25–$45/hour or $150–$400/project</p>
+                    <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $15/hour or $100–$300/project</p>
                     <a href="#contact" class="btn-primary mt-3 inline-block">Hire Now</a>
                 </div>
                 <div class="section-bg p-4">
@@ -211,250 +219,256 @@
                         <li>Toolpath Simulation</li>
                         <li>CNC Optimization</li>
                     </ul>
-                    <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $25–$45/hour or $150–$400/project</p>
+                    <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $15/hour or $100–$300/project</p>
                     <a href="#contact" class="btn-primary mt-3 inline-block">Hire Now</a>
                 </div>
             </div>
         </section>
 
-        <!-- Tutoring Section -->
-        <section id="tutoring" class="py-12 bg-gray-100">
-            <div class="max-w-7xl mx-auto px-4">
-                <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">Tutoring Packages</h2>
-                <p class="text-center mb-6 text-base md:text-lg">Learn CAD, FEA, and CFD with personalized tutoring for all skill levels.</p>
-                <div class="grid md:grid-cols-3 gap-4">
-                    <div class="section-bg p-4">
-                        <h3 class="text-lg font-semibold mb-2">Beginner Package</h3>
-                        <p class="text-sm md:text-base">Ideal for students and entry-level engineers starting with CAD or FEA.</p>
-                        <ul class="list-disc pl-5 mt-2 text-sm md:text-base">
-                            <li>5 hours of live tutoring (1-hour sessions)</li>
-                            <li>SolidWorks, AutoCAD, or ANSYS basics</li>
-                            <li>Hands-on exercises (e.g., 2D drafting)</li>
-                            <li>Recorded sessions & project files</li>
-                            <li>Email/WhatsApp support for 1 month</li>
-                        </ul>
-                        <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $50 (~2,000 MRU)</p>
-                        <a href="#contact" class="btn-primary mt-3 inline-block">Enroll Now</a>
-                    </div>
-                    <div class="section-bg p-4">
-                        <h3 class="text-lg font-semibold mb-2">Intermediate Package</h3>
-                        <p class="text-sm md:text-base">Advanced skills for practical engineering applications.</p>
-                        <ul class="list-disc pl-5 mt-2 text-sm md:text-base">
-                            <li>8 hours of live tutoring (2-hour sessions)</li>
-                            <li>Advanced SolidWorks or ANSYS/Abaqus</li>
-                            <li>Real-world project (e.g., component design)</li>
-                            <li>Python scripting basics</li>
-                            <li>Recorded sessions & templates</li>
-                        </ul>
-                        <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $100 (~4,000 MRU)</p>
-                        <a href="#contact" class="btn-primary mt-3 inline-block">Enroll Now</a>
-                    </div>
-                    <div class="section-bg p-4">
-                        <h3 class="text-lg font-semibold mb-2">Advanced Package</h3>
-                        <p class="text-sm md:text-base">Master complex simulations for professional projects.</p>
-                        <ul class="list-disc pl-5 mt-2 text-sm md:text-base">
-                            <li>12 hours of live tutoring (2-hour sessions)</li>
-                            <li>CFD, multiphysics, or advanced FEA</li>
-                            <li>Industry-grade project (e.g., HVAC design)</li>
-                            <li>Advanced Python automation</li>
-                            <li>1:1 mentorship & project review</li>
-                        </ul>
-                        <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $150 (~6,000 MRU)</p>
-                        <a href="#contact" class="btn-primary mt-3 inline-block">Enroll Now</a>
-                    </div>
-                </div>
-                <p class="text-center mt-4 text-sm md:text-base">Custom tutoring available. <a href="#contact" class="text-blue-600 hover:underline">Contact me</a>.</p>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <!-- Ensure all images are in the project_images/ folder -->
-        <section id="projects" class="py-12">
-            <div class="max-w-7xl mx-auto px-4">
-                <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">Featured Projects</h2>
-                <p class="text-center mb-6 text-base md:text-lg">Showcasing innovative solutions in CAD, FEA, CFD, and robotics.</p>
-                <div class="grid md:grid-cols-3 gap-4">
-                    <div class="section-bg p-4 project-card">
-                        <img src="project_images/bracket_fea.jpg" alt="Bracket FEA Analysis" class="w-full h-40 object-cover mb-3 rounded">
-                        <h3 class="text-lg font-semibold mb-2">Bracket Stress Analysis</h3>
-                        <p class="text-sm md:text-base">Simulated stress in a steel bracket using Abaqus, achieving 98% accuracy.</p>
-                        <table class="w-full mt-3 text-xs md:text-sm">
-                            <tr><th>Parameter</th><th>Value</th></tr>
-                            <tr><td>Material</td><td>Steel (E = 200 GPa)</td></tr>
-                            <tr><td>Load</td><td>10 kN</td></tr>
-                            <tr><td>Tool</td><td>Abaqus</td></tr>
-                        </table>
-                        <a href="#contact" class="btn-primary mt-3 inline-block">View Details</a>
-                    </div>
-                    <div class="section-bg p-4 project-card">
-                        <img src="project_images/pipe_flow_cfd.jpg" alt="Pipe Flow CFD" class="w-full h-40 object-cover mb-3 rounded">
-                        <h3 class="text-lg font-semibold mb-2">Pipe Flow CFD</h3>
-                        <p class="text-sm md:text-base">Analyzed laminar/turbulent flow in a 50 mm pipe using ANSYS Fluent.</p>
-                        <table class="w-full mt-3 text-xs md:text-sm">
-                            <tr><th>Parameter</th><th>Value</th></tr>
-                            <tr><td>Fluid</td><td>Water (ρ = 1000 kg/m³)</td></tr>
-                            <tr><td>Reynolds Number</td><td>2000</td></tr>
-                            <tr><td>Tool</td><td>ANSYS Fluent</td></tr>
-                        </table>
-                        <a href="#contact" class="btn-primary mt-3 inline-block">View Details</a>
-                    </div>
-                    <div class="section-bg p-4 project-card">
-                        <img src="project_images/phone_stand_cad.jpg" alt="CAD Phone Stand" class="w-full h-40 object-cover mb-3 rounded">
-                        <h3 class="text-lg font-semibold mb-2">CAD: Modular Phone Stand</h3>
-                        <p class="text-sm md:text-base">Designed a customizable phone stand in SolidWorks.</p>
-                        <table class="w-full mt-3 text-xs md:text-sm">
-                            <tr><th>Parameter</th><th>Value</th></tr>
-                            <tr><td>Material</td><td>ABS Plastic</td></tr>
-                            <tr><td>Dimensions</td><td>100x50x30 mm</td></tr>
-                            <tr><td>Tool</td><td>SolidWorks</td></tr>
-                        </table>
-                        <a href="#contact" class="btn-primary mt-3 inline-block">View Details</a>
-                    </div>
-                    <div class="section-bg p-4 project-card">
-                        <img src="project_images/heat_exchanger.jpg" alt="Heat Exchanger Analysis" class="w-full h-40 object-cover mb-3 rounded">
-                        <h3 class="text-lg font-semibold mb-2">Heat Exchanger Analysis</h3>
-                        <p class="text-sm md:text-base">Thermal analysis of a compact heat exchanger using ANSYS Fluent.</p>
-                        <table class="w-full mt-3 text-xs md:text-sm">
-                            <tr><th>Parameter</th><th>Value</th></tr>
-                            <tr><td>Material</td><td>Copper</td></tr>
-                            <tr><td>Heat Transfer Rate</td><td>500 W</td></tr>
-                            <tr><td>Tool</td><td>ANSYS Fluent</td></tr>
-                        </table>
-                        <a href="#contact" class="btn-primary mt-3 inline-block">View Details</a>
-                    </div>
-                    <div class="section-bg p-4 project-card">
-                        <img src="project_images/robotic_gripper.jpg" alt="Robotic Gripper Design" class="w-full h-40 object-cover mb-3 rounded">
-                        <h3 class="text-lg font-semibold mb-2">Robotic Gripper Design</h3>
-                        <p class="text-sm md:text-base">Designed a pneumatic gripper for delicate object handling.</p>
-                        <table class="w-full mt-3 text-xs md:text-sm">
-                            <tr><th>Parameter</th><th>Value</th></tr>
-                            <tr><td>Material</td><td>Aluminum</td></tr>
-                            <tr><td>Max Load</td><td>2 kg</td></tr>
-                            <tr><td>Tool</td><td>SolidWorks, ANSYS</td></tr>
-                        </table>
-                        <a href="#contact" class="btn-primary mt-3 inline-block">View Details</a>
-                    </div>
-                    <div class="section-bg p-4 project-card">
-                        <img src="project_images/cnc_toolpath.jpg" alt="CNC Toolpath Programming" class="w-full h-40 object-cover mb-3 rounded">
-                        <h3 class="text-lg font-semibold mb-2">CNC Toolpath Programming</h3>
-                        <p class="text-sm md:text-base">Developed G-code for a precision component using Fusion 360.</p>
-                        <table class="w-full mt-3 text-xs md:text-sm">
-                            <tr><th>Parameter</th><th>Value</th></tr>
-                            <tr><td>Material</td><td>Aluminum</td></tr>
-                            <tr><td>Toolpath Type</td><td>2.5D Milling</td></tr>
-                            <tr><td>Tool</td><td>Fusion 360</td></tr>
-                        </table>
-                        <a href="#contact" class="btn-primary mt-3 inline-block">View Details</a>
-                    </div>
-                </div>
-                <p class="text-center mt-4 text-sm md:text-base">Need a custom project? <a href="#contact" class="text-blue-600 hover:underline">Contact me</a>.</p>
-            </div>
-        </section>
-
-        <!-- Blog Section -->
-        <section id="blog" class="py-12 bg-gray-100">
-            <div class="max-w-7xl mx-auto px-4">
-                <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">Blog & Insights</h2>
-                <p class="text-center mb-6 text-base md:text-lg">Expert tips and tutorials on mechanical engineering tools.</p>
-                <div class="grid md:grid-cols-3 gap-4">
-                    <div class="section-bg p-4">
-                        <h3 class="text-lg font-semibold mb-2">SolidWorks Basics for Beginners</h3>
-                        <p class="text-sm md:text-base">Learn 3D modeling and sketching to start your CAD journey.</p>
-                        <a href="#" class="text-blue-600 mt-2 inline-block hover:underline">Read More</a>
-                    </div>
-                    <div class="section-bg p-4">
-                        <h3 class="text-lg font-semibold mb-2">FEA Essentials with ANSYS</h3>
-                        <p class="text-sm md:text-base">Master structural simulations for real-world applications.</p>
-                        <a href="#" class="text-blue-600 mt-2 inline-block hover:underline">Read More</a>
-                    </div>
-                    <div class="section-bg p-4">
-                        <h3 class="text-lg font-semibold mb-2">Automating Abaqus with Python</h3>
-                        <p class="text-sm md:text-base">Streamline FEA tasks with Python scripting.</p>
-                        <a href="#" class="text-blue-600 mt-2 inline-block hover:underline">Read More</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- YouTube Section -->
-        <section id="youtube" class="py-12">
-            <div class="max-w-7xl mx-auto px-4">
-                <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">YouTube Tutorials</h2>
-                <div class="section-bg p-4 text-center">
-                    <p class="text-base md:text-lg mb-4">Free tutorials on CAD, FEA, CFD, and automation. Subscribe for updates!</p>
-                    <a href="https://www.youtube.com/@BABAHMOUDY" class="btn-primary">Subscribe Now</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <!-- Replace your-form-id with your actual Formspree ID from https://formspree.io/ -->
-        <section id="contact" class="py-12">
-            <div class="max-w-4xl mx-auto px-4">
-                <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">Get in Touch</h2>
+    <!-- Tutoring Section -->
+    <section id="tutoring" class="py-12 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">Tutoring Packages</h2>
+            <p class="text-center mb-6 text-base md:text-lg">Personalized tutoring in CAD, FEA, and CFD for all skill levels worldwide.</p>
+            <div class="grid md:grid-cols-3 gap-4">
                 <div class="section-bg p-4">
-                    <p class="text-sm md:text-base mb-3"><strong>Email:</strong> <a href="mailto:mleminebh@gmail.com" class="text-blue-600 hover:underline">mleminebh@gmail.com</a></p>
-                    <p class="text-sm md:text-base mb-3"><strong>WhatsApp:</strong> <a href="https://wa.me/22226142025" class="text-blue-600 hover:underline">+222 26 14 20 25</a></p>
-                    <h3 class="text-lg font-semibold mb-3">Hire Me</h3>
-                    <div class="hire-me-grid mb-4">
-                        <div id="pph-hireme"></div>
-                        <a href="https://www.upwork.com/freelancers/babahmoudy" class="btn-primary text-center">Hire Me on Upwork</a>
-                        <a href="https://www.linkedin.com/in/babahmoudy/" class="btn-secondary text-center">Connect on LinkedIn</a>
-                    </div>
-                    <h3 class="text-lg font-semibold mb-3">Contact Form</h3>
-                    <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form mt-4">
-                        <div class="mb-3">
-                            <label class="block text-sm font-medium mb-1" for="name">Name</label>
-                            <input class="w-full p-2 border rounded text-sm" type="text" id="name" name="name" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="block text-sm font-medium mb-1" for="email">Email</label>
-                            <input class="w-full p-2 border rounded text-sm" type="email" id="email" name="email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="block text-sm font-medium mb-1" for="message">Message</label>
-                            <textarea class="w-full p-2 border rounded text-sm" id="message" name="message" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="btn-primary">Send Message</button>
-                    </form>
+                    <h3 class="text-lg font-semibold mb-2">Beginner Package</h3>
+                    <p class="text-sm md:text-base">Perfect for new learners starting with CAD or FEA.</p>
+                    <ul class="list-disc pl-5 mt-2 text-sm md:text-base">
+                        <li>5 hours of live tutoring (1-hour sessions)</li>
+                        <li>SolidWorks, AutoCAD, or ANSYS basics</li>
+                        <li>Hands-on exercises (e.g., 2D drafting)</li>
+                        <li>Recorded sessions & project files</li>
+                        <li>Email/WhatsApp support for 1 month</li>
+                    </ul>
+                    <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $50</p>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">Enroll Now</a>
                 </div>
+                <div class="section-bg p-4">
+                    <h3 class="text-lg font-semibold mb-2">Intermediate Package</h3>
+                    <p class="text-sm md:text-base">Build advanced skills for real-world engineering.</p>
+                    <ul class="list-disc pl-5 mt-2 text-sm md:text-base">
+                        <li>8 hours of live tutoring (2-hour sessions)</li>
+                        <li>Advanced SolidWorks or ANSYS/Abaqus</li>
+                        <li>Real-world project (e.g., component design)</li>
+                        <li>Python scripting basics</li>
+                        <li>Recorded sessions & templates</li>
+                    </ul>
+                    <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $80</p>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">Enroll Now</a>
+                </div>
+                <div class="section-bg p-4">
+                    <h3 class="text-lg font-semibold mb-2">Advanced Package</h3>
+                    <p class="text-sm md:text-base">Master complex simulations for professional work.</p>
+                    <ul class="list-disc pl-5 mt-2 text-sm md:text-base">
+                        <li>12 hours of live tutoring (2-hour sessions)</li>
+                        <li>CFD, multiphysics, or advanced FEA</li>
+                        <li>Industry-grade project (e.g., HVAC design)</li>
+                        <li>Advanced Python automation</li>
+                        <li>1:1 mentorship & project review</li>
+                    </ul>
+                    <p class="mt-3 text-sm md:text-base"><strong>Price:</strong> $120</p>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">Enroll Now</a>
+                </div>
+            </div>
+            <p class="text-center mt-4 text-sm md:text-base">Custom tutoring available. <a href="#contact" class="text-blue-600 hover:underline">Contact me</a>.</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">Featured Projects</h2>
+            <p class="text-center mb-6 text-base md:text-lg">Showcasing innovative solutions in CAD, FEA, CFD, and robotics.</p>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="section-bg p-4 project-card">
+                    <img src="project_images/bracket_fea.jpg" alt="Bracket FEA Analysis" class="w-full h-40 object-cover mb-3 rounded">
+                    <h3 class="text-lg font-semibold mb-2">Bracket Stress Analysis</h3>
+                    <p class="text-sm md:text-base">Simulated stress in a steel bracket using Abaqus, achieving 98% accuracy.</p>
+                    <table class="w-full mt-3 text-xs md:text-sm">
+                        <tr><th>Parameter</th><th>Value</th></tr>
+                        <tr><td>Material</td><td>Steel (E = 200 GPa)</td></tr>
+                        <tr><td>Load</td><td>10 kN</td></tr>
+                        <tr><td>Tool</td><td>Abaqus</td></tr>
+                    </table>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">View Details</a>
+                </div>
+                <div class="section-bg p-4 project-card">
+                    <img src="project_images/pipe_flow_cfd.jpg" alt="Pipe Flow CFD" class="w-full h-40 object-cover mb-3 rounded">
+                    <h3 class="text-lg font-semibold mb-2">Pipe Flow CFD</h3>
+                    <p class="text-sm md:text-base">Analyzed laminar/turbulent flow in a 50 mm pipe using ANSYS Fluent.</p>
+                    <table class="w-full mt-3 text-xs md:text-sm">
+                        <tr><th>Parameter</th><th>Value</th></tr>
+                        <tr><td>Fluid</td><td>Water (ρ = 1000 kg/m³)</td></tr>
+                        <tr><td>Reynolds Number</td><td>2000</td></tr>
+                        <tr><td>Tool</td><td>ANSYS Fluent</td></tr>
+                    </table>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">View Details</a>
+                </div>
+                <div class="section-bg p-4 project-card">
+                    <img src="project_images/phone_stand_cad.jpg" alt="CAD Phone Stand" class="w-full h-40 object-cover mb-3 rounded">
+                    <h3 class="text-lg font-semibold mb-2">CAD: Modular Phone Stand</h3>
+                    <p class="text-sm md:text-base">Designed a customizable phone stand in SolidWorks.</p>
+                    <table class="w-full mt-3 text-xs md:text-sm">
+                        <tr><th>Parameter</th><th>Value</th></tr>
+                        <tr><td>Material</td><td>ABS Plastic</td></tr>
+                        <tr><td>Dimensions</td><td>100x50x30 mm</td></tr>
+                        <tr><td>Tool</td><td>SolidWorks</td></tr>
+                    </table>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">View Details</a>
+                </div>
+                <div class="section-bg p-4 project-card">
+                    <img src="project_images/heat_exchanger.jpg" alt="Heat Exchanger Analysis" class="w-full h-40 object-cover mb-3 rounded">
+                    <h3 class="text-lg font-semibold mb-2">Heat Exchanger Analysis</h3>
+                    <p class="text-sm md:text-base">Thermal analysis of a compact heat exchanger using ANSYS Fluent.</p>
+                    <table class="w-full mt-3 text-xs md:text-sm">
+                        <tr><th>Parameter</th><th>Value</th></tr>
+                        <tr><td>Material</td><td>Copper</td></tr>
+                        <tr><td>Heat Transfer Rate</td><td>500 W</td></tr>
+                        <tr><td>Tool</td><td>ANSYS Fluent</td></tr>
+                    </table>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">View Details</a>
+                </div>
+                <div class="section-bg p-4 project-card">
+                    <img src="project_images/robotic_gripper.jpg" alt="Robotic Gripper Design" class="w-full h-40 object-cover mb-3 rounded">
+                    <h3 class="text-lg font-semibold mb-2">Robotic Gripper Design</h3>
+                    <p class="text-sm md:text-base">Designed a pneumatic gripper for delicate object handling.</p>
+                    <table class="w-full mt-3 text-xs md:text-sm">
+                        <tr><th>Parameter</th><th>Value</th></tr>
+                        <tr><td>Material</td><td>Aluminum</td></tr>
+                        <tr><td>Max Load</td><td>2 kg</td></tr>
+                        <tr><td>Tool</td><td>SolidWorks, ANSYS</td></tr>
+                    </table>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">View Details</a>
+                </div>
+                <div class="section-bg p-4 project-card">
+                    <img src="project_images/cnc_toolpath.jpg" alt="CNC Toolpath Programming" class="w-full h-40 object-cover mb-3 rounded">
+                    <h3 class="text-lg font-semibold mb-2">CNC Toolpath Programming</h3>
+                    <p class="text-sm md:text-base">Developed G-code for a precision component using Fusion 360.</p>
+                    <table class="w-full mt-3 text-xs md:text-sm">
+                        <tr><th>Parameter</th><th>Value</th></tr>
+                        <tr><td>Material</td><td>Aluminum</td></tr>
+                        <tr><td>Toolpath Type</td><td>2.5D Milling</td></tr>
+                        <tr><td>Tool</td><td>Fusion 360</td></tr>
+                    </table>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">View Details</a>
+                </div>
+                <div class="section-bg p-4 project-card">
+                    <img src="project_images/marine_structure.jpg" alt="Marine Structure Analysis" class="w-full h-40 object-cover mb-3 rounded">
+                    <h3 class="text-lg font-semibold mb-2">Marine Structure Analysis</h3>
+                    <p class="text-sm md:text-base">Simulated hydrodynamic loads on marine structures using Cast3M, improving integrity.</p>
+                    <table class="w-full mt-3 text-xs md:text-sm">
+                        <tr><th>Parameter</th><th>Value</th></tr>
+                        <tr><td>Tool</td><td>Cast3M</td></tr>
+                        <tr><td>Focus</td><td>Hydrodynamic Forces</td></tr>
+                    </table>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">View Details</a>
+                </div>
+                <div class="section-bg p-4 project-card">
+                    <img src="project_images/fatigue_study.jpg" alt="Fatigue Study" class="w-full h-40 object-cover mb-3 rounded">
+                    <h3 class="text-lg font-semibold mb-2">Fatigue Analysis</h3>
+                    <p class="text-sm md:text-base">Evaluated durability of marine components using Abaqus, ensuring reliability.</p>
+                    <table class="w-full mt-3 text-xs md:text-sm">
+                        <tr><th>Parameter</th><th>Value</th></tr>
+                        <tr><td>Tool</td><td>Abaqus</td></tr>
+                        <tr><td>Focus</td><td>Fatigue Durability</td></tr>
+                    </table>
+                    <a href="#contact" class="btn-primary mt-3 inline-block">View Details</a>
+                </div>
+            </div>
+            <p class="text-center mt-4 text-sm md:text-base">Need a custom project? <a href="#contact" class="text-blue-600 hover:underline">Contact me</a>.</p>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-12 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">Blog & Insights</h2>
+            <p class="text-center mb-6 text-base md:text-lg">Expert tips and tutorials on mechanical engineering tools.</p>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="section-bg p-4">
+                    <h3 class="text-lg font-semibold mb-2">SolidWorks Basics for Beginners</h3>
+                    <p class="text-sm md:text-base">This guide covers sketching, extrusions, and assemblies in SolidWorks. Perfect for new learners with step-by-step tips. <a href="https://medium.com/@babahmoudy/solidworks-basics-101" class="text-blue-600 hover:underline">Read more</a>.</p>
+                    <p class="text-xs mt-1 text-gray-600">Published: July 2025 | 10 min read</p>
+                </div>
+                <div class="section-bg p-4">
+                    <h3 class="text-lg font-semibold mb-2">FEA Essentials with ANSYS</h3>
+                    <p class="text-sm md:text-base">Learn FEA basics with ANSYS, including mesh tips and result analysis. Great for practical simulations. <a href="https://medium.com/@babahmoudy/fea-essentials-101" class="text-blue-600 hover:underline">Read more</a>.</p>
+                    <p class="text-xs mt-1 text-gray-600">Published: July 2025 | 12 min read</p>
+                </div>
+                <div class="section-bg p-4">
+                    <h3 class="text-lg font-semibold mb-2">Automating Abaqus with Python</h3>
+                    <p class="text-sm md:text-base">Streamline Abaqus with Python scripts for automation and custom tools. Ideal for efficiency. <a href="https://medium.com/@babahmoudy/abaqus-python-automation" class="text-blue-600 hover:underline">Dive in</a>.</p>
+                    <p class="text-xs mt-1 text-gray-600">Published: July 2025 | 15 min read</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Section -->
+    <section id="youtube" class="py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">YouTube Tutorials</h2>
+            <div class="section-bg p-4 text-center">
+                <p class="text-base md:text-lg mb-4">Free tutorials on CAD, FEA, CFD, and automation. Subscribe for updates!</p>
+                <a href="https://www.youtube.com/@BABAHMOUDY" class="btn-primary">Subscribe Now</a>
             </div>
         </section>
 
-        <!-- Footer -->
-        <footer class="py-6 bg-gray-800 text-white text-center">
-            <p class="text-sm md:text-base">© 2025 Mohamed Lemine Baba Hmoudy. All rights reserved.</p>
-            <p class="text-sm md:text-base mt-2">Serving clients worldwide from Nouadhibou, Mauritania.</p>
-        </footer>
+    <!-- Contact Section -->
+    <section id="contact" class="py-12">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">Get in Touch</h2>
+            <div class="section-bg p-4">
+                <p class="text-sm md:text-base mb-3"><strong>Email:</strong> <a href="mailto:mlbh.design@gmail.com" class="text-blue-600 hover:underline"><i class="fas fa-envelope"></i> mlbh.design@gmail.com</a></p>
+                <p class="text-sm md:text-base mb-3"><strong>WhatsApp:</strong> <a href="https://wa.me/+22243754921" class="text-blue-600 hover:underline"><i class="fab fa-whatsapp"></i> +222 4375 4921</a></p>
+                <h3 class="text-lg font-semibold mb-3">Hire Me</h3>
+                <div class="hire-me-grid mb-4">
+                    <a href="https://www.upwork.com/freelancers/babahmoudy" class="hire-me-btn btn-upwork" target="_blank"><i class="fab fa-upwork"></i> Hire on Upwork</a>
+                    <a href="https://www.linkedin.com/in/babahmoudy/" class="hire-me-btn btn-linkedin" target="_blank"><i class="fab fa-linkedin"></i> Connect on LinkedIn</a>
+                    <a href="https://www.peopleperhour.com/freelancer/design/mohamed_lemine-baba_hmoudy-mechanical-engineer-cae-engineer-qzvjzvn" class="hire-me-btn btn-pph" target="_blank"><i class="fas fa-users"></i> Hire on PeoplePerHour</a>
+                </div>
+                <h3 class="text-lg font-semibold mb-3">Contact Form</h3>
+                <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form mt-4">
+                    <div class="mb-3">
+                        <label class="block text-sm font-medium mb-1" for="name">Name</label>
+                        <input class="w-full p-2 border rounded text-sm" type="text" id="name" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="block text-sm font-medium mb-1" for="email">Email</label>
+                        <input class="w-full p-2 border rounded text-sm" type="email" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="block text-sm font-medium mb-1" for="message">Message</label>
+                        <textarea class="w-full p-2 border rounded text-sm" id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+                <p class="text-center mt-4 text-sm md:text-base">Open to collaborate with industrial professionals, educators, or individuals with ideas to test virtually or design for manufacturing.</p>
+            </div>
+        </section>
 
-        <!-- PeoplePerHour Widget Script -->
-        <script type="text/javascript">
-            (function(d, s) {
-                var useSSL = 'https:' == document.location.protocol;
-                var js, where = d.getElementsByTagName(s)[0],
-                js = d.createElement(s);
-                js.src = (useSSL ? 'https:' : 'http:') + '//www.peopleperhour.com/hire/3520836438/5147149.js?width=245&height=320&orientation=vertical&theme=dark&rnd='+parseInt(Math.random()*10000, 10);
-                try { where.parentNode.insertBefore(js, where); } catch (e) { if (typeof console !== 'undefined' && console.log && e.stack) { console.log(e.stack); } }
-            }(document, 'script'));
-        </script>
+    <!-- Footer -->
+    <footer class="py-6 bg-gray-800 text-white text-center">
+        <p class="text-sm md:text-base">© 2025 MLBH (Mohamed Lemine Baba Hmoudy). All rights reserved.</p>
+        <p class="text-sm md:text-base mt-2">Serving clients worldwide.</p>
+    </footer>
 
-        <!-- Smooth Scrolling and Mobile Menu -->
-        <script>
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+    <!-- Smooth Scrolling and Mobile Menu -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
             });
+        });
 
-            // Mobile menu toggle
-            document.getElementById('menu-toggle').addEventListener('click', () => {
-                const menu = document.getElementById('mobile-menu');
-                menu.classList.toggle('hidden');
-            });
-        </script>
-    </body>
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
 </html>
