@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.navbar-dark .navbar-brand, .navbar-dark .nav-link {
+    color: #00bcd4; /* Teal */
+}
+
+.navbar-dark .nav-link:hover {
+    color: #ff9800; /* Orange */
+}
+
+.btn-primary {
+    background-color: #ff9800;
+    border-color: #ff9800;
+}
+
+.btn-primary:hover {
+    background-color: #e68900;
+    border-color: #e68900;
+}
+
+.card {
+    border: 1px solid #00bcd4;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.dark-mode {
+    background-color: #222;
+    color: #fff;
+}
+
+.dark-mode .card, .dark-mode .navbar, .dark-mode footer {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode .btn-primary {
+    background-color: #00bcd4;
+    border-color: #00bcd4;
+}
+
+.dark-mode .btn-primary:hover {
+    background-color: #0097a7;
+    border-color: #0097a7;
+}
+
+.list-group-item {
+    background-color: transparent;
+    border-color: #00bcd4;
+}

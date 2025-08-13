@@ -1,1052 +1,588 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mohamed Lemine Baba Hmoudy (MLBH) — Mechanical Engineer | FEA/CFD | CAD | Automation | Tutoring</title>
-  <meta name="description" content="Mechanical Engineer (MLBH / MLBJHH). FEA/CFD, CAD, automation, tutoring. Recruiter-ready profile, bilingual EN/FR/AR, strong portfolio (Abaqus, ANSYS, S235, DFLUX).">
-  <meta name="keywords" content="Mechanical Engineer, FEA, CFD, Abaqus, ANSYS, CAD, SolidWorks, Python, Fortran, Freelance, Tutor, Upwork, PeoplePerHour, Maintenance, Industry 4.0, DFLUX, Welding Simulation, UMAT, UDF, OpenFOAM, Fluent">
-  <meta name="author" content="Mohamed Lemine Baba Hmoudy (MLBH)">
-  <meta property="og:title" content="MLBH — Mechanical Engineer | FEA/CFD | CAD | Automation | Tutoring">
-  <meta property="og:description" content="Freelance mechanical engineering services, portfolio, and free YouTube tutorials. FEA/CFD, CAD, automation, bilingual EN/FR/AR.">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="en_US">
-  <meta name="theme-color" content="#0f172a">
-  <link rel="canonical" href="https://example.com/">
-
-  <!-- Structured data for better recruiter/SEO visibility -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Mohamed Lemine BABA HMOUDY",
-    "alternateName": ["MLBH", "MLBJHH", "Med Lemine B.H."],
-    "jobTitle": "Mechanical Engineer",
-    "email": "mailto:mlbh.design@gmail.com",
-    "telephone": "+22243754921",
-    "url": "https://example.com",
-    "sameAs": [
-      "https://www.linkedin.com/in/babahmoudy/",
-      "https://www.upwork.com/freelancers/babahmoudy",
-      "https://www.peopleperhour.com/freelancer/design/mohamed_lemine-baba_hmoudy-mechanical-engineer-cae-engineer-qzvjzvn",
-      "https://www.youtube.com/@BABAHMOUDY"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Nouakchott",
-      "addressCountry": "MR"
-    },
-    "knowsLanguage": ["en", "fr", "ar"],
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Freelance"
-    },
-    "hasCredential": [
-      {
-        "@type": "EducationalOccupationalCredential",
-        "credentialCategory": "Engineering Degree",
-        "educationalLevel": "Master/Engineer",
-        "name": "Diplôme d’Ingénieur en Génie Mécanique",
-        "awardedBy": {
-          "@type": "CollegeOrUniversity",
-          "name": "École Nationale d’Ingénieurs de Tunis"
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
         }
-      }
-    ],
-    "knowsAbout": [
-      "Finite Element Analysis",
-      "Computational Fluid Dynamics",
-      "Welding simulation",
-      "DFLUX / UMAT subroutines",
-      "Python automation",
-      "CAD (SolidWorks, CATIA, AutoCAD)",
-      "Thermo-mechanical coupling",
-      "Maintenance & Reliability"
-    ]
-  }
-  </script>
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
 
-  <style>
-    :root{
-      --bg:#0b1220;           /* page background (dark) */
-      --panel:#0f172a;        /* surfaces */
-      --panel-2:#111c30;
-      --text:#e5e7eb;         /* primary text */
-      --muted:#9ca3af;        /* secondary text */
-      --brand:#26d267;        /* green */
-      --brand-2:#3b82f6;      /* blue */
-      --accent:#fbbf24;       /* orange */
-      --warn:#ef4444;
-      --ok:#10b981;
-      --ring:0 0 0 3px rgba(59,130,246,.2);
-      --radius:14px;
-      --maxw:1200px;
-      --shadow:0 8px 28px rgba(0,0,0,.25);
-      --shadow-soft:0 6px 18px rgba(0,0,0,.2);
-      --font: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-    }
-    [data-theme="light"]{
-      --bg:#f7f9fc;
-      --panel:#ffffff;
-      --panel-2:#eef2f7;
-      --text:#0f172a;
-      --muted:#475569;
-      --shadow:0 8px 28px rgba(2,6,23,.08);
-      --shadow-soft:0 6px 18px rgba(2,6,23,.06);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family:var(--font); background:var(--bg); color:var(--text);
-      line-height:1.6;
-    }
-    a{color:var(--brand-2); text-decoration:none}
-    a:hover{text-decoration:underline}
-    img{max-width:100%; height:auto; display:block}
-    .container{max-width:var(--maxw); margin-inline:auto; padding:0 16px}
-    .section{padding:64px 0}
-    .panel{background:var(--panel); border-radius:var(--radius); box-shadow:var(--shadow);}
-    .panel.soft{background:var(--panel-2); box-shadow:var(--shadow-soft)}
-    .grid{display:grid; gap:16px}
-    @media(min-width:768px){ .grid.cols-2{grid-template-columns:repeat(2,1fr)} .grid.cols-3{grid-template-columns:repeat(3,1fr)} .grid.cols-4{grid-template-columns:repeat(4,1fr)}}
-    /* Header */
-    .nav{position:sticky; top:0; z-index:1000; backdrop-filter:saturate(160%) blur(8px); background:color-mix(in oklab, var(--panel) 92%, transparent)}
-    .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:10px 0}
-    .brand{display:flex; gap:10px; align-items:center; font-weight:800; letter-spacing:.4px}
-    .brand-badge{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,var(--brand),var(--brand-2)); display:grid; place-items:center; color:#fff; font-weight:900}
-    .menu{display:flex; gap:8px; align-items:center}
-    .menu a{padding:8px 10px; border-radius:10px}
-    .menu a:hover{background:var(--panel-2); text-decoration:none}
-    .icon-btn{background:var(--panel-2); border:none; color:var(--text); padding:8px 10px; border-radius:10px; cursor:pointer}
-    .icon-btn:focus{outline:none; box-shadow:var(--ring)}
-    .mobile{display:none}
-    @media(max-width:900px){
-      .menu{display:none}
-      .mobile{display:flex; gap:8px; align-items:center}
-      .drawer{position:fixed; inset:0 0 0 auto; width:min(86%,360px); background:var(--panel); padding:24px; transform:translateX(110%); transition:transform .25s ease; box-shadow:var(--shadow)}
-      .drawer.open{transform:translateX(0)}
-      .drawer a{display:block; padding:10px 12px; border-radius:10px}
-      .drawer a:hover{background:var(--panel-2); text-decoration:none}
-    }
-    /* Hero */
-    .hero{padding:96px 0 56px}
-    .hero-wrap{display:grid; gap:24px; grid-template-columns:1fr}
-    @media(min-width:900px){ .hero-wrap{grid-template-columns:1.2fr .8fr; align-items:center}}
-    .title{font-size:clamp(28px,4.2vw,46px); line-height:1.2; margin:0 0 8px}
-    .subtitle{font-size:clamp(16px,2.2vw,20px); color:var(--muted); margin:0 0 18px}
-    .cta{display:flex; gap:10px; flex-wrap:wrap}
-    .btn{display:inline-flex; align-items:center; gap:8px; border:none; cursor:pointer; padding:12px 16px; border-radius:12px; font-weight:700; letter-spacing:.2px}
-    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#fff}
-    .btn.secondary{background:var(--panel-2); color:var(--text)}
-    .btn.link{background:transparent; color:var(--brand-2); padding:0}
-    .kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:18px}
-    .kpi{background:var(--panel-2); border-radius:12px; padding:12px; text-align:center}
-    .kpi h4{margin:0; font-size:18px}
-    .kpi p{margin:2px 0 0; font-size:12px; color:var(--muted)}
-    .avatar{width:160px; height:160px; border-radius:24px; background:linear-gradient(135deg,var(--brand),var(--brand-2)); display:grid; place-items:center; margin:auto; box-shadow:var(--shadow)}
-    /* Sections */
-    .section-title{font-size:clamp(22px,3vw,30px); margin:0 0 10px}
-    .section-desc{margin:0 0 18px; color:var(--muted)}
-    .card{padding:16px; border-radius:14px; background:var(--panel); box-shadow:var(--shadow-soft)}
-    .chip{display:inline-block; padding:6px 10px; border-radius:20px; background:var(--panel-2); color:var(--text); font-size:13px; margin:4px 6px 0 0}
-    .list{padding-left:18px; margin:10px 0}
-    .list li{margin:6px 0}
-    .tagline{font-size:13px; color:var(--muted)}
-    .timeline{display:grid; gap:12px}
-    .tl-item{background:var(--panel); border-radius:12px; padding:14px; box-shadow:var(--shadow-soft)}
-    .tl-item h4{margin:0 0 6px}
-    .muted{color:var(--muted)}
-    /* Projects */
-    .project{display:flex; gap:12px; align-items:flex-start}
-    .thumb{flex:0 0 96px; height:72px; border-radius:10px; background:linear-gradient(135deg,var(--brand-2),var(--brand)); display:grid; place-items:center; color:#fff; font-weight:800}
-    .project h4{margin:0 0 4px}
-    /* Contact */
-    .form{display:grid; gap:10px}
-    .input{width:100%; padding:12px 14px; background:var(--panel); color:var(--text); border:1px solid color-mix(in oklab, var(--muted) 30%, transparent); border-radius:12px}
-    .input:focus{outline:none; box-shadow:var(--ring)}
-    .note{font-size:12px; color:var(--muted)}
-    .footer{padding:28px 0; color:var(--muted); text-align:center}
-    /* Utilities */
-    .row{display:flex; gap:10px; flex-wrap:wrap}
-    .center{text-align:center}
-    .hidden{display:none !important}
-    .sr-only{position:absolute!important; width:1px!important; height:1px!important; padding:0!important; margin:-1px!important; overflow:hidden!important; clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important;}
-    .badge{display:inline-flex; align-items:center; gap:6px; padding:6px 10px; background:var(--panel-2); border-radius:999px; font-size:12px}
-    .divider{height:1px; background:color-mix(in oklab, var(--muted) 25%, transparent); margin:16px 0}
-    .top-btn{position:fixed; right:14px; bottom:14px; z-index:999; opacity:0; transform:translateY(20px); transition:all .2s}
-    .top-btn.show{opacity:1; transform:none}
-  </style>
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trilingual mechanical engineer in Nouakchott, Mauritania, offering CAD, FEA, CFD, and tutoring services globally.">
+    <meta name="keywords" content="mechanical engineering, Abaqus, SolidWorks, ANSYS, CFD, welding simulation, tutoring, Mauritania">
+    <title>Mohamed Lemine Baba Hmoudy - Mechanical CAE Engineer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="sr-only" href="#main">Skip to content</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">MLBH</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#youtube">YouTube</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index_fr.html">FR</a></li>
+                    <li class="nav-item"><a class="nav-link theme-toggle" href="#">☀</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Header / Navigation -->
-  <header class="nav">
-    <div class="container nav-inner">
-      <div class="brand" aria-label="Brand">
-        <div class="brand-badge" aria-hidden="true">M</div>
-        <div>
-          <div>MLBH </div>
-          <div class="tagline">Mechanical Engineer | CAD, FEA & CFD Specialist </div>
-        </div>
-      </div>
-      <nav class="menu" aria-label="Main">
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#projects">Projects</a>
-        <a href="#youtube">YouTube</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#blog">Blog</a>
-        <a href="#resume">Resume</a>
-        <a href="#contact">Contact</a>
-        <button class="icon-btn" id="langToggle" aria-label="Toggle language">FR</button>
-        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☀</button>
-      </nav>
-      <div class="mobile">
-        <button class="icon-btn" id="langToggleM" aria-label="Toggle language (mobile)">FR</button>
-        <button class="icon-btn" id="themeToggleM" aria-label="Toggle theme (mobile)">☀</button>
-        <button class="icon-btn" id="menuToggle" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">☰</button>
-      </div>
-    </div>
-    <div id="drawer" class="drawer" role="dialog" aria-modal="true" aria-label="Mobile Menu">
-      <div class="row" style="justify-content:space-between; align-items:center; margin-bottom:10px">
-        <strong>Menu</strong>
-        <button class="icon-btn" id="menuClose" aria-label="Close menu">✕</button>
-      </div>
-      <a href="#home" class="drawer-link">Home</a>
-      <a href="#services" class="drawer-link">Services</a>
-      <a href="#projects" class="drawer-link">Projects</a>
-      <a href="#youtube" class="drawer-link">YouTube</a>
-      <a href="#testimonials" class="drawer-link">Testimonials</a>
-      <a href="#skills" class="drawer-link">Skills</a>
-      <a href="#experience" class="drawer-link">Experience</a>
-      <a href="#blog" class="drawer-link">Blog</a>
-      <a href="#resume" class="drawer-link">Resume</a>
-      <a href="#contact" class="drawer-link">Contact</a>
-      <div class="divider"></div>
-      <div class="row">
-        <button class="icon-btn" id="langToggleDrawer" aria-label="Toggle language">FR</button>
-        <button class="icon-btn" id="themeToggleDrawer" aria-label="Toggle theme">☀</button>
-      </div>
-    </div>
-  </header>
-
-  <main id="main">
-    <!-- Hero -->
-    <section id="home" class="hero">
-      <div class="container hero-wrap">
-        <div>
-          <h1 class="title" data-i18n="heroTitle">Mechanical Engineer — FEA/CFD, CAD, and Automation</h1>
-          <p class="subtitle" data-i18n="heroSubtitle">From concept to validation, I bridge design and analysis for optimal performance. 5+ years delivering accuracy, efficiency, and innovation worldwide.</p>
-          <div class="row" aria-label="Quick facts">
-            <span class="badge">Nouakchott, MR</span>
-            <span class="badge" data-i18n="badgeAvail">Available now</span>
-            <span class="badge">EN · FR · AR</span>
-          </div>
-          <div class="cta" style="margin-top:14px">
-            <a href="#contact" class="btn primary" data-i18n="ctaHire">Hire Me</a>
-            <a href="CV_MedLemine_Bhd.pdf" class="btn secondary" download="" data-i18n="ctaCV">Download CV (PDF)</a>
-            <a href="#projects" class="btn secondary" data-i18n="ctaProjects">View Projects</a>
-          </div>
-          <div class="kpis" aria-label="Key metrics">
-            <div class="kpi">
-              <h4>20+</h4>
-              <p data-i18n="kpiProjects">Completed projects</p>
+    <section id="home" class="text-center py-5">
+        <div class="container">
+            <img src="images/profile.jpg" alt="Mohamed Lemine Baba Hmoudy" class="rounded-circle mb-3" style="width:200px; height:200px;">
+            <h1>Mechanical Engineer — FEA/CFD, CAD, and Automation</h1>
+            <p>From concept to validation, I bridge design and analysis for optimal performance. 5+ years delivering accuracy, efficiency, and innovation worldwide.</p>
+            <p>Serving Nouakchott’s mining, agro-food, and offshore industries with tailored FEA, CFD, and CAD solutions.</p>
+            <p>Nouakchott, MR | Available now | EN · FR · AR</p>
+            <a href="#contact" class="btn btn-primary">Hire Me</a>
+            <a href="resume.pdf" class="btn btn-outline-primary">Download CV (PDF)</a>
+            <a href="#projects" class="btn btn-outline-primary">View Projects</a>
+            <div class="mt-3">
+                <span class="badge bg-success">20+ Completed projects</span>
+                <span class="badge bg-success">98% Analysis accuracy</span>
+                <span class="badge bg-success">4.9/5 Client rating</span>
             </div>
-            <div class="kpi">
-              <h4>98%</h4>
-              <p data-i18n="kpiAccuracy">Analysis accuracy</p>
+            <div class="mt-3">
+                <a href="https://www.linkedin.com" target="_blank" class="btn btn-outline-secondary">LinkedIn</a>
+                <a href="https://www.upwork.com/freelancers/yourprofile" target="_blank" class="btn btn-outline-secondary">Upwork</a>
+                <a href="https://www.peopleperhour.com" target="_blank" class="btn btn-outline-secondary">PeoplePerHour</a>
+                <a href="https://www.youtube.com/@BABAHMOUDY" target="_blank" class="btn btn-outline-secondary">YouTube</a>
             </div>
-            <div class="kpi">
-              <h4>4.9/5</h4>
-              <p data-i18n="kpiRating">Client rating</p>
-            </div>
-          </div>
         </div>
-        <div class="panel soft" style="padding:22px">
-          <div class="avatar" aria-hidden="true">
-            <!-- Inline SVG placeholder avatar -->
-            <svg width="72" height="72" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <circle cx="12" cy="8" r="4" fill="#fff"></circle>
-              <path d="M4 20c0-4 4-6 8-6s8 2 8 6" fill="#fff"></path>
-            </svg>
-          </div>
-          <p class="center muted" style="margin-top:10px" data-i18n="heroNote">Open to freelance engagements, tutoring, and full‑time roles.</p>
-          <div class="row center" style="justify-content:center; margin-top:8px">
-            <a href="https://www.linkedin.com/in/babahmoudy/" target="_blank" rel="noopener" class="btn link">LinkedIn</a>
-            <a href="https://www.upwork.com/freelancers/babahmoudy" target="_blank" rel="noopener" class="btn link">Upwork</a>
-            <a href="https://www.peopleperhour.com/freelancer/design/mohamed_lemine-baba_hmoudy-mechanical-engineer-cae-engineer-qzvjzvn" target="_blank" rel="noopener" class="btn link">PeoplePerHour</a>
-            <a href="https://www.youtube.com/@BABAHMOUDY" target="_blank" rel="noopener" class="btn link">YouTube</a>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- Services -->
-    <section id="services" class="section">
-      <div class="container">
-        <h2 class="section-title" data-i18n="servicesTitle">Freelance Engineering Services</h2>
-        <p class="section-desc" data-i18n="servicesDesc">Tailored, results‑driven support in analysis, design, and automation. Transparent communication and on‑time delivery.</p>
-
-        <div class="grid cols-3">
-          <div class="card">
-            <h3>FEA &amp; Structural</h3>
-            <p class="muted" data-i18n="svcFeaDesc">Linear/nonlinear analysis, residual stress, fatigue, fracture, thermal‑mechanical coupling.</p>
-            <ul class="list">
-              <li>Abaqus, ANSYS, Cast3M</li>
-              <li>Welding simulation (Goldak, DFLUX/UMAT)</li>
-              <li>Materials: S235, alloys, custom curves</li>
-            </ul>
-            <div class="row"><span class="chip">$15/h</span><span class="chip">$150–$400/project</span></div>
-          </div>
-
-          <div class="card">
-            <h3>CFD &amp; Thermal</h3>
-            <p class="muted" data-i18n="svcCfdDesc">Flow, heat transfer, conjugate problems, HVAC optimization, thermal management.</p>
-            <ul class="list">
-              <li>ANSYS Fluent, OpenFOAM</li>
-              <li>Laminar/turbulent, multiphase, species</li>
-              <li>Heat exchangers, piping, electronics cooling</li>
-            </ul>
-            <div class="row"><span class="chip">$15/h</span><span class="chip">$150–$400/project</span></div>
-          </div>
-
-          <div class="card">
-            <h3>CAD &amp; Manufacturing</h3>
-            <p class="muted" data-i18n="svcCadDesc">Parametric modeling, drawings, GD&amp;T, DfM, CAM toolpaths.</p>
-            <ul class="list">
-              <li>SolidWorks, AutoCAD, CATIA</li>
-              <li>Assemblies, BOMs, tolerances stack‑up</li>
-              <li>CNC &amp; G‑code (Fusion 360)</li>
-            </ul>
-            <div class="row"><span class="chip">$15/h</span><span class="chip">$100–$300/project</span></div>
-          </div>
-
-          <div class="card">
-            <h3>Automation &amp; Scripting</h3>
-            <p class="muted" data-i18n="svcAutoDesc">Accelerate workflows with Python/Fortran, data pipelines, and custom tools.</p>
-            <ul class="list">
-              <li>Abaqus + Python API, parametric studies</li>
-              <li>Optimization, batch runs, reporting</li>
-              <li>MySQL, Excel VBA integration</li>
-            </ul>
-            <div class="row"><span class="chip">$15/h</span><span class="chip">$100–$300/project</span></div>
-          </div>
-
-          <div class="card">
-            <h3>Tutoring &amp; Training</h3>
-            <p class="muted" data-i18n="svcTeachDesc">Personalized lessons in CAD/FEA/CFD for students and professionals.</p>
-            <ul class="list">
-              <li>Beginner to advanced, certificates of completion</li>
-              <li>Recorded sessions, exercises, feedback</li>
-              <li>Project‑based learning with templates</li>
-            </ul>
-            <div class="row"><span class="chip">$50–$120/package</span><span class="chip">YouTube: Free tutorials</span></div>
-          </div>
-
-          <div class="card">
-            <h3>Maintenance &amp; Reliability</h3>
-            <p class="muted" data-i18n="svcMaintDesc">TRS/MTTR/MTBF analysis, planning, reliability methods, HSE best practices.</p>
-            <ul class="list">
-              <li>ISO 55000, HSE</li>
-              <li>GMAO (SAP/Maximo init.)</li>
-              <li>Continuous improvement, RCA, FMEA</li>
-            </ul>
-            <div class="row"><span class="chip">Consulting</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="section">
-      <div class="container">
-        <h2 class="section-title" data-i18n="projectsTitle">Featured Projects</h2>
-        <p class="section-desc" data-i18n="projectsDesc">Representative case studies demonstrating accuracy, robustness, and impact.</p>
-
-        <div class="grid cols-3">
-          <article class="card project">
-            <div class="thumb" aria-hidden="true">FEA</div>
-            <div>
-              <h4 data-i18n="p1Title">Bracket Stress Analysis</h4>
-              <p class="muted" data-i18n="p1Desc">Validated steel bracket simulation in Abaqus, achieving ~98% correlation with test data and ensuring &gt;2.0 safety factor.</p>
-              <div class="row"><span class="chip">Abaqus</span><span class="chip">S235</span><span class="chip">Nonlinear</span></div>
-            </div>
-          </article>
-
-          <article class="card project">
-            <div class="thumb" aria-hidden="true">CFD</div>
-            <div>
-              <h4 data-i18n="p2Title">Pipe Flow CFD</h4>
-              <p class="muted" data-i18n="p2Desc">Laminar–turbulent regime analysis for a 50 mm pipe; achieved 18% reduction in pressure drop.</p>
-              <div class="row"><span class="chip">Fluent</span><span class="chip">OpenFOAM</span></div>
-            </div>
-          </article>
-
-          <article class="card project">
-            <div class="thumb" aria-hidden="true">CAD</div>
-            <div>
-              <h4 data-i18n="p3Title">Modular Phone Stand</h4>
-              <p class="muted" data-i18n="p3Desc">Configurable design with draft, fillets, and assembly stack‑up considerations.</p>
-              <div class="row"><span class="chip">SolidWorks</span><span class="chip">DFM</span></div>
-            </div>
-          </article>
-
-          <article class="card project">
-            <div class="thumb" aria-hidden="true">HT</div>
-            <div>
-              <h4 data-i18n="p4Title">Compact Heat Exchanger</h4>
-              <p class="muted" data-i18n="p4Desc">Thermal performance and fin geometry sensitivity using CFD.</p>
-              <div class="row"><span class="chip">CFD</span><span class="chip">Optimization</span></div>
-            </div>
-          </article>
-
-          <article class="card project">
-            <div class="thumb" aria-hidden="true">RBT</div>
-            <div>
-              <h4 data-i18n="p5Title">Robotic Gripper</h4>
-              <p class="muted" data-i18n="p5Desc">Pneumatic gripper for delicate parts; stiffness and grasp stability study.</p>
-              <div class="row"><span class="chip">ANSYS</span><span class="chip">Mechatronics</span></div>
-            </div>
-          </article>
-
-          <article class="card project">
-            <div class="thumb" aria-hidden="true">WLD</div>
-            <div>
-              <h4 data-i18n="p6Title">Weld Residual Stress</h4>
-              <p class="muted" data-i18n="p6Desc">Sequential thermo‑mechanical weld modeling (Goldak/DFLUX) for S235 plate.</p>
-              <div class="row"><span class="chip">Abaqus</span><span class="chip">DFLUX</span><span class="chip">Residual Stress</span></div>
-            </div>
-          </article>
-
-          <!-- Added projects to broaden coverage -->
-          <article class="card project">
-            <div class="thumb" aria-hidden="true">UMAT</div>
-            <div>
-              <h4 data-i18n="p7Title">Custom Constitutive Law (UMAT)</h4>
-              <p class="muted" data-i18n="p7Desc">Implemented a rate‑dependent plasticity UMAT in Abaqus; verified against coupon tests and reduced calibration time by 40%.</p>
-              <div class="row"><span class="chip">Abaqus</span><span class="chip">Fortran</span><span class="chip">Material Models</span></div>
-            </div>
-          </article>
-
-          <article class="card project">
-            <div class="thumb" aria-hidden="true">OPT</div>
-            <div>
-              <h4 data-i18n="p8Title">Topology Optimization Bracket</h4>
-              <p class="muted" data-i18n="p8Desc">Weight reduction of 28% while maintaining stiffness targets; manufacturable geometry validated via FEA.</p>
-              <div class="row"><span class="chip">Optimization</span><span class="chip">Abaqus</span><span class="chip">SolidWorks</span></div>
-            </div>
-          </article>
-
-          <article class="card project">
-            <div class="thumb" aria-hidden="true">CMB</div>
-            <div>
-              <h4 data-i18n="p9Title">Composite Laminate Plate</h4>
-              <p class="muted" data-i18n="p9Desc">Failure index analysis (Tsai‑Wu) for CFRP layups; compared shell vs. solid approaches.</p>
-              <div class="row"><span class="chip">Abaqus</span><span class="chip">Composites</span></div>
-            </div>
-          </article>
-
-          <article class="card project">
-            <div class="thumb" aria-hidden="true">BTJ</div>
-            <div>
-              <h4 data-i18n="p10Title">Bolted Joint Fatigue</h4>
-              <p class="muted" data-i18n="p10Desc">Preload, contact, and S‑N curves for high‑cycle fatigue prediction; recommended torque to meet life targets.</p>
-              <div class="row"><span class="chip">ANSYS</span><span class="chip">Fatigue</span></div>
-            </div>
-          </article>
-
-          <article class="card project">
-            <div class="thumb" aria-hidden="true">HX</div>
-            <div>
-              <h4 data-i18n="p11Title">Heat Sink Optimization</h4>
-              <p class="muted" data-i18n="p11Desc">Conjugate heat transfer with fin spacing sweep; 16% lower max temperature at same pressure drop.</p>
-              <div class="row"><span class="chip">Fluent</span><span class="chip">OpenFOAM</span></div>
-            </div>
-          </article>
-
-          <article class="card project">
-            <div class="thumb" aria-hidden="true">AUTO</div>
-            <div>
-              <h4 data-i18n="p12Title">Abaqus Batch Automation</h4>
-              <p class="muted" data-i18n="p12Desc">Python tool to generate parametric models, submit runs, and auto‑plot results; cut setup time by 70%.</p>
-              <div class="row"><span class="chip">Python</span><span class="chip">Abaqus API</span></div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- YouTube Tutorials -->
-    <section id="youtube" class="section">
-      <div class="container">
-        <h2 class="section-title" data-i18n="ytTitle">Free YouTube Tutorials</h2>
-        <p class="section-desc" data-i18n="ytDesc">Short, practical videos on FEA/CFD, Abaqus/ANSYS tips, DFLUX/UMAT, CAD productivity, and engineering workflows. All tutorials are free.</p>
-
-        <div class="grid cols-3">
-          <div class="card">
-            <div class="row" style="justify-content:space-between;align-items:center">
-              <strong data-i18n="ytChannel">Subscribe to my channel</strong>
-              <a class="btn primary" target="_blank" rel="noopener" href="https://www.youtube.com/@BABAHMOUDY?sub_confirmation=1" data-i18n="ytSubscribe">Subscribe</a>
-            </div>
-            <p class="muted">YouTube: @BABAHMOUDY</p>
+    <section id="services" class="py-5">
+        <div class="container">
+            <h2>Freelance Engineering Services</h2>
+            <p>Tailored, results-driven support in analysis, design, and automation. Transparent communication and on-time delivery.</p>
             <div class="row">
-              <span class="chip">Abaqus</span><span class="chip">ANSYS</span><span class="chip">OpenFOAM</span><span class="chip">SolidWorks</span><span class="chip">Python</span>
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h3>FEA & Structural</h3>
+                            <p>Linear/nonlinear analysis, residual stress, fatigue, fracture, thermal-mechanical coupling.</p>
+                            <p>Abaqus, ANSYS, Cast3M | Welding simulation (Goldak, DFLUX/UMAT) | Materials: S235, alloys, custom curves</p>
+                            <p><strong>$15/h | $150–$400/project</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h3>CFD & Thermal</h3>
+                            <p>Flow, heat transfer, conjugate problems, HVAC optimization, thermal management.</p>
+                            <p>ANSYS Fluent, OpenFOAM | Laminar/turbulent, multiphase, species | Heat exchangers, piping, electronics cooling</p>
+                            <p><strong>$15/h | $150–$400/project</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h3>CAD & Manufacturing</h3>
+                            <p>Parametric modeling, drawings, GD&T, DfM, CAM toolpaths.</p>
+                            <p>SolidWorks, AutoCAD, CATIA | Assemblies, BOMs, tolerances stack-up | CNC & G-code (Fusion 360)</p>
+                            <p><strong>$15/h | $100–$300/project</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h3>Automation & Scripting</h3>
+                            <p>Accelerate workflows with Python/Fortran, data pipelines, and custom tools.</p>
+                            <p>Abaqus + Python API, parametric studies | Optimization, batch runs, reporting | MySQL, Excel VBA integration</p>
+                            <p><strong>$15/h | $100–$300/project</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h3>Tutoring & Training</h3>
+                            <p>Personalized lessons in CAD/FEA/CFD for students and professionals.</p>
+                            <p>Beginner to advanced, certificates of completion | Recorded sessions, exercises, feedback | Project-based learning with templates</p>
+                            <p><strong>$50–$120/package | YouTube: Free tutorials</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h3>Maintenance & Reliability</h3>
+                            <p>TRS/MTTR/MTBF analysis, planning, reliability methods, HSE best practices.</p>
+                            <p>ISO 55000, HSE | GMAO (SAP/Maximo init.) | Continuous improvement, RCA, FMEA</p>
+                            <p><strong>Consulting</strong></p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <div class="card">
-            <h4 data-i18n="ytPlaylist1">Welding Simulation (Goldak + DFLUX)</h4>
-            <p class="muted" data-i18n="ytP1Desc">Heat source setup, thermal–mechanical coupling, and residual stress validation.</p>
-            <div class="row"><span class="chip">Free</span><a class="btn secondary" href="https://www.youtube.com/@BABAHMOUDY" target="_blank" rel="noopener" data-i18n="ytWatch">Watch</a></div>
-          </div>
-
-          <div class="card">
-            <h4 data-i18n="ytPlaylist2">UMAT Basics: Custom Materials</h4>
-            <p class="muted" data-i18n="ytP2Desc">From theory to code: implement and test your first UMAT in Abaqus.</p>
-            <div class="row"><span class="chip">Free</span><a class="btn secondary" href="https://www.youtube.com/@BABAHMOUDY" target="_blank" rel="noopener" data-i18n="ytWatch">Watch</a></div>
-          </div>
-
-          <div class="card">
-            <h4 data-i18n="ytPlaylist3">Fluent for Heat Sinks</h4>
-            <p class="muted" data-i18n="ytP3Desc">Meshing, turbulence models, and post‑processing for electronics cooling.</p>
-            <div class="row"><span class="chip">Free</span><a class="btn secondary" href="https://www.youtube.com/@BABAHMOUDY" target="_blank" rel="noopener" data-i18n="ytWatch">Watch</a></div>
-          </div>
-
-          <div class="card">
-            <h4 data-i18n="ytPlaylist4">SolidWorks to FEA Workflow</h4>
-            <p class="muted" data-i18n="ytP4Desc">Export strategies, defeaturing, and clean meshing from CAD to solver.</p>
-            <div class="row"><span class="chip">Free</span><a class="btn secondary" href="https://www.youtube.com/@BABAHMOUDY" target="_blank" rel="noopener" data-i18n="ytWatch">Watch</a></div>
-          </div>
-
-          <div class="card">
-            <h4 data-i18n="ytPlaylist5">Abaqus + Python Automation</h4>
-            <p class="muted" data-i18n="ytP5Desc">Batch runs, parameter sweeps, and auto‑reporting with the Abaqus API.</p>
-            <div class="row"><span class="chip">Free</span><a class="btn secondary" href="https://www.youtube.com/@BABAHMOUDY" target="_blank" rel="noopener" data-i18n="ytWatch">Watch</a></div>
-          </div>
         </div>
-      </div>
     </section>
 
-    <!-- Testimonials -->
-    <section id="testimonials" class="section">
-      <div class="container">
-        <h2 class="section-title" data-i18n="tmTitle">What Clients Say</h2>
-        <p class="section-desc" data-i18n="tmDesc">Real feedback from collaborations across industries.</p>
-
-        <div class="grid cols-3">
-          <div class="card">
-            <p>“Delivered a precise Abaqus model and clear report. Cycle time reduced by 30%.”</p>
-            <p class="muted">— Manufacturing SME, EU</p>
-          </div>
-          <div class="card">
-            <p>“Excellent CFD optimization. Transparent communication and on‑time delivery.”</p>
-            <p class="muted">— HVAC Consultant, MENA</p>
-          </div>
-          <div class="card">
-            <p>“Great tutor. Concepts finally clicked thanks to practical examples.”</p>
-            <p class="muted">— Engineering Student</p>
-          </div>
+    <section id="projects" class="py-5 bg-light">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <p>Representative case studies demonstrating accuracy, robustness, and impact.</p>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm">
+                        <img src="images/bracket_stress.jpg" class="card-img-top" alt="Bracket Stress Analysis">
+                        <div class="card-body">
+                            <h5>Bracket Stress Analysis</h5>
+                            <p>Validated steel bracket simulation in Abaqus, achieving ~98% correlation with test data and ensuring >2.0 safety factor.</p>
+                            <p>Abaqus | S235 | Nonlinear</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm">
+                        <img src="images/pipe_flow.jpg" class="card-img-top" alt="Pipe Flow CFD">
+                        <div class="card-body">
+                            <h5>Pipe Flow CFD</h5>
+                            <p>Laminar–turbulent regime analysis for a 50 mm pipe; achieved 18% reduction in pressure drop.</p>
+                            <p>Fluent | OpenFOAM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm">
+                        <img src="images/phone_stand.jpg" class="card-img-top" alt="Modular Phone Stand">
+                        <div class="card-body">
+                            <h5>Modular Phone Stand</h5>
+                            <p>Configurable design with draft, fillets, and assembly stack-up considerations.</p>
+                            <p>SolidWorks | DFM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm">
+                        <img src="images/heat_exchanger.jpg" class="card-img-top" alt="Compact Heat Exchanger">
+                        <div class="card-body">
+                            <h5>Compact Heat Exchanger</h5>
+                            <p>Thermal performance and fin geometry sensitivity using CFD.</p>
+                            <p>CFD | Optimization</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm">
+                        <img src="images/robotic_gripper.jpg" class="card-img-top" alt="Robotic Gripper">
+                        <div class="card-body">
+                            <h5>Robotic Gripper</h5>
+                            <p>Pneumatic gripper for delicate parts; stiffness and grasp stability study.</p>
+                            <p>ANSYS | Mechatronics</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm">
+                        <img src="images/weld_residual_stress.jpg" class="card-img-top" alt="Weld Residual Stress">
+                        <div class="card-body">
+                            <h5>Weld Residual Stress</h5>
+                            <p>Sequential thermo-mechanical weld modeling (Goldak/DFLUX) for S235 plate.</p>
+                            <p>Abaqus | DFLUX | Residual Stress</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm">
+                        <img src="images/umat_material.jpg" class="card-img-top" alt="Custom Constitutive Law (UMAT)">
+                        <div class="card-body">
+                            <h5>Custom Constitutive Law (UMAT)</h5>
+                            <p>Implemented a rate-dependent plasticity UMAT in Abaqus; verified against coupon tests and reduced calibration time by 40%.</p>
+                            <p>Abaqus | Fortran | Material Models</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm">
+                        <img src="images/topology_optimization.jpg" class="card-img-top" alt="Topology Optimization Bracket">
+                        <div class="card-body">
+                            <h5>Topology Optimization Bracket</h5>
+                            <p>Weight reduction of 28% while maintaining stiffness targets; manufacturable geometry validated via FEA.</p>
+                            <p>Optimization | Abaqus | SolidWorks</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm">
+                        <img src="images/composite_laminate.jpg" class="card-img-top" alt="Composite Laminate Plate">
+                        <div class="card-body">
+                            <h5>Composite Laminate Plate</h5>
+                            <p>Failure index analysis (Tsai-Wu) for CFRP layups; compared shell vs. solid approaches.</p>
+                            <p>Abaqus | Composites</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm">
+                        <img src="images/bolted_joint.jpg" class="card-img-top" alt="Bolted Joint Fatigue">
+                        <div class="card-body">
+                            <h5>Bolted Joint Fatigue</h5>
+                            <p>Preload, contact, and S-N curves for high-cycle fatigue prediction; recommended torque to meet life targets.</p>
+                            <p>ANSYS | Fatigue</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm">
+                        <img src="images/heat_sink.jpg" class="card-img-top" alt="Heat Sink Optimization">
+                        <div class="card-body">
+                            <h5>Heat Sink Optimization</h5>
+                            <p>Conjugate heat transfer with fin spacing sweep; 16% lower max temperature at same pressure drop.</p>
+                            <p>Fluent | OpenFOAM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm">
+                        <img src="images/irrigation_system.jpg" class="card-img-top" alt="Irrigation System Design">
+                        <div class="card-body">
+                            <h5>Irrigation System Design</h5>
+                            <p>Designed a modular irrigation system for agro-food industry, optimized for water efficiency in Mauritania.</p>
+                            <p>SolidWorks | CFD | Agro-mechanization</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- Skills -->
-    <section id="skills" class="section">
-      <div class="container">
-        <h2 class="section-title" data-i18n="skillsTitle">Core Skills</h2>
-        <p class="section-desc" data-i18n="skillsDesc">Hands‑on expertise across simulation, design, coding, and maintenance.</p>
-        <div class="card">
-          <div class="row">
-            <span class="chip">FEA: Abaqus, ANSYS, Cast3M</span>
-            <span class="chip">CFD: Fluent, OpenFOAM</span>
-            <span class="chip">CAD: SolidWorks, AutoCAD, CATIA</span>
-            <span class="chip">Python, Fortran, MATLAB</span>
-            <span class="chip">MySQL, Excel VBA</span>
-            <span class="chip">Welding simulation (Goldak)</span>
-            <span class="chip">HSE · ISO 55000</span>
-            <span class="chip">GMAO (SAP/Maximo init.)</span>
-          </div>
+    <section id="youtube" class="py-5">
+        <div class="container">
+            <h2>Free YouTube Tutorials</h2>
+            <p>Short, practical videos on FEA/CFD, Abaqus/ANSYS tips, DFLUX/UMAT, CAD productivity, and engineering workflows. All tutorials are free.</p>
+            <a href="https://www.youtube.com/@BABAHMOUDY" target="_blank" class="btn btn-primary mb-3">Subscribe to my channel</a>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <img src="images/welding_tutorial.jpg" class="card-img-top" alt="Welding Tutorial">
+                        <div class="card-body">
+                            <h5>Welding Simulation (Goldak + DFLUX)</h5>
+                            <p>Heat source setup, thermal-mechanical coupling, and residual stress validation.</p>
+                            <a href="#" class="btn btn-outline-primary">Watch (Free)</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <img src="images/umat_tutorial.jpg" class="card-img-top" alt="UMAT Basics">
+                        <div class="card-body">
+                            <h5>UMAT Basics: Custom Materials</h5>
+                            <p>From theory to code: implement and test your first UMAT in Abaqus.</p>
+                            <a href="#" class="btn btn-outline-primary">Watch (Free)</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <img src="images/fluent_tutorial.jpg" class="card-img-top" alt="Fluent for Heat Sinks">
+                        <div class="card-body">
+                            <h5>Fluent for Heat Sinks</h5>
+                            <p>Meshing, turbulence models, and post-processing for electronics cooling.</p>
+                            <a href="#" class="btn btn-outline-primary">Watch (Free)</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <img src="images/solidworks_tutorial.jpg" class="card-img-top" alt="SolidWorks to FEA">
+                        <div class="card-body">
+                            <h5>SolidWorks to FEA Workflow</h5>
+                            <p>Export strategies, defeaturing, and clean meshing from CAD to solver.</p>
+                            <a href="#" class="btn btn-outline-primary">Watch (Free)</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <img src="images/automation_tutorial.jpg" class="card-img-top" alt="Abaqus Automation">
+                        <div class="card-body">
+                            <h5>Abaqus + Python Automation</h5>
+                            <p>Batch runs, parameter sweeps, and auto-reporting with the Abaqus API.</p>
+                            <a href="#" class="btn btn-outline-primary">Watch (Free)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- Experience & Education -->
-    <section id="experience" class="section">
-      <div class="container">
-        <h2 class="section-title" data-i18n="xpTitle">Experience &amp; Education</h2>
-        <p class="section-desc" data-i18n="xpDesc">A proven track record across R&amp;D, freelance, teaching, and maintenance.</p>
+    <section id="testimonials" class="py-5 bg-light">
+        <div class="container">
+            <h2>What Clients Say</h2>
+            <p>Real feedback from collaborations across industries.</p>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <blockquote class="card p-3">
+                        <p>“Delivered a precise Abaqus model and clear report. Cycle time reduced by 30%.”</p>
+                        <footer>— Manufacturing SME, EU</footer>
+                    </blockquote>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <blockquote class="card p-3">
+                        <p>“Excellent CFD optimization. Transparent communication and on-time delivery.”</p>
+                        <footer>— HVAC Consultant, MENA</footer>
+                    </blockquote>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <blockquote class="card p-3">
+                        <p>“Great tutor. Concepts finally clicked thanks to practical examples.”</p>
+                        <footer>— Engineering Student</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <div class="grid cols-2">
-          <div>
+    <section id="skills" class="py-5">
+        <div class="container">
+            <h2>Core Skills</h2>
+            <p>Hands-on expertise across simulation, design, coding, and maintenance.</p>
+            <ul class="list-group">
+                <li class="list-group-item">FEA: Abaqus, ANSYS, Cast3M</li>
+                <li class="list-group-item">CFD: Fluent, OpenFOAM</li>
+                <li class="list-group-item">CAD: SolidWorks, AutoCAD, CATIA</li>
+                <li class="list-group-item">Python, Fortran, MATLAB</li>
+                <li class="list-group-item">MySQL, Excel VBA</li>
+                <li class="list-group-item">Welding simulation (Goldak)</li>
+                <li class="list-group-item">HSE · ISO 55000</li>
+                <li class="list-group-item">GMAO (SAP/Maximo init.)</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="experience" class="py-5 bg-light">
+        <div class="container">
+            <h2>Experience & Education</h2>
+            <p>A proven track record across R&D, freelance, teaching, and maintenance.</p>
             <h3>Experience</h3>
-            <div class="timeline">
-              <div class="tl-item">
-                <h4>Mechanical Engineer — Freelance</h4>
-                <div class="muted">Upwork, PeoplePerHour · Jul 2024 — Present</div>
-                <ul class="list">
-                  <li>Delivered 20+ structural/thermal projects (Abaqus/ANSYS) achieving accuracy &gt;95% and reducing design cycles by up to 30%.</li>
-                  <li>End‑to‑end delivery: 3D design, Python automation, on‑time results.</li>
-                  <li>Built an international client base across multiple industries.</li>
-                </ul>
-              </div>
-              <div class="tl-item">
-                <h4>R&amp;D Engineer — LaMcube</h4>
-                <div class="muted">Lille, France · Mar 2020 — Jun 2024</div>
-                <ul class="list">
-                  <li>Developed advanced metal fatigue methods; reduced simulation time.</li>
-                  <li>Implemented constitutive laws in Abaqus via Python–Fortran coupling.</li>
-                  <li>Automated simulation workflows and convergence assessment tools.</li>
-                </ul>
-              </div>
-              <div class="tl-item">
-                <h4>CAD Trainer — Naval Academy (ESO)</h4>
-                <div class="muted">Nouadhibou, MR · May 2025 — Jun 2025</div>
-                <ul class="list">
-                  <li>Trained officers in 2D/3D modeling (AutoCAD, SolidWorks) per ISO maritime norms.</li>
-                  <li>Supervised practical design projects, boosting technical autonomy.</li>
-                </ul>
-              </div>
-              <div class="tl-item">
-                <h4>R&amp;D Intern — MECAMIX‑IMECA</h4>
-                <div class="muted">Tunis, TN · Mar 2019 — Jan 2020</div>
-                <ul class="list">
-                  <li>FEA of offshore oil structures (Cast3M‑CEA) and lifetime optimization.</li>
-                  <li>Time‑dependent load studies; data processing in C++.</li>
-                </ul>
-              </div>
-              <div class="tl-item">
-                <h4>Maintenance Intern — TRANSTU</h4>
-                <div class="muted">Tunis, TN · Jun 2018 — Aug 2018</div>
-                <ul class="list">
-                  <li>Preventive/corrective maintenance on Citadis trains: traction, braking, doors.</li>
-                  <li>Optimized diagnostics and planning; fewer unplanned stops.</li>
-                </ul>
-              </div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5>Mechanical Engineer — Freelance</h5>
+                    <p>Upwork, PeoplePerHour · Jul 2024 — Present</p>
+                    <p>Delivered 20+ structural/thermal projects (Abaqus/ANSYS) achieving accuracy >95% and reducing design cycles by up to 30%. End-to-end delivery: 3D design, Python automation, on-time results. Built an international client base across multiple industries.</p>
+                </div>
             </div>
-          </div>
-
-          <div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5>R&D Engineer — LaMcube</h5>
+                    <p>Lille, France · Mar 2020 — Jun 2024</p>
+                    <p>Developed advanced metal fatigue methods; reduced simulation time. Implemented constitutive laws in Abaqus via Python–Fortran coupling. Automated simulation workflows and convergence assessment tools.</p>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5>CAD Trainer — Naval Academy (ESO)</h5>
+                    <p>Nouadhibou, MR · May 2025 — Jun 2025</p>
+                    <p>Trained officers in 2D/3D modeling (AutoCAD, SolidWorks) per ISO maritime norms. Supervised practical design projects, boosting technical autonomy.</p>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5>R&D Intern — MECAMIX-IMECA</h5>
+                    <p>Tunis, TN · Mar 2019 — Jan 2020</p>
+                    <p>FEA of offshore oil structures (Cast3M-CEA) and lifetime optimization. Time-dependent load studies; data processing in C++.</p>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5>Maintenance Intern — TRANSTU</h5>
+                    <p>Tunis, TN · Jun 2018 — Aug 2018</p>
+                    <p>Preventive/corrective maintenance on Citadis trains: traction, braking, doors. Optimized diagnostics and planning; fewer unplanned stops.</p>
+                </div>
+            </div>
             <h3>Education</h3>
-            <div class="timeline">
-              <div class="tl-item">
-                <h4>Engineering Degree — Mechanical</h4>
-                <div class="muted">ENIT, Tunis · Sep 2017 — Sep 2020</div>
-              </div>
-              <div class="tl-item">
-                <h4>CPGE — Math &amp; Physics (MP)</h4>
-                <div class="muted">Sfax, TN · Sep 2015 — Sep 2017</div>
-              </div>
-              <div class="tl-item">
-                <h4>Baccalauréat — Math</h4>
-                <div class="muted">Néma, MR · 2015</div>
-              </div>
-
-              <div class="divider"></div>
-              <h3 data-i18n="langTitle">Languages</h3>
-              <div class="row">
-                <span class="chip">French — Bilingual</span>
-                <span class="chip">English — Professional (B2)</span>
-                <span class="chip">Arabic — Native</span>
-              </div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5>Engineering Degree — Mechanical</h5>
+                    <p>ENIT, Tunis · Sep 2017 — Sep 2020</p>
+                </div>
             </div>
-          </div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5>CPGE — Math & Physics (MP)</h5>
+                    <p>Sfax, TN · Sep 2015 — Sep 2017</p>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5>Baccalauréat — Math</h5>
+                    <p>Néma, MR · 2015</p>
+                </div>
+            </div>
+            <h3>Languages</h3>
+            <ul class="list-group">
+                <li class="list-group-item">French — Bilingual</li>
+                <li class="list-group-item">English — Professional (B2)</li>
+                <li class="list-group-item">Arabic — Native</li>
+            </ul>
         </div>
-
-      </div>
     </section>
 
-    <!-- Blog (teaser) -->
-    <section id="blog" class="section">
-      <div class="container">
-        <h2 class="section-title" data-i18n="blogTitle">Blog &amp; Notes</h2>
-        <p class="section-desc" data-i18n="blogDesc">Short articles, tips, and deep dives. Tutorials will be mirrored to YouTube.</p>
-
-        <div class="grid cols-3">
-          <article class="card">
-            <h4 data-i18n="b1Title">Choosing a Turbulence Model (Quick Guide)</h4>
-            <p class="muted" data-i18n="b1Desc">When to use k‑ε, k‑ω SST, or transition models—rules of thumb and pitfalls.</p>
-            <div class="row"><span class="chip">CFD</span><span class="chip">Guides</span></div>
-          </article>
-          <article class="card">
-            <h4 data-i18n="b2Title">Mesh Convergence for FEA: A Practical Checklist</h4>
-            <p class="muted" data-i18n="b2Desc">From element choice to stress hotspots—how to justify your mesh.</p>
-            <div class="row"><span class="chip">FEA</span><span class="chip">Best Practices</span></div>
-          </article>
-          <article class="card">
-            <h4 data-i18n="b3Title">Automating Abaqus Reports with Python</h4>
-            <p class="muted" data-i18n="b3Desc">Generate plots and PDFs automatically after each run.</p>
-            <div class="row"><span class="chip">Python</span><span class="chip">Abaqus API</span></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Resume (CV) -->
-    <section id="resume" class="section">
-      <div class="container">
-        <h2 class="section-title" data-i18n="cvTitle">Resume / CV</h2>
-        <p class="section-desc" data-i18n="cvDesc">Download the full CV and preview key information below (French, original).</p>
-
-        <div class="panel" style="padding:16px">
-          <div class="row" style="justify-content:space-between; align-items:center">
-            <div>
-              <strong>Mohamed Lemine BABA HMOUDY (MLBH / MLBJHH)</strong>
-              <div class="muted">Ingénieur Mécanique — Nouakchott, Mauritanie</div>
-              <div class="muted">+222 26 14 20 25 · bhmedlemine@gmail.com</div>
-            </div>
+    <section id="blog" class="py-5">
+        <div class="container">
+            <h2>Blog & Notes</h2>
+            <p>Short articles, tips, and deep dives. Tutorials will be mirrored to YouTube.</p>
             <div class="row">
-              <a href="CV_MedLemine_Bhd.pdf" class="btn primary" download="" data-i18n="cvDownload">Download CV (PDF)</a>
-              <a href="https://www.linkedin.com/in/babahmoudy/" target="_blank" rel="noopener" class="btn secondary">LinkedIn</a>
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Choosing a Turbulence Model (Quick Guide)</h5>
+                            <p>When to use k-ε, k-ω SST, or transition models—rules of thumb and pitfalls.</p>
+                            <p>CFD | Guides</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Mesh Convergence for FEA: A Practical Checklist</h5>
+                            <p>From element choice to stress hotspots—how to justify your mesh.</p>
+                            <p>FEA | Best Practices</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Automating Abaqus Reports with Python</h5>
+                            <p>Generate plots and PDFs automatically after each run.</p>
+                            <p>Python | Abaqus API</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="divider"></div>
-          <h3>Expérience (FR)</h3>
-          <ul class="list">
-            <li><strong>Formateur CAO</strong>, Académie Navale (ESO), Nouadhibou · Mai 2025 — Juin 2025</li>
-            <li><strong>Ingénieur Mécanique Freelance</strong>, Upwork/PPH · Juil. 2024 — Présent (20+ projets FEA/CFD)</li>
-            <li><strong>Ingénieur R&amp;D</strong>, LaMcube, Lille · Mars 2020 — Juin 2024</li>
-            <li><strong>Stagiaire R&amp;D</strong>, MECAMIX‑IMECA, Tunis · Mars 2019 — Jan. 2020</li>
-            <li><strong>Stagiaire Maintenance</strong>, TRANSTU, Tunis · Juin 2018 — Août 2018</li>
-          </ul>
-          <h3>Compétences (FR)</h3>
-          <div class="row">
-            <span class="chip">Abaqus, ANSYS, Cast3M</span>
-            <span class="chip">SolidWorks, AutoCAD, CATIA</span>
-            <span class="chip">Python, Fortran, MATLAB</span>
-            <span class="chip">MySQL, Excel VBA</span>
-            <span class="chip">Maintenance (TRS/MTTR/MTBF)</span>
-            <span class="chip">HSE, ISO 55000</span>
-          </div>
         </div>
-      </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section">
-      <div class="container">
-        <h2 class="section-title" data-i18n="contactTitle">Get in Touch</h2>
-        <p class="section-desc" data-i18n="contactDesc">For proposals, collaborations, tutoring, or roles, send a message—I'll reply within 24 hours.</p>
-        <div class="grid cols-2">
-          <div class="card">
-            <form id="contactForm" class="form" novalidate="">
-              <label>
-                <span data-i18n="formName">Name</span>
-                <input class="input" type="text" name="name" required="" placeholder="Your name" autocomplete="name">
-              </label>
-              <label>
-                <span data-i18n="formEmail">Email</span>
-                <input class="input" type="email" name="email" required="" placeholder="name@example.com" autocomplete="email">
-              </label>
-              <label class="hidden">
-                <span>Company</span>
-                <input class="input" type="text" name="company" autocomplete="organization">
-              </label>
-              <label>
-                <span data-i18n="formMessage">Message</span>
-                <textarea class="input" name="message" rows="5" required="" placeholder="How can I help?"></textarea>
-              </label>
-              <div class="row">
-                <button class="btn primary" type="submit" data-i18n="formSend">Send</button>
-                <button class="btn secondary" type="reset" data-i18n="formReset">Reset</button>
-              </div>
-              <p class="note" data-i18n="formNote">No tracking. Your message is sent via your email client if Formspree is not configured.</p>
+    <section id="resume" class="py-5 bg-light">
+        <div class="container">
+            <h2>Resume / CV</h2>
+            <p>Download the full CV and preview key information below (French, original).</p>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5>Mohamed Lemine BABA HMOUDY (MLBH / MLBJHH)</h5>
+                    <p>Ingénieur Mécanique — Nouakchott, Mauritanie</p>
+                    <p>+222 26 14 20 25 · bhmedlemine@gmail.com</p>
+                    <a href="resume.pdf" class="btn btn-primary">Download CV (PDF)</a>
+                    <a href="https://www.linkedin.com" target="_blank" class="btn btn-outline-primary">LinkedIn</a>
+                </div>
+            </div>
+            <h3>Expérience (FR)</h3>
+            <ul class="list-group mb-3">
+                <li class="list-group-item">Formateur CAO, Académie Navale (ESO), Nouadhibou · Mai 2025 — Juin 2025</li>
+                <li class="list-group-item">Ingénieur Mécanique Freelance, Upwork/PPH · Juil. 2024 — Présent (20+ projets FEA/CFD)</li>
+                <li class="list-group-item">Ingénieur R&D, LaMcube, Lille · Mars 2020 — Juin 2024</li>
+                <li class="list-group-item">Stagiaire R&D, MECAMIX-IMECA, Tunis · Mars 2019 — Jan. 2020</li>
+                <li class="list-group-item">Stagiaire Maintenance, TRANSTU, Tunis · Juin 2018 — Août 2018</li>
+            </ul>
+            <h3>Compétences (FR)</h3>
+            <ul class="list-group">
+                <li class="list-group-item">Abaqus, ANSYS, Cast3M</li>
+                <li class="list-group-item">SolidWorks, AutoCAD, CATIA</li>
+                <li class="list-group-item">Python, Fortran, MATLAB</li>
+                <li class="list-group-item">MySQL, Excel VBA</li>
+                <li class="list-group-item">Maintenance (TRS/MTTR/MTBF)</li>
+                <li class="list-group-item">HSE, ISO 55000</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <p>For proposals, collaborations, tutoring, or roles, send a message—I'll reply within 24 hours.</p>
+            <form class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="company" class="form-label">Company</label>
+                    <input type="text" class="form-control" id="company">
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+                <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                <p class="mt-2">No tracking. Your message is sent via your email client if Formspree is not configured.</p>
             </form>
-          </div>
-          <div class="card">
-            <h3 data-i18n="contactDirect">Direct Contact</h3>
-            <p><strong>Email:</strong> <a href="mailto:mlbh.design@gmail.com">mlbh.design@gmail.com</a></p>
-            <p><strong>WhatsApp:</strong> <a href="https://wa.me/22243754921" target="_blank" rel="noopener">+222 43 75 49 21</a></p>
-            <div class="divider"></div>
-            <h3 data-i18n="hireMe">Hire Me</h3>
-            <div class="row">
-              <a class="btn secondary" target="_blank" rel="noopener" href="https://www.upwork.com/freelancers/babahmoudy">Upwork</a>
-              <a class="btn secondary" target="_blank" rel="noopener" href="https://www.linkedin.com/in/babahmoudy/">LinkedIn</a>
-              <a class="btn secondary" target="_blank" rel="noopener" href="https://www.peopleperhour.com/freelancer/design/mohamed_lemine-baba_hmoudy-mechanical-engineer-cae-engineer-qzvjzvn">PeoplePerHour</a>
-            </div>
-          </div>
+            <h3>Direct Contact</h3>
+            <p>Email: <a href="mailto:mlbh.design@gmail.com">mlbh.design@gmail.com</a></p>
+            <p>WhatsApp: <a href="tel:+22243754921">+222 43 75 49 21</a></p>
+            <p>
+                <a href="#contact" class="btn btn-primary">Hire Me</a>
+                <a href="https://www.upwork.com/freelancers/yourprofile" target="_blank" class="btn btn-outline-primary">Upwork</a>
+                <a href="https://www.linkedin.com" target="_blank" class="btn btn-outline-primary">LinkedIn</a>
+                <a href="https://www.peopleperhour.com" target="_blank" class="btn btn-outline-primary">PeoplePerHour</a>
+            </p>
         </div>
-      </div>
     </section>
 
-    <button id="backToTop" class="btn secondary top-btn" aria-label="Back to top">↑</button>
-  </main>
+    <footer class="py-4 bg-dark text-white text-center">
+        <div class="container">
+            <p>© MLBH / MLBJHH — All rights reserved.</p>
+            <p>Serving clients worldwide · EN · FR · AR</p>
+            <a href="#" class="btn btn-outline-light btn-sm">↑</a>
+        </div>
+    </footer>
 
-  <footer class="footer">
-    <div class="container">
-      <div>© <span id="year"></span> MLBH / MLBJHH — All rights reserved.</div>
-      <div class="muted">Serving clients worldwide · EN · FR · AR</div>
-    </div>
-  </footer>
-
-  <script>
-    // Accessibility: smooth internal navigation with focus management
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const id = a.getAttribute('href');
-        if(id.length>1){
-          e.preventDefault();
-          const el = document.querySelector(id);
-          if(el){
-            el.scrollIntoView({behavior:'smooth', block:'start'});
-            el.setAttribute('tabindex','-1');
-            el.focus({preventScroll:true});
-          }
-        }
-      });
-    });
-
-    // Mobile drawer
-    const drawer = document.getElementById('drawer');
-    const menuToggle = document.getElementById('menuToggle');
-    const menuClose = document.getElementById('menuClose');
-    const drawerLinks = drawer.querySelectorAll('.drawer-link');
-    function openDrawer(){drawer.classList.add('open'); menuToggle.setAttribute('aria-expanded','true');}
-    function closeDrawer(){drawer.classList.remove('open'); menuToggle.setAttribute('aria-expanded','false');}
-    menuToggle.addEventListener('click', openDrawer);
-    menuClose.addEventListener('click', closeDrawer);
-    drawerLinks.forEach(l=>l.addEventListener('click', closeDrawer));
-
-    // Theme toggle
-    const themeBtns = [document.getElementById('themeToggle'), document.getElementById('themeToggleM'), document.getElementById('themeToggleDrawer')].filter(Boolean);
-    function setTheme(t){ document.documentElement.setAttribute('data-theme', t); localStorage.setItem('theme', t); themeBtns.forEach(b=>b && (b.textContent = t==='light'?'☀':'🌙')); }
-    const savedTheme = localStorage.getItem('theme') || 'light'; setTheme(savedTheme);
-    themeBtns.forEach(btn=>btn && btn.addEventListener('click', ()=> setTheme(document.documentElement.getAttribute('data-theme')==='light'?'dark':'light')));
-
-    // Back to top
-    const topBtn = document.getElementById('backToTop');
-    window.addEventListener('scroll', ()=> {
-      if(window.scrollY > 400){ topBtn.classList.add('show'); } else { topBtn.classList.remove('show'); }
-    });
-    topBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
-
-    // Contact form: tries Formspree if configured, else fallback to mailto
-    const form = document.getElementById('contactForm');
-    form.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      const data = new FormData(form);
-      // If you have Formspree endpoint, set it here:
-      const FORMSPREE = ''; // e.g., 'https://formspree.io/f/XXXXX'
-      if(FORMSPREE){
-        const r = await fetch(FORMSPREE, { method:'POST', body:data, headers:{ 'Accept':'application/json' }});
-        if(r.ok){ alert(i18n[state.lang].msgThanks); form.reset(); }
-        else { alert(i18n[state.lang].msgError); }
-      } else {
-        const name = encodeURIComponent(data.get('name') || '');
-        const email = encodeURIComponent(data.get('email') || '');
-        const message = encodeURIComponent(data.get('message') || '');
-        location.href = `mailto:mlbh.design@gmail.com?subject=Inquiry from ${name}&body=${message}%0A%0AEmail:%20${email}`;
-      }
-    });
-
-    // Language toggle (EN/FR) — fixed duplicate definition bug
-    const i18n = {
-      en:{
-        heroTitle:"Delivering precise simulations and robust designs",
-        heroSubtitle:"I bridge design and analysis from concept to validation. 5+ years building reliable FEA/CFD models, clean CAD, and automated workflows.",
-        heroNote:"Open to freelance engagements, tutoring, and full‑time roles.",
-        badgeAvail:"Available now",
-        ctaHire:"Hire Me",
-        ctaCV:"Download CV (PDF)",
-        ctaProjects:"View Projects",
-        kpiProjects:"Completed projects",
-        kpiAccuracy:"Analysis accuracy",
-        kpiRating:"Client rating",
-        servicesTitle:"Freelance Engineering Services",
-        servicesDesc:"Tailored, results‑driven support in analysis, design, and automation. Transparent communication and on‑time delivery.",
-        svcFeaDesc:"Linear/nonlinear analysis, residual stress, fatigue, fracture, thermal‑mechanical coupling.",
-        svcCfdDesc:"Flow, heat transfer, conjugate problems, HVAC optimization, thermal management.",
-        svcCadDesc:"Parametric modeling, drawings, GD&T, DfM, CAM toolpaths.",
-        svcAutoDesc:"Accelerate workflows with Python/Fortran, data pipelines, and custom tools.",
-        svcTeachDesc:"Personalized lessons in CAD/FEA/CFD for students and professionals.",
-        svcMaintDesc:"TRS/MTTR/MTBF analysis, planning, reliability methods, HSE best practices.",
-        projectsTitle:"Featured Projects",
-        projectsDesc:"Representative case studies demonstrating accuracy, robustness, and impact.",
-        p1Title:"Bracket Stress Analysis",
-        p1Desc:"Validated steel bracket simulation in Abaqus, achieving ~98% correlation with test data and ensuring >2.0 safety factor.",
-        p2Title:"Pipe Flow CFD",
-        p2Desc:"Laminar–turbulent regime analysis for a 50 mm pipe; achieved 18% reduction in pressure drop.",
-        p3Title:"Modular Phone Stand",
-        p3Desc:"Configurable design with draft, fillets, and assembly stack‑up considerations.",
-        p4Title:"Compact Heat Exchanger",
-        p4Desc:"Thermal performance and fin geometry sensitivity using CFD.",
-        p5Title:"Robotic Gripper",
-        p5Desc:"Pneumatic gripper for delicate parts; stiffness and grasp stability study.",
-        p6Title:"Weld Residual Stress",
-        p6Desc:"Sequential thermo‑mechanical weld modeling (Goldak/DFLUX) for S235 plate.",
-        p7Title:"Custom Constitutive Law (UMAT)",
-        p7Desc:"Implemented a rate‑dependent plasticity UMAT in Abaqus; verified against coupon tests and reduced calibration time by 40%.",
-        p8Title:"Topology Optimization Bracket",
-        p8Desc:"Weight reduction of 28% while maintaining stiffness targets; manufacturable geometry validated via FEA.",
-        p9Title:"Composite Laminate Plate",
-        p9Desc:"Failure index analysis (Tsai‑Wu) for CFRP layups; compared shell vs. solid approaches.",
-        p10Title:"Bolted Joint Fatigue",
-        p10Desc:"Preload, contact, and S‑N curves for high‑cycle fatigue prediction; recommended torque to meet life targets.",
-        p11Title:"Heat Sink Optimization",
-        p11Desc:"Conjugate heat transfer with fin spacing sweep; 16% lower max temperature at same pressure drop.",
-        p12Title:"Abaqus Batch Automation",
-        p12Desc:"Python tool to generate parametric models, submit runs, and auto‑plot results; cut setup time by 70%.",
-        ytTitle:"Free YouTube Tutorials",
-        ytDesc:"Short, practical videos on FEA/CFD, Abaqus/ANSYS tips, DFLUX/UMAT, CAD productivity, and engineering workflows. All tutorials are free.",
-        ytChannel:"Subscribe to my channel",
-        ytSubscribe:"Subscribe",
-        ytWatch:"Watch",
-        ytPlaylist1:"Welding Simulation (Goldak + DFLUX)",
-        ytP1Desc:"Heat source setup, thermal–mechanical coupling, and residual stress validation.",
-        ytPlaylist2:"UMAT Basics: Custom Materials",
-        ytP2Desc:"From theory to code: implement and test your first UMAT in Abaqus.",
-        ytPlaylist3:"Fluent for Heat Sinks",
-        ytP3Desc:"Meshing, turbulence models, and post‑processing for electronics cooling.",
-        ytPlaylist4:"SolidWorks to FEA Workflow",
-        ytP4Desc:"Export strategies, defeaturing, and clean meshing from CAD to solver.",
-        ytPlaylist5:"Abaqus + Python Automation",
-        ytP5Desc:"Batch runs, parameter sweeps, and auto‑reporting with the Abaqus API.",
-        tmTitle:"What Clients Say",
-        tmDesc:"Real feedback from collaborations across industries.",
-        skillsTitle:"Core Skills",
-        skillsDesc:"Hands‑on expertise across simulation, design, coding, and maintenance.",
-        xpTitle:"Experience & Education",
-        xpDesc:"A proven track record across R&D, freelance, teaching, and maintenance.",
-        langTitle:"Languages",
-        blogTitle:"Blog & Notes",
-        blogDesc:"Short articles, tips, and deep dives. Tutorials will be mirrored to YouTube.",
-        b1Title:"Choosing a Turbulence Model (Quick Guide)",
-        b1Desc:"When to use k‑ε, k‑ω SST, or transition models—rules of thumb and pitfalls.",
-        b2Title:"Mesh Convergence for FEA: A Practical Checklist",
-        b2Desc:"From element choice to stress hotspots—how to justify your mesh.",
-        b3Title:"Automating Abaqus Reports with Python",
-        b3Desc:"Generate plots and PDFs automatically after each run.",
-        cvTitle:"Resume / CV",
-        cvDesc:"Download the full CV and preview key information below (French, original).",
-        cvDownload:"Download CV (PDF)",
-        contactTitle:"Get in Touch",
-        contactDesc:"For proposals, collaborations, tutoring, or roles, send a message—I'll reply within 24 hours.",
-        contactDirect:"Direct Contact",
-        hireMe:"Hire Me",
-        formName:"Name",
-        formEmail:"Email",
-        formMessage:"Message",
-        formSend:"Send",
-        formReset:"Reset",
-        formNote:"No tracking. Your message is sent via your email client if Formspree is not configured.",
-        msgThanks:"Thanks! I will get back to you shortly.",
-        msgError:"There was an error. Please try again or email me directly."
-      },
-      fr:{
-        heroTitle:"Des simulations précises et des conceptions robustes",
-        heroSubtitle:"Je relie conception et calcul du concept à la validation. 5+ ans d’expérience en FEA/CFD fiables, CAO soignée et workflows automatisés.",
-        heroNote:"Ouvert aux missions freelance, au tutorat et aux postes à temps plein.",
-        badgeAvail:"Disponible maintenant",
-        ctaHire:"Me recruter",
-        ctaCV:"Télécharger le CV (PDF)",
-        ctaProjects:"Voir les projets",
-        kpiProjects:"Projets réalisés",
-        kpiAccuracy:"Précision des analyses",
-        kpiRating:"Note clients",
-        servicesTitle:"Services d’ingénierie",
-        servicesDesc:"Prestations sur‑mesure en calcul, conception et automatisation. Communication claire et délais respectés.",
-        svcFeaDesc:"Analyse linéaire/non‑linéaire, contraintes résiduelles, fatigue, rupture, couplage thermo‑mécanique.",
-        svcCfdDesc:"Écoulements et thermique, convection, HVAC, gestion thermique.",
-        svcCadDesc:"Modélisation paramétrique, plans, cotation ISO/GD&T, DfM, parcours d’usinage.",
-        svcAutoDesc:"Accélérez vos workflows avec Python/Fortran, pipelines de données et outils personnalisés.",
-        svcTeachDesc:"Cours personnalisés en CAO/FEA/CFD pour étudiants et professionnels.",
-        svcMaintDesc:"Analyses TRS/MTTR/MTBF, planification, méthodes de fiabilité, bonnes pratiques HSE.",
-        projectsTitle:"Projets phares",
-        projectsDesc:"Études représentatives démontrant précision, robustesse et impact.",
-        p1Title:"Analyse de support (FEA)",
-        p1Desc:"Simulation validée sous Abaqus, ~98% de corrélation avec les essais.",
-        p2Title:"CFD d’écoulement en conduite",
-        p2Desc:"Étude laminaire–turbulent d’un tube Ø50 mm ; 18% de perte de charge en moins.",
-        p3Title:"Support de téléphone modulaire",
-        p3Desc:"Conception configurable avec dépouille, congés et tolérances d’assemblage.",
-        p4Title:"Échangeur thermique compact",
-        p4Desc:"Performance thermique et sensibilité géométrique par CFD.",
-        p5Title:"Pince robotique",
-        p5Desc:"Conception pneumatique pour pièces fragiles ; étude de rigidité/stabilité.",
-        p6Title:"Contraintes résiduelles de soudage",
-        p6Desc:"Modélisation thermo‑mécanique séquentielle (Goldak/DFLUX) sur tôle S235.",
-        p7Title:"Loi de comportement sur mesure (UMAT)",
-        p7Desc:"Implémentation d’une plasticité dépendante de la vitesse dans Abaqus ; étalonnage 40% plus rapide.",
-        p8Title:"Optimisation topologique (équerre)",
-        p8Desc:"–28% de masse tout en maintenant la rigidité ; géométrie industrialisable validée par FEA.",
-        p9Title:"Plaque stratifiée composite",
-        p9Desc:"Indice de rupture (Tsai‑Wu) pour CFRP ; coques vs solides.",
-        p10Title:"Fatigue d’assemblage boulonné",
-        p10Desc:"Précontrainte, contact et courbes S‑N ; couple recommandé pour l’objectif de durée de vie.",
-        p11Title:"Optimisation d’un dissipateur",
-        p11Desc:"Transfert thermique conjugué ; –16% de T° max à même perte de charge.",
-        p12Title:"Automatisation par lots Abaqus",
-        p12Desc:"Outil Python pour modèles paramétriques, soumissions et graphiques ; –70% de temps de préparation.",
-        ytTitle:"Tutoriels YouTube gratuits",
-        ytDesc:"Vidéos courtes et pratiques en FEA/CFD, astuces Abaqus/ANSYS, DFLUX/UMAT, productivité CAO, et workflows. 100% gratuit.",
-        ytChannel:"Abonnez‑vous à ma chaîne",
-        ytSubscribe:"S’abonner",
-        ytWatch:"Voir",
-        ytPlaylist1:"Simulation de soudage (Goldak + DFLUX)",
-        ytP1Desc:"Source de chaleur, couplage thermo‑mécanique, validation des contraintes résiduelles.",
-        ytPlaylist2:"UMAT : matériaux personnalisés",
-        ytP2Desc:"De la théorie au code : implémentez et testez votre premier UMAT.",
-        ytPlaylist3:"Fluent pour dissipateurs",
-        ytP3Desc:"Maillage, modèles de turbulence, post‑traitement pour le refroidissement électronique.",
-        ytPlaylist4:"Flux CAO → FEA (SolidWorks)",
-        ytP4Desc:"Export, simplification, maillage propre du CAD au solveur.",
-        ytPlaylist5:"Abaqus + Python (automatisation)",
-        ytP5Desc:"Lots, balayages paramétriques et rapports automatiques avec l’API.",
-        tmTitle:"Avis clients",
-        tmDesc:"Retours réels de collaborations multi‑secteurs.",
-        skillsTitle:"Compétences",
-        skillsDesc:"Expertise pratique en simulation, conception, programmation et maintenance.",
-        xpTitle:"Expériences & Formation",
-        xpDesc:"Parcours confirmé en R&D, freelance, enseignement et maintenance.",
-        langTitle:"Langues",
-        blogTitle:"Blog & Notes",
-        blogDesc:"Articles courts, astuces et approfondissements. Les tutoriels seront aussi sur YouTube.",
-        b1Title:"Choisir un modèle de turbulence (Guide rapide)",
-        b1Desc:"Quand utiliser k‑ε, k‑ω SST ou transition — règles et pièges.",
-        b2Title:"Convergence de maillage FEA : checklist pratique",
-        b2Desc:"Du choix des éléments aux zones critiques — comment justifier votre maillage.",
-        b3Title:"Automatiser les rapports Abaqus avec Python",
-        b3Desc:"Générez graphiques et PDF automatiquement après chaque calcul.",
-        cvTitle:"Résumé / CV",
-        cvDesc:"Téléchargez le CV complet et retrouvez ci‑dessous des éléments clés (français, original).",
-        cvDownload:"Télécharger le CV (PDF)",
-        contactTitle:"Contact",
-        contactDesc:"Pour une proposition, une collaboration, du tutorat ou un poste, envoyez un message — réponse sous 24 h.",
-        contactDirect:"Contact direct",
-        hireMe:"Me recruter",
-        formName:"Nom",
-        formEmail:"Email",
-        formMessage:"Message",
-        formSend:"Envoyer",
-        formReset:"Réinitialiser",
-        formNote:"Sans traçage. Votre message part via votre messagerie si Formspree n’est pas configuré.",
-        msgThanks:"Merci ! Je vous recontacte rapidement.",
-        msgError:"Une erreur est survenue. Réessayez ou écrivez‑moi directement."
-      }
-    };
-    const state = { lang: localStorage.getItem('lang') || 'en' };
-    const langBtns = [document.getElementById('langToggle'), document.getElementById('langToggleM'), document.getElementById('langToggleDrawer')].filter(Boolean);
-    function applyLang(){
-      document.documentElement.lang = state.lang;
-      const dict = i18n[state.lang];
-      document.querySelectorAll('[data-i18n]').forEach(el=>{
-        const key = el.getAttribute('data-i18n');
-        if(dict[key]) el.textContent = dict[key];
-      });
-      // Buttons label
-      langBtns.forEach(b=>b && (b.textContent = state.lang==='en' ? 'FR' : 'EN'));
-    }
-    langBtns.forEach(b=> b && b.addEventListener('click', ()=>{
-      state.lang = state.lang === 'en' ? 'fr' : 'en';
-      localStorage.setItem('lang', state.lang);
-      applyLang();
-    }));
-    applyLang();
-
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-
-
-</body></html>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
